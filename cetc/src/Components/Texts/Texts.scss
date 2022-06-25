@@ -1,0 +1,20 @@
+.TextPrimary {
+    width: 90%;
+    max-width: 1200px;
+    border-radius: 20px;
+    margin: 20px 0;
+    padding: 20px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    &__title {
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+        border-bottom: 5px solid #a257c49c;
+        font-size: 2rem;
+    }
+    &__text {
+        width: 100%;
+    }   
+}

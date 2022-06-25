@@ -1,0 +1,13 @@
+import React from "react";
+
+function item ({classStyle, title, link}) {
+    return (
+        <span className={classStyle}>
+            <a href={link} title={title}>
+                {title}
+            </a> 
+        </span>
+    )
+}
+
+export default item;

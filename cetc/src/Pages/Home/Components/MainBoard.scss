@@ -1,0 +1,43 @@
+.MainBoard {
+    width: 90%;
+    max-width: 1200px;
+    background-color: #a257c49c;
+    border-radius: 20px;
+    margin: 20px 0;
+    padding: 20px;
+    display: inline-flex;
+    align-items: center;
+    &__title {
+        width: 100%;
+        padding: 15px;
+        font-size: 2rem;
+        text-transform: uppercase;
+    }
+    &__cards {
+        border-radius: 20px;
+        display: flex;
+        justify-content: flex-start;
+    }
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 150px;
+        width: 170px;
+        background-color: yellow;
+        border-radius: 20px;
+        margin-right: 20px;
+        cursor: pointer;
+        &__name {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        &__info {
+            display: none;
+        }
+        &__icon {}
+        &__description {
+            font-size: 1rem;
+        }
+    }
+}

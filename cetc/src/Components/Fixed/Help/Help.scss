@@ -1,0 +1,18 @@
+.help {
+    position: fixed;
+    cursor: pointer;
+    right: 20px;
+    bottom: 30px;
+    background-color: #ff06d8eb;
+    padding: 6px 10px;
+    border-radius: 20px;
+    &__icon {
+        font-size: 20px;
+        padding: 0 5px 0 0px;
+        color: #fff;
+    }
+    &__text {
+        font-size: 1.0rem;
+        color: #fff;
+    }
+}

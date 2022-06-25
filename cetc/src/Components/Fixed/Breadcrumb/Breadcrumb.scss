@@ -1,0 +1,35 @@
+.b {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.b-wrap {
+    width: 100%;
+    max-width: 1200px;
+    background-color: #a257c49c;
+    border-radius: 0 20px 20px 0;
+    padding: 20px;
+    display: inline-flex;
+    align-items: center;
+    border-left: 10px solid yellow;
+    &__trail {
+        &__anchor {
+            padding-right: 10px;
+
+            &:hover {
+                color: yellow;
+            }
+
+            &:after {
+                content: "|";
+                padding: 0 10px;
+            }
+        }
+    }
+}
