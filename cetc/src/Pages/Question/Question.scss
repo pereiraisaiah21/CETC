@@ -1,0 +1,108 @@
+.Progress {
+    height: 20px;
+    border: 2px solid rgb(59, 227, 84);
+    border-radius: 20px;
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    border: 2px dashed #a257c49c;
+    margin: 20px 0;
+    padding: 5px;
+    &__made {
+        display: block;
+        width: 30%;
+        height: 100%;
+        background-color: rgb(59, 227, 84);
+        border-radius: 20px;
+        text-align: center;
+        &__number {
+            font-size: 1rem;
+        }
+    }
+}
+
+.Question {
+    background: rgb(246, 246, 246);
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px 0;
+    &__info {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        &__title {
+            font-size: 1.6rem;
+            padding: 20px;
+        }
+        &__about {
+            position: relative;
+            padding: 10px 2px;
+            &__title {
+                padding: 2px 15px;
+                cursor: pointer;
+                border: 1px solid;
+                border-radius: 20px;
+            }
+            &__observation {
+                position: absolute;
+                right: 0;
+                top: 25px;
+                background-color: aqua;
+                border-top: 2px solid green;
+                padding: 10px 20px;
+            }
+            &__close {
+                display: block;
+                position: relative;
+                width: 100%;
+                text-align: right;
+                padding: 10px 0 0 0;
+                cursor: pointer;
+            }
+        }
+    }
+    &__content {
+        width: 100%;
+    }
+    &__paragraph {
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        line-height: 30px;
+    }
+    &__alternatives {
+        width: 100%;
+        padding: 0 20px 20px;
+        &__option {
+            font-size: 1.1rem;
+            padding: 10px 0;
+        }
+    }
+    &__send {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        &__button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+            border: none;
+            background-color: #2eff04;
+            border-bottom: 3px solid rgb(13, 110, 13);
+            text-decoration: none;
+        }
+        &__tip {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 10%;
+            border: none;
+            background-color: rgb(206, 252, 0);
+            border-bottom: 3px solid rgb(77, 88, 35);
+            height: 40px;
+            text-decoration: none;
+        }
+    }
+}
