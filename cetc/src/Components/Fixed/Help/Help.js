@@ -1,3 +1,4 @@
+// Libs
 import React from "react";
 
 // Components
@@ -7,7 +8,16 @@ import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 // Styles 
 import "./Help.scss";
 
+
+/*
+*
+*/
+
 function Help () {
+
+    /*
+    *
+    */
     return (
         <div className="help">
             <FontAwesomeIcon className="help__icon" icon={faQuestionCircle} />

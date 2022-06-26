@@ -1,13 +1,21 @@
+// Libs
 import React from "react";
+import Routes from "./routes";
 
-import Home from "./Pages/Home/Home";
-
+// Styles
 import './App.css';
 
+/*
+* 
+*/
 function App() {
+
+  /*
+  * 
+  */
   return (
       <div className="app">
-        <Home />
+          <Routes />   
       </div>
   );
 }

@@ -1,11 +1,19 @@
+//Libs
 import React from "react";
 
 // Styles
 import "./Texts.scss";
 
-function TextPrimary ({title, text}) {
-    return (
+/*
+* Return a simple text component
+*/
 
+function TextPrimary ({title, text}) {
+
+    /*
+    *
+    */
+    return (
         <div className="TextPrimary">
             <h3 className="TextPrimary__title">
                 {title}
@@ -14,7 +22,6 @@ function TextPrimary ({title, text}) {
                 {text}
             </p>
         </div>
-
     )
 }
 

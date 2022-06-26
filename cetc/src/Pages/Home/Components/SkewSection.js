@@ -1,3 +1,4 @@
+// Libs
 import React from "react";
 
 // Components 
@@ -7,7 +8,15 @@ import Card from "./Card";
 // Styles
 import "./SkewSection.scss";
 
+/*
+* Return the section over the Main Board in Home Page
+*/
+
 function SkewSection () {
+
+    /*
+    * 
+    */
     return (
         <div className="SkewSection">
             <div className="SkewSection__box">

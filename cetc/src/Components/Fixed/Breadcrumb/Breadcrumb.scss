@@ -7,13 +7,18 @@
     max-width: 1200px;
     margin: 0 auto;
     box-sizing: border-box;
+
+    @media (max-width: 767px) {
+        padding: 0 10px;
+    }
 }
 
 .b-wrap {
     width: 100%;
     max-width: 1200px;
-    background-color: #a257c49c;
+    background-color: #d0d0d0;
     border-radius: 0 20px 20px 0;
+    max-width: 1200px;
     padding: 20px;
     display: inline-flex;
     align-items: center;
@@ -32,4 +37,9 @@
             }
         }
     }
+
+    @media (max-width: 767px) {
+        border-radius: 20px;
+    }
 }
+

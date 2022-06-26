@@ -1,3 +1,4 @@
+// Libs
 import React from "react";
 
 // Images
@@ -9,8 +10,16 @@ import ButtonPrimary from "../../Buttons/ButtonPrimary";
 // Style s
 import "./Header.scss";
 
+
+/*
+* Return Header component
+*/
+
 function Header () {
 
+    /*
+    * List all the menu's header pages with its link
+    */
     const pagesDescription = [
         {titulo : "Pagina 01", link : "Link 01"},
         {titulo : "Pagina 02", link : "Link 02"},
@@ -19,8 +28,10 @@ function Header () {
         {titulo : "Pagina 05", link : "Link 05"}
     ]
 
+    /*
+    *
+    */
     return (
-
         <header className="header">
             <div className="header__wrap">
                 <div className="header__logo">
@@ -46,7 +57,6 @@ function Header () {
                 </div>
             </div>
         </header>
-
     );
 }
 

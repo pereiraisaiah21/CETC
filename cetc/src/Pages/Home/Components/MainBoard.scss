@@ -1,7 +1,7 @@
 .MainBoard {
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
-    background-color: #a257c49c;
+    background-color: #d0d0d0;
     border-radius: 20px;
     margin: 20px 0;
     padding: 20px;
@@ -38,6 +38,13 @@
         &__icon {}
         &__description {
             font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 767px) {
+        flex-wrap: wrap;
+        &__cards {
+            flex-wrap: wrap;
         }
     }
 }

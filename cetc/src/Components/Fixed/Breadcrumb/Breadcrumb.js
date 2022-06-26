@@ -1,3 +1,4 @@
+// Libs
 import React from "react";
 
 // Components
@@ -6,7 +7,20 @@ import Item from "./Item";
 // Styles
 import "./Breadcrumb.scss";
 
-function Breadcrumb ({classStyleGrand, classStyleFather, pagesTrail}) {
+/*
+* Return the Breadcrumb component
+*/
+
+function Breadcrumb ({
+    classStyleGrand,
+    classStyleFather, 
+    pagesTrail
+}) {
+
+
+    /*
+    *
+    */
     return (
         <section className="b-wrap">
             <section className={classStyleFather}>
