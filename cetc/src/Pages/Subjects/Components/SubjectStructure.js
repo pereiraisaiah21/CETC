@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 // Components
 // Styles
-import "./Subject.scss";
+import "../Subjects.scss";
 
 
 /*

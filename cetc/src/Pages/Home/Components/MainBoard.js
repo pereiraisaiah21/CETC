@@ -2,7 +2,7 @@
 import React from "react";
 
 // Components 
-import Card from "./Card";
+import Card from "../../../Components/Fixed/Card/Card";
 
 // Styles
 import "./MainBoard.scss";
@@ -23,10 +23,10 @@ function MainBoard () {
             </div>
             <div className="MainBoard__cards">
                <Card 
-                link="/activity/1" classStyleGrand="MainBoard__item" classStyleSpan="MainBoard__item__name" classStyleDiv="MainBoard__item__info" classStyleDivSpan="MainBoard__item__icon" classStyleDivLabel="MainBoard__item__description" title="Atividade 01" description="Descrição card Descrição Card"
+                link="/subjects" classStyleGrand="MainBoard__item" classStyleSpan="MainBoard__item__name" classStyleDiv="MainBoard__item__info" classStyleDivSpan="MainBoard__item__icon" classStyleDivLabel="MainBoard__item__description" title="Matérias" description="Descrição card Descrição Card"
                />
                <Card 
-                link="/subject/1/2" classStyleGrand="MainBoard__item" classStyleSpan="MainBoard__item__name" classStyleDiv="MainBoard__item__info" classStyleDivSpan="MainBoard__item__icon" classStyleDivLabel="MainBoard__item__description" title="Matéria X" description="Descrição card Descrição Card"
+                link="/activity/1" classStyleGrand="MainBoard__item" classStyleSpan="MainBoard__item__name" classStyleDiv="MainBoard__item__info" classStyleDivSpan="MainBoard__item__icon" classStyleDivLabel="MainBoard__item__description" title="Questionários" description="Descrição card Descrição Card"
                />
                <Card 
                 link="" classStyleGrand="MainBoard__item" classStyleSpan="MainBoard__item__name" classStyleDiv="MainBoard__item__info" classStyleDivSpan="MainBoard__item__icon" classStyleDivLabel="MainBoard__item__description" title="Titulo Card" description="Descrição card Descrição Card"

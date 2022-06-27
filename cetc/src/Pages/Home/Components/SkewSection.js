@@ -2,7 +2,7 @@
 import React from "react";
 
 // Components 
-import Card from "./Card";
+import Card from "../../../Components/Fixed/Card/Card";
 
 
 // Styles
