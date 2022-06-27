@@ -1,5 +1,6 @@
 // Libs
 import React from "react";
+import {Link} from "react-router-dom";
 
 // Images
 import Logo from "./Logo.png"
@@ -21,11 +22,11 @@ function Header () {
     * List all the menu's header pages with its link
     */
     const pagesDescription = [
-        {titulo : "Pagina 01", link : "Link 01"},
-        {titulo : "Pagina 02", link : "Link 02"},
-        {titulo : "Pagina 03", link : "Link 03"},
-        {titulo : "Pagina 04", link : "Link 04"},
-        {titulo : "Pagina 05", link : "Link 05"}
+        {title : "Home", link : "   /"},
+        {title : "questions", link : "activity/1"},
+        {title : "Pagina 03", link : "Link 03"},
+        {title : "Pagina 04", link : "Link 04"},
+        {title : "Pagina 05", link : "Link 05"}
     ]
 
     /*
@@ -45,7 +46,9 @@ function Header () {
                         {
                             pagesDescription.map(function (item, key) {
                                 return (
-                                    <ButtonPrimary className="header__help__anchor" itemLink={item.link} itemTitle={item.titulo} key={key} />
+                                    <Link className="header__help__anchor"  to={item.link}>
+                                        {item.title}
+                                    </Link>
                                 )
                             })
                         }
