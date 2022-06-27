@@ -23,7 +23,7 @@ const matter = [
 
 function Subjects () {
     const matter = [
-        { name: "Algebra", description: "Desc", url: "/subject/2/2" },
+        { name: "Algebra", description: "Desc", url: "/subject/2/2"},
         { name: "Fisica", description: "Desc", url: "/" },
         { name: "História", description: "Desc", url: "/" },
     ];
