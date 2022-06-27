@@ -22,7 +22,7 @@ function Header () {
     * List all the menu's header pages with its link
     */
     const pagesDescription = [
-        {title : "Home", link : "   /"},
+        {title : "Home", link : "/"},
         {title : "questions", link : "activity/1"},
         {title : "Pagina 03", link : "Link 03"},
         {title : "Pagina 04", link : "Link 04"},
@@ -46,7 +46,7 @@ function Header () {
                         {
                             pagesDescription.map(function (item, key) {
                                 return (
-                                    <Link className="header__help__anchor"  to={item.link}>
+                                    <Link className="header__help__anchor"  to={item.link} key={key}>
                                         {item.title}
                                     </Link>
                                 )

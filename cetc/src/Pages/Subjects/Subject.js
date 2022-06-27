@@ -1,31 +1,51 @@
 // Libs
 import React from "react";
+import { useParams } from "react-router-dom";
 
 // Components
 // Styles
+import "./Subject.scss";
 
 
 /*
 * 
 */
+
 function Subjetct ({subjectId, subjectContentId}) {
 
     /*
     * Return Subject:
     *   Name, Content, HasExercise -> Bool
     */
-    const returnSubjectContent = function (subjectId, subjectContentId) {}
+   const returnSubjectContent = function (subjectId, subjectContentId) {}
+   
+    /*
+    * Subject identifiers
+    */
+   let {id} = useParams();
+   let {contentid} = useParams();
+
+   /*
+   * Exemple data
+   */
+  const subjectContent = [
+    {
+        name : "Nome da matéria",
+        content :  "Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria"
+    }
+  ]
 
     return (
-        <div className="">
-            <div className="">
-                <h4 className="">
-                    {subjectName}
+        <section className="Subject">
+            <div className="Subject__primaryWrap">
+                <h4 className="Subject__primaryTitle">
+                    {subjectContent[0].name}
                 </h4>
             </div>
-            <div className="">
+            <div className="Subject__primaryWrap">
+                {subjectContent[0].content}
             </div>
-        </div>
+        </section>
     )
 }
 

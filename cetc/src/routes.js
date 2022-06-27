@@ -10,6 +10,9 @@ import Header from "./Components/Fixed/Header/Header";
 import Footer from "./Components/Fixed/Footer/Footer";
 
 
+import Subject from "./Pages/Subjects/Subject";
+
+
 /*
 *  It controls de Routes
 */
@@ -24,6 +27,8 @@ function Rout () {
             <Routes>
                 <Route path="/" element={<Home/>} />
                 <Route path="/activity/:id" element={<Activity/>} />
+
+                <Route path="/subject/:id/:contentid" element={<Subject/>} />
                 <Route path="*" element={<Error/>} />
             </Routes>
             <Footer />
