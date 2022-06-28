@@ -2,8 +2,6 @@
 import React from "react";
 
 // Components
-import Header from "../../Components/Fixed/Header/Header";
-import Footer from "../../Components/Fixed/Footer/Footer";
 import Breacrumb from "../../Components/Fixed/Breadcrumb/Breadcrumb";
 import MainBoard from "./Components/MainBoard";
 import TextPrimary from "../../Components/Texts/TextPrimary";
@@ -12,7 +10,15 @@ import SkewSection from "./Components/SkewSection";
 // Styles 
 import "./Home.scss";
 
+import store from "../../store/index"
+import { addArticle } from "../../actions/index"
 
+window.store = store;
+window.addArticle = addArticle;
+store.dispatch( addArticle({ title: 'React Redux Tutorial for Beginners', id: 1 }) );
+store.dispatch( addArticle({ title: 'React Redux Tutorial for Beginners', id: 2 }) );
+store.dispatch( addArticle({ title: 'React Redux Tutorial for Tut', id: 3 }) );
+store.subscribe(() => console.log('Look ma, Redux!!'));
 /*
 * 
 */

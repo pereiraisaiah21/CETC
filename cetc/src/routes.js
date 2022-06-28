@@ -14,6 +14,8 @@ import Subject from "./Pages/Subjects/Subjects";
 import SubjectStructure from "./Pages/Subjects/Components/SubjectStructure";
 
 
+import List from "./Components/List"
+
 /*
 *  It controls de Routes
 */
@@ -33,6 +35,7 @@ function Rout () {
                 <Route path="/subject/:id/:contentid" element={<SubjectStructure/>} />
                 <Route path="*" element={<Error/>} />
             </Routes>
+                <List />
             <Footer />
         </Router>
     )
