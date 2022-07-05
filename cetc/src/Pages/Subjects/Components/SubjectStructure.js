@@ -21,6 +21,7 @@ function Subjetct ({subjectId, subjectContentId}) {
     */
 
     const [value, setValue] = useState({data: "abc", error: ""})
+    console.log("Value " + value)
 
     /*
     * Subject identifiers
@@ -37,8 +38,12 @@ function Subjetct ({subjectId, subjectContentId}) {
         .then(response => setValue( { ...value, data: response }))
         .catch(err => setValue( { ...value, error: err } ))
 
-    }, [])
-
+    }, [id, contentid])
+    // const x = value.map (function (item)  {
+    //     return (
+    //         <p>item</p>
+    //     )
+    // })
 
    /*
    * Exemple data
@@ -46,14 +51,21 @@ function Subjetct ({subjectId, subjectContentId}) {
 
   const subjectContent = [
     {
-        name : "Nome da matéria",
-        content :  "Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria Conteúdo da matéria",
+        name : value.data.title,
+        content :  value.data.body,
         existAtivity : true,
         urlAtivity : "/activity/1"
     },
   ]
     return (
         <section className="Subject">
+            <div>
+
+               {
+                console.log(value.data)
+               }
+
+            </div>
             {
                 subjectContent.map((item, key) => {
                     return (
