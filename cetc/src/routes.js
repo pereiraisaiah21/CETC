@@ -32,7 +32,7 @@ function Rout () {
                 <Route path="/" element={<Home/>} />
                 <Route path="/activity/:id" element={<Activity/>} />
                 <Route path="/subjects" element={<Subject/>} />
-                <Route path="/subject/:id/:contentid" element={<SubjectStructure/>} />
+                <Route path="/subject/:id/:contentid" element={<SubjectStructure />} />
                 <Route path="*" element={<Error/>} />
             </Routes>
                 <List />

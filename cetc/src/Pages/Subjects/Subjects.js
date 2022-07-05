@@ -19,8 +19,6 @@ const matter = [
     {"Física" : "/fisica"}
 ]
 
-
-
 function Subjects () {
     const matter = [
         { name: "Algebra", description: "Desc", url: "/subject/2/2"},

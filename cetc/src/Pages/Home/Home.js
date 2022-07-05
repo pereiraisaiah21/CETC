@@ -15,9 +15,8 @@ import { addArticle } from "../../actions/index"
 
 window.store = store;
 window.addArticle = addArticle;
-store.dispatch( addArticle({ title: 'React Redux Tutorial for Beginners', id: 1 }) );
-store.dispatch( addArticle({ title: 'React Redux Tutorial for Beginners', id: 2 }) );
-store.dispatch( addArticle({ title: 'React Redux Tutorial for Tut', id: 3 }) );
+store.dispatch( addArticle({ title: 'This is my first redux phr', id: 1 }) );
+store.dispatch( addArticle({ title: 'This is my second redux phr', id: 2 }) );
 store.subscribe(() => console.log('Look ma, Redux!!'));
 /*
 * 

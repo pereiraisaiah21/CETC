@@ -1,6 +1,7 @@
 // Libs
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import axios from "axios";
 
 // Components
 import ButtonPrimary from "../../../Components/Buttons/ButtonPrimary";
@@ -13,7 +14,7 @@ import "../Subjects.scss";
 * 
 */
 
-function Subjetct ({subjectId, subjectContentId}) {
+function SubjectStructure ({subjectId, subjectContentId}) {
 
     /*
     * Return Subject:
@@ -21,7 +22,10 @@ function Subjetct ({subjectId, subjectContentId}) {
     */
 
     const [value, setValue] = useState({data: "abc", error: ""})
-    console.log("Value " + value)
+    // console.log("Value " + value)
+
+    const [teste, setTeste] = useState(null);
+    console.log("Axios ", teste)
 
     /*
     * Subject identifiers
@@ -38,34 +42,27 @@ function Subjetct ({subjectId, subjectContentId}) {
         .then(response => setValue( { ...value, data: response }))
         .catch(err => setValue( { ...value, error: err } ))
 
+        
+        axios.get("http://jsonplaceholder.typicode.com/posts/10").then((response) => {
+            setTeste(response.data);
+          });
+
     }, [id, contentid])
-    // const x = value.map (function (item)  {
-    //     return (
-    //         <p>item</p>
-    //     )
-    // })
 
    /*
    * Exemple data
    */
+    const subjectContent = [
+        {
+            name : value.data.title,
+            content :  value.data.body,
+            existAtivity : true,
+            urlAtivity : "/activity/1"
+        }
+    ]
 
-  const subjectContent = [
-    {
-        name : value.data.title,
-        content :  value.data.body,
-        existAtivity : true,
-        urlAtivity : "/activity/1"
-    },
-  ]
     return (
         <section className="Subject">
-            <div>
-
-               {
-                console.log(value.data)
-               }
-
-            </div>
             {
                 subjectContent.map((item, key) => {
                     return (
@@ -97,4 +94,4 @@ function Subjetct ({subjectId, subjectContentId}) {
     )
 }
 
-export default Subjetct;
+export default SubjectStructure;
