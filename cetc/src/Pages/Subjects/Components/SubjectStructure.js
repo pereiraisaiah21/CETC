@@ -1,5 +1,5 @@
 // Libs
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 // Components
@@ -19,17 +19,31 @@ function Subjetct ({subjectId, subjectContentId}) {
     * Return Subject:
     *   Name, Content, HasExercise -> Bool
     */
-   const returnSubjectContent = function (subjectId, subjectContentId) {}
-   
+
+    const [value, setValue] = useState({data: "abc", error: ""})
+
     /*
     * Subject identifiers
     */
-   let {id} = useParams();
-   let {contentid} = useParams();
+    let {id} = useParams();
+    let {contentid} = useParams();
+
+    console.log("Params : ", id, contentid)
+
+    useEffect( () => {
+
+        fetch(`https://jsonplaceholder.typicode.com/${id}/${contentid}`)
+        .then(res => res.json())
+        .then(response => setValue( { ...value, data: response }))
+        .catch(err => setValue( { ...value, error: err } ))
+
+    }, [])
+
 
    /*
    * Exemple data
    */
+
   const subjectContent = [
     {
         name : "Nome da matéria",
@@ -38,36 +52,35 @@ function Subjetct ({subjectId, subjectContentId}) {
         urlAtivity : "/activity/1"
     },
   ]
-
     return (
         <section className="Subject">
-
             {
-                subjectContent.map((a) => {
+                subjectContent.map((item, key) => {
                     return (
-                        <>
-                            <div className="Subject__primaryWrap">
+                        <div key={key}>
+                            <div className="Subject__primaryWrap" key={key}>
                                 <h4 className="Subject__primaryTitle">
-                                    {a.name}
+                                    {item.name}
                                 </h4>
                             </div>
                             <div className="Subject__primaryWrap">
-                                {a.content}
+                                {
+                                    item.content
+                                }
                             </div>
                             {
-                                !a.existAtivity
+                                !item.existAtivity
                                 ?
                                 ""
                                 :
                                 <div className="Subject__primaryWrap">
-                                    <ButtonPrimary className="header__login__anchor" itemLink={a.urlAtivity} itemTitle="Ir para atividade"/>
+                                    <ButtonPrimary className="header__login__anchor" itemLink={item.urlAtivity} itemTitle="Ir para atividade"/>
                                  </div>
                             }
-                        </>
+                        </div>
                     )
                 })
             }
-           
         </section>
     )
 }
