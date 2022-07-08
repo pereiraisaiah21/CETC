@@ -1,0 +1,53 @@
+
+
+.login {
+    &__wrap {
+        width: 100%;
+        max-width: 1200px;
+        padding: 15px;
+        margin: auto;
+        box-sizing: border-box;
+    }
+    &__form {
+        display: flex;
+        flex-wrap: wrap;
+        width: 300px;
+        max-width: 400px;
+        padding: 15px;
+        text-align: left;
+        background-color: #fff;
+        margin: auto;
+    }
+    &__icon {
+        font-size: 5rem;
+        margin: 15px auto;
+    }
+    &__label {
+        width: 100%;
+        margin: 10px 5px;
+        font-size: 1.1rem;
+    }
+    &__input {
+        margin-bottom: 20px;
+        height: 10px;
+        width: 100%;
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        border-bottom: 2px solid yellow;
+        background-color: #f5f4ee;
+        font-size: 1.1rem;
+        &--warn {
+            border-bottom: 2px solid red;
+        }
+    }
+    &__send {
+        width: 100%;
+        border: none;
+        height: 40px;
+        background-color: #9400d3;
+        color: #fff;
+        border-radius: 10px;
+        margin: 20px 0;
+    }
+}

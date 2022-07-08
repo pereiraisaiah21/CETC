@@ -6,7 +6,6 @@ import Breacrumb from "../../Components/Fixed/Breadcrumb/Breadcrumb";
 import MainBoard from "./Components/MainBoard";
 import SubjectBoard from "./Components/SubjectBoard";
 import TextPrimary from "../../Components/Texts/TextPrimary";
-import SkewSection from "./Components/SkewSection";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
@@ -14,24 +13,22 @@ import { Carousel } from 'react-responsive-carousel';
 // Styles 
 import "./Home.scss";
 
-import store from "../../store/index"
-import { addArticle } from "../../actions/index"
 
-window.store = store;
-window.addArticle = addArticle;
-store.dispatch( addArticle({ title: 'This is my first redux phr', id: 1 }) );
-store.dispatch( addArticle({ title: 'This is my second redux phr', id: 2 }) );
-store.subscribe(() => console.log('Look ma, Redux!!'));
+
+
 /*
 * 
 */
 function Home () {
+
+
 
     /*
     * 
     */
     return (
         <>
+            <p>Bem vindo Bendict!</p>
             <section className="carousel">
                 <Carousel>
                     <div>
