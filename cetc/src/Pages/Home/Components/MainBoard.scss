@@ -1,20 +1,27 @@
 .MainBoard {
     width: 100%;
     max-width: 1200px;
-    background-color: #d0d0d0;
+    background-color: #fff;
     border-radius: 20px;
     margin: 20px 0;
     padding: 20px;
     display: inline-flex;
     align-items: center;
+    flex-wrap: wrap;
     &__title {
         width: 100%;
-        padding: 15px;
-        font-size: 2rem;
+        padding: 10px 10px 10px 0;
+        font-size: 1.5rem;
         text-transform: uppercase;
+        text-align: left;
+        &__icon {
+            color: #9400d3;
+            padding: 0px 5px 0px 0;
+        }
     }
     &__cards {
         border-radius: 20px;
+        width: 100%;
         display: flex;
         justify-content: flex-start;
     }
@@ -22,14 +29,16 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 150px;
+        height: 90px;
         width: 170px;
-        background-color: yellow;
+        background-color: #9400d3;
         border-radius: 20px;
         margin-right: 20px;
         cursor: pointer;
         &__name {
-            font-size: 1.5rem;
+            font-size: 1.1rem;
+            color: #fff;
+            text-transform: uppercase;
             font-weight: 700;
         }
         &__info {
@@ -40,11 +49,26 @@
             font-size: 1rem;
         }
     }
+    &__seeAll {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 90px;
+        width: 130  px;
+        background-color: #9400d3;
+        border-radius: 20px;
+        color: #fff;
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-right: 20px;
+        cursor: pointer;
+    }
 
     @media (max-width: 767px) {
         flex-wrap: wrap;
         &__cards {
             flex-wrap: wrap;
+            justify-content: center;
         }
     }
 }

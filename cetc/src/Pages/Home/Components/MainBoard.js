@@ -3,6 +3,8 @@ import React from "react";
 
 // Components 
 import Card from "../../../Components/Fixed/Card/Card";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendarTimes } from '@fortawesome/free-solid-svg-icons';
 
 // Styles
 import "./MainBoard.scss";
@@ -19,7 +21,8 @@ function MainBoard () {
     return (
         <div className="MainBoard">
             <div className="MainBoard__title">
-                Title
+            <FontAwesomeIcon className="MainBoard__title__icon" icon={faCalendarTimes} />
+                Visitados recentemente
             </div>
             <div className="MainBoard__cards">
                <Card 

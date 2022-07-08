@@ -7,8 +7,8 @@
     width: 100%;
     max-height: 200px;
     box-sizing: border-box;
-    background-color: #d0d0d0;
-    border-bottom: 3px solid red;
+    background-color: #9400d3;
+    border-bottom: 3px solid yellow;
     margin-bottom: 10px;
     &__wrap {
         width: 90%;
@@ -19,21 +19,29 @@
     }
     &__logo {
         &__image {
-            max-height: 100px;
+            max-height: 70px;
         }
     }
     &__login {
+        display: flex;
+        white-space: nowrap;
         &__anchor {
             padding: 10px 10px;
             border-bottom: 2px solid transparent;
-            background-color: #f4f4f4;
+            background-color: #7600a9;
+            color: #fff;
             border-radius: 10px;
             margin-left: 3px;
+            font-size: 1.1rem;
 
             &:hover {
                 border-bottom: 2px solid yellow;
                 background-color: #dba0ec;
             }
+        }
+        &_icon {
+            font-size: 20px;
+            padding: 5px;
         }
     }
     &__help {
@@ -41,10 +49,11 @@
         display: inline-flex;
         justify-content: center;
         &__anchor {
-            background-color: #f4f4f4;
-            border-radius: 20px;
-            padding: 5px 15px 5px;
+            padding: 5px 15px 9px;
             margin: 0 10px;
+            border-radius: 20px;
+            color: white;
+            font-size: 1.1rem;
 
             &:hover {
                 background-color: #dba0ec;

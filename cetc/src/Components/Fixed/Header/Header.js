@@ -6,7 +6,8 @@ import {Link} from "react-router-dom";
 import Logo from "./Logo.png"
 
 // Components
-import ButtonPrimary from "../../Buttons/ButtonPrimary";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faRankingStar, faQuestionCircle, faUserCircle, faDoorOpen} from '@fortawesome/free-solid-svg-icons';
 
 // Style s
 import "./Header.scss";
@@ -23,10 +24,7 @@ function Header () {
     */
     const pagesDescription = [
         {title : "Home", link : "/"},
-        {title : "questions", link : "activity/1"},
-        {title : "Pagina 03", link : "Link 03"},
-        {title : "Pagina 04", link : "Link 04"},
-        {title : "Pagina 05", link : "Link 05"}
+        {title : "Matérias", link : "posts/1"}
     ]
 
     /*
@@ -55,8 +53,19 @@ function Header () {
                     </div>
                 </div>
                 <div className="header__login">
-                    <ButtonPrimary className="header__login__anchor" itemLink="link" itemTitle="Perfil"/>
-                    <ButtonPrimary className="header__login__anchor" itemLink="link" itemTitle="Sair"/>
+                    <a className="header__login__anchor" href="" title="Perfil">
+                        <FontAwesomeIcon className="header__login__icon" icon={faRankingStar} />
+                    </a>
+                    <a className="header__login__anchor" href="" title="Perfil">
+                        <FontAwesomeIcon className="header__login__icon" icon={faQuestionCircle} />
+                    </a>
+                    <a className="header__login__anchor" href="" title="Perfil">
+                        <FontAwesomeIcon className="header__login__icon" icon={faUserCircle} />
+                    </a>
+                    <a className="header__login__anchor" href="" title="Sair">
+                        <FontAwesomeIcon className="header__login__icon" icon={faDoorOpen} />
+                        Sair
+                    </a>
                 </div>
             </div>
         </header>

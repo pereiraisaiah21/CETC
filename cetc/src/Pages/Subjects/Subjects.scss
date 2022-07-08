@@ -8,6 +8,9 @@
     &__primaryWrap {
         max-width: 1200px;
         margin: 0 auto;
+        background-color: #fff;
+        border-radius: 20px;
+        margin: 20px auto;
         padding: 20px;
     }
 
@@ -22,9 +25,10 @@
     }
     &__item {
         width: 200px;
-        height: 200px;
-        background-color: bisque;
-        border-radius: 50%;
+        height: 120px;
+        background-color: #9400d3;
+        color: #fff;
+        border-radius: 20px;
         display: flex;
         align-items: center;
         justify-content: center;
