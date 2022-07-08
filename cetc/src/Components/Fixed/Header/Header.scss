@@ -72,11 +72,14 @@
         }
         &__logo {
             width: 50%;
+            text-align: left;
         }
         &__help {
             width: 50%;
             align-items: center;
             justify-content: flex-end;
+            padding: 10px;
+            box-sizing: border-box;
             &__button {
                 display: block;
                 cursor: pointer;
