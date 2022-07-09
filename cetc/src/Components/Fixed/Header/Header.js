@@ -9,7 +9,7 @@ import Logo from "./Logo.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faRankingStar, faQuestionCircle, faUserCircle, faDoorOpen} from '@fortawesome/free-solid-svg-icons';
 
-// Style s
+// Styles
 import "./Header.scss";
 
 

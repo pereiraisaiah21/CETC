@@ -13,15 +13,14 @@ function Progress ({progress}) {
     /*
     * It controls the progress bar color
     */
-    const [progressValue, setProgressValue] = useState(0);
-
+    console.log("df",progress)
     /*
     * 
     */
     return (
         <div className="Progress">
-            <span className="Progress__made">
-                <span className="Progress__made__number">20 %</span>
+            <span className="Progress__made" style={{width: progress + "%"}}>
+                <span className="Progress__made__number">{progress} %</span>
             </span>
         </div>
     )

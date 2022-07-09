@@ -1,8 +1,10 @@
 // Libs
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import axios from "axios";
 
 // Components
+import Breacrumb from "../../Components/Fixed/Breadcrumb/Breadcrumb";
 import Progress from "../Activity/Progress";
 import QuestionAlternative from "./QuestionAlternative";
 
@@ -14,6 +16,18 @@ import QuestionAlternative from "./QuestionAlternative";
 
 function Activity () {
 
+    const [question, setQuestion] = useState({data :  [{
+        categoriaId: "",
+        id : "",
+        title : "",
+        content: "",
+        alternatives : []
+    }], error: ""});
+
+    console.log("A", question)
+    const [answers, setAnswers] = useState({alternatives: ""});
+    const [count, setCount] = useState(1)
+
     /*
     * Url Paramater
     */
@@ -21,71 +35,43 @@ function Activity () {
     /*
     * Exemple data structure
     */  
-    let question = [
-        {
-            categoriaId: 135,
-            id : 1,
+
+
+    useEffect( () => {
+        
+        // axios.get(`http://jsonplaceholder.typicode.com/question/${count}`).then((response) => {
+        //     setQuestion({...question, data: response.data});
+        //   }).catch(err => {
+        //     setQuestion({...question, error: err});
+        //   });
+        setQuestion({...question, data: {
+            categoriaId: 5,
+            id : 5,
             title : "Conhecimentos gerais",
             content : "Qual o nome do Brasil ?",
-            alternatives : [
-               "Estados Unidos",
-               "Rep Fed Congo",
-               "Rep Fed Bras",
-               "N.D.A"
-            ],
-            observation : "Conhecimentos gerais",
-            isTipAvailable : true,
-            tip : "Clique sobre uma alternativa",
-            quantityAttempts : 2
+            alternatives : ["Resposta A", "Resposta B", "Resposta C", "Resposta D"],
+            progressBar: 65
         }
-    ];
+    }); // Exemplo
 
-    /*
-    * Return the next question
-    */
-    function bringQuestion () {
-        fetch("https://jsonplaceholder.typicode.com/users")
-        .then((res) => res.json())
-        //.then((json) => json.forEach( item => questions.push(json)))
+    }, [])
 
-        // console.log(questions)
-    }
-
-    /*
-    * Validate the user input
-    */
-    function validateQuestion () {}
-
-    /*
-    * It shows to the user the next steps
-    */
-    function questionsIntroduction () {}
-
-    /*
-    * It controls the next question exhibition
-    */
-    function passQuestion () {}
-
-    /*
-    * It controls the tip click
-    */
-    function clickOnTip () {}
-
-    /*
-    * 
-    */
     return (
         <div className="b">
-                {id}
-                <Progress progress={question[0].id} />
+            <Breacrumb classStyleGrand="b-wrap" classStyleFather="b-wrapp__trail" pagesTrail={[
+                {classStyle : "b-wrap__trail__anchor", title : "Titulo 01", link : "Link 01"}, 
+                {classStyle : "b-wrap__trail__anchor", title : "Titulo 02", link : "Link 02"},
+                {classStyle : "b-wrap__trail__anchor", title : "Titulo 03", link : "Link 03"}
+            ]}/>
+            <Progress progress={question.data.progressBar} />
 
+            {
                 <QuestionAlternative 
-                    title={question[0].id}  content={question[0].content}  alternatives={question[0].alternatives}  
+                    title={question.data.title}
+                    content={question.data.content}
+                    alternatives={question.data.alternatives}  
                 />
-                
-                {
-                    bringQuestion()
-                }
+            }
         </div>
     )
 }

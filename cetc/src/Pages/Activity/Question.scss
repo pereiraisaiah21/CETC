@@ -1,22 +1,22 @@
 .Progress {
     height: 20px;
-    border: 2px solid rgb(59, 227, 84);
+    border: 2px solid #9400d3;
     border-radius: 20px;
     position: relative;
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
-    border: 2px dashed #a257c49c;
     margin: 20px 0;
     padding: 5px;
     &__made {
         display: block;
         width: 30%;
         height: 100%;
-        background-color: rgb(59, 227, 84);
+        background-color: #9400d3;
         border-radius: 20px;
         text-align: center;
         &__number {
             font-size: 1rem;
+            color: #fff;
         }
     }
 }
@@ -24,32 +24,42 @@
 .Question {
     background: rgb(246, 246, 246);
     position: relative;
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
     margin: 20px 0;
+    border-top: 1px dashed #9400d3;
+    padding: 20px;
     &__info {
         display: flex;
         width: 100%;
         justify-content: space-between;
+        &__icon {
+            color: #9400d3;
+            margin: 0 10px 0 0;
+        }
         &__title {
             font-size: 1.6rem;
             padding: 20px;
         }
         &__about {
             position: relative;
-            padding: 10px 2px;
+            padding: 10px 0px;
+            &__icon {
+                margin: 0 5px 0 0;
+            }
             &__title {
-                padding: 2px 15px;
+                padding: 5px 15px;
                 cursor: pointer;
-                border: 1px solid;
+                background-color: #9400d3;
+                color: #fff;
                 border-radius: 20px;
             }
             &__observation {
                 position: absolute;
                 right: 0;
                 top: 25px;
-                background-color: aqua;
-                border-top: 2px solid green;
+                background-color: #ffff00;
+                border-top: 2px solid #9400d3;
                 padding: 10px 20px;
             }
             &__close {
@@ -70,13 +80,19 @@
         padding: 10px 20px;
         font-size: 1.2rem;
         line-height: 30px;
+        text-align: left;
     }
     &__alternatives {
         width: 100%;
         padding: 0 20px 20px;
+        text-align: left;
         &__option {
             font-size: 1.1rem;
+            font-weight: 600;
             padding: 10px 0;
+            [type="radio"] {
+                margin: 0 10px 0 0;
+            }
         }
     }
     &__send {
@@ -89,9 +105,13 @@
             align-items: center;
             width: 90%;
             border: none;
-            background-color: #2eff04;
-            border-bottom: 3px solid rgb(13, 110, 13);
+            background-color: #ffff00;
+            border-bottom: 3px solid #9400d3;
             text-decoration: none;
+            font-size: 1,1rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            cursor: pointer;
         }
         &__tip {
             display: inline-flex;
@@ -103,6 +123,10 @@
             border-bottom: 3px solid rgb(77, 88, 35);
             height: 40px;
             text-decoration: none;
+            font-size: 1,1rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            cursor: pointer;
         }
     }
 }

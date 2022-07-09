@@ -24,7 +24,7 @@ function SubjectStructure ({subjectId, subjectContentId}) {
     const [value, setValue] = useState({data: "abc", error: ""})
     // console.log("Value " + value)
 
-    const [teste, setTeste] = useState(null);
+    const [teste, setTeste] = useState({data : "", error: ""});
     console.log("Axios ", teste)
 
     /*
@@ -44,7 +44,9 @@ function SubjectStructure ({subjectId, subjectContentId}) {
 
         
         axios.get("http://jsonplaceholder.typicode.com/posts/10").then((response) => {
-            setTeste(response.data);
+            setTeste({data : response.data, error: ""});
+          }).catch(err => {
+            setTeste({...teste, error: err});
           });
 
     }, [id, contentid])

@@ -5,7 +5,7 @@
     align-items: center;
     width: 100%;
     max-width: 1200px;
-    margin: 100px auto;
+    margin: 10px auto;
     box-sizing: border-box;
 
     @media (max-width: 767px) {
@@ -22,13 +22,13 @@
     padding: 20px;
     display: inline-flex;
     align-items: center;
-    border-left: 10px solid yellow;
+    border-left: 10px solid #9400d3;
     &__trail {
         &__anchor {
             padding-right: 10px;
 
             &:hover {
-                color: yellow;
+                color: #9400d3;
             }
 
             &:after {

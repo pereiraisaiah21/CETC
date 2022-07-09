@@ -1,14 +1,35 @@
 // Libs
-import React from "react";
+import React, { useState } from "react"
 
 // Components
-import ButtonPrimary from "../../Components/Buttons/ButtonPrimary";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPencilRuler, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 
 /*
 * 
 */
 
 function QuestionAlternative ({number, title, content, alternatives, observation, isTipAvailable, tip, quantityAttempts}) {
+
+    const [selected, setSelected] = useState('yes');
+    console.log(selected)
+
+    const handleAlternativeChange = function (e) {
+        console.log(e.target.value);
+        setSelected(e.target.value);
+    };
+
+    const [aboutSeleted, setAboutSeleted] = useState(false);
+    console.log(aboutSeleted)
+    const handleAboutClick = function (e) {
+        console.log(e.target.value);
+        setAboutSeleted(!aboutSeleted);
+    };
+
+    const updateAnswers = function (e) {
+        e.preventDefault();
+        console.log(e.target)
+    }
 
     /*
     * 
@@ -17,42 +38,62 @@ function QuestionAlternative ({number, title, content, alternatives, observation
         <div className="Question">
             <section className="Question__info">
                 <span className="Question__info__title">
+                    <FontAwesomeIcon className="Question__info__icon" icon={faPencilRuler} />
                     {title}
                 </span>
-                <div className="Question__info__about">
-                    <i></i>
+                <div className="Question__info__about" onClick={handleAboutClick}>
                     <span className="Question__info__about__title">
+                        <FontAwesomeIcon className="Question__info__about__icon" icon={faQuestionCircle} />
                         Sobre
                     </span>
-                    <pre className="Question__info__about__observation">
-                        {observation} Aqui descrição da pergunta
-                        <span className="Question__info__about__close"> x Fechar</span>
-                    </pre>
+                    {
+                        aboutSeleted 
+                        ?
+                        <pre className="Question__info__about__observation">
+                            {observation} Aqui descrição da pergunta
+                            <span className="Question__info__about__close"> x Fechar</span>
+                        </pre>
+                        :
+                        ""
+                    }
                 </div>
             </section>
             <section className="Question__content">
                 <p className="Question__paragraph">
                     {content}
                 </p>
-                <section className="Question__alternatives">
+                <section className="Question__alternatives">               
                     {
-                        console.log(alternatives)
-                    }
-                    {
+                        alternatives != null && alternatives != undefined 
+                        ?
                         alternatives.map((item,key) => {
-                            return (<div className="Question__alternatives__option" key={key}>
-                                <input type="radio" id="html" name="fav_language" value="Alternativa 01" />
-                                <label htmlFor="html">
-                                    {item}
-                                </label>
-                            </div>)
-                        })
-                    }
+                            return (
+                                <div className="Question__alternatives__option" key={key}>
+                                    <label htmlFor={`a${key}`}>
+                                        <input
+                                            type="radio"
+                                            id={`a${key}`}
+                                            name="choose"
+                                            value={`a${key}`}
+                                            checked={`a${key}`=== selected ? "selected" : ""}
+                                            onChange={handleAlternativeChange}
+                                        />
+                                        {item}
+                                    </label>
+                                </div>)
+                            })
+                        : 
+                        ""
+                    } 
                 </section>
             </section>
             <section className="Question__send">
-                <ButtonPrimary className="Question__send__button" itemLink="" itemTitle="Enviar"/>
-                <ButtonPrimary className="Question__send__tip" itemLink="" itemTitle="Dica"/>
+                <a className="Question__send__button" title="itemTitle" onClick={updateAnswers}>
+                    Próxima
+                </a>
+                <a className="Question__send__tip" title="itemTitle">
+                    Dica
+                </a>
             </section>
         </div>
     )

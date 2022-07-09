@@ -3,7 +3,7 @@ import React from "react";
 import Routes from "./routes";
 
 // Styles
-import './App.css';
+import './App.scss';
 
 /*
 * 
