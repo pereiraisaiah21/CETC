@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import Modal from 'react-modal';
 
 // Components
 import Breacrumb from "../../Components/Fixed/Breadcrumb/Breadcrumb";
@@ -15,6 +16,27 @@ import QuestionAlternative from "./QuestionAlternative";
 */
 
 function Activity () {
+
+
+    const customStyles = {
+        content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)',
+    },
+    };
+    const [modalIsOpen, setIsOpen] = React.useState(false);
+
+    function openModal() {
+    setIsOpen(true);
+    }
+    function closeModal() {
+    setIsOpen(false);
+    }
+
 
     const [question, setQuestion] = useState({data :  [{
         categoriaId: "",
@@ -44,6 +66,7 @@ function Activity () {
         //   }).catch(err => {
         //     setQuestion({...question, error: err});
         //   });
+
         setQuestion({...question, data: {
             categoriaId: 5,
             id : 5,
@@ -72,6 +95,12 @@ function Activity () {
                     alternatives={question.data.alternatives}  
                 />
             }
+            <Modal
+                isOpen={modalIsOpen}
+                onRequestClose={closeModal}
+                style={customStyles}
+                contentLabel={"Example Modal"}
+            >Responda as perguntas </Modal>
         </div>
     )
 }

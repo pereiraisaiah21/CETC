@@ -4,6 +4,7 @@ import React, { useState } from "react"
 // Components
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilRuler, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
+import Modal from 'react-modal';
 
 /*
 * 
@@ -30,6 +31,27 @@ function QuestionAlternative ({number, title, content, alternatives, observation
         e.preventDefault();
         console.log(e.target)
     }
+
+    // Modal tip
+    const customStyles = {
+        content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)',
+    },
+    };
+    const [modalIsOpen, setIsOpen] = React.useState(false);
+
+    function openModal() {
+    setIsOpen(true);
+    }
+    function closeModal() {
+    setIsOpen(false);
+    }
+    // End Modal tip
 
     /*
     * 
@@ -91,10 +113,16 @@ function QuestionAlternative ({number, title, content, alternatives, observation
                 <a className="Question__send__button" title="itemTitle" onClick={updateAnswers}>
                     Próxima
                 </a>
-                <a className="Question__send__tip" title="itemTitle">
+                <a className="Question__send__tip" title="itemTitle" onClick={openModal}>
                     Dica
                 </a>
             </section>
+            <Modal
+                isOpen={modalIsOpen}
+                onRequestClose={closeModal}
+                style={customStyles}
+                contentLabel={"Example Modal"}
+            >Esta aqui é a dica !</Modal>
         </div>
     )
 }
