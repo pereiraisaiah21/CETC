@@ -1,6 +1,7 @@
 // Libs
 import React, { useState } from "react";
 import InputMask from 'react-input-mask';
+import { cpf } from 'cpf-cnpj-validator'; 
 
 // Components
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -24,16 +25,15 @@ function Login () {
     const handleLoginSubmit = function (e) {
         e.preventDefault();
 
-        if (input.nome.replace(/\D+/g, '').length < 11) {
-            setInput({...input, input: true});
-            return;      
+        if (!cpf.isValid(input.nome) || input.nome === "") {
+            setInput({...input, value: true});   
         } else {
             setInput({...input, value: false});
         }
 
-        if (password.text == "" || password.text == null || password.text.length < 3) {
+        if (password.text.length < 3) {
             setPassword({...password, value: true});
-            return;
+
         } else {
             setPassword({...password, value: false});
         }
