@@ -67,8 +67,10 @@ function Header () {
                         <div className="header__menum">
                             <section className="header__menum__actions">
                                 <div className="header__menum__close" onClick={openMenuMobile}>
+                                    <span className="header__menum__closename">
                                     <FontAwesomeIcon className="header__menum__closeicon" icon={faClose} />
-                                    <span className="header__menum__closename">Fechar</span>
+                                        Fechar
+                                    </span>
                                 </div>
                             </section>
                             <section className="header__menum__user">

@@ -62,28 +62,38 @@
     }
 
     &__menum {
-        background: #a350c8;
-        width: 70%;
+        background: #d2d2d2;
+        width: 75%;
         height: 100%;
         position: fixed;
         display: flex;
         justify-content: flex-start;
         flex-direction: column;
         flex-wrap: wrap;
-        right: 0;
+        right: -10px;
         top: 0;
-        padding: 20px;
+        padding: 20px 10px 0 0;
         max-width: 300px;
         box-sizing: border-box;
+        -ms-transform: skewX(-2deg);
+        -webkit-transform: skewX(-2deg);
+        transform: skewX(-2deg);
         &__actions {
             width: 100%;
             height: 50px;
             text-align: right;
+        }
+        &__close {
+            cursor: pointer;
+            margin: 0 20px;
+        }
+        &__closeicon {}
+        &__closename {
+            background-color: #9400d3;
+            border-radius: 20px;
+            padding: 5px 10px;
             color: #fff;
         }
-        &__close {}
-        &__closeicon {}
-        &__closename {}
         &__user {
             width: 100%;
         }
@@ -106,7 +116,7 @@
             font-size: 1.3rem;
         }
         &__ocupation {
-            color: #ccc;
+            color: #000;
         }
         &__pages {}
         &__list {
@@ -116,7 +126,7 @@
             text-align: center;
             li {
                 padding: 20px;
-                border-bottom: 2px solid yellow;
+                border-bottom: 2px solid #9400d3;
             }
         }
 
