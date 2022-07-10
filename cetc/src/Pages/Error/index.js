@@ -19,6 +19,9 @@ function Error () {
 
         <button onClick={() => navigate('/')}>
             Click here to back 
+            {
+                console.log("Sem página")
+            }
         </button>
     )
 }

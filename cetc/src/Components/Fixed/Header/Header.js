@@ -1,13 +1,14 @@
 // Libs
-import React from "react";
+import React, { useState } from "react";
 import {Link} from "react-router-dom";
 
 // Images
 import Logo from "./Logo.png"
 
 // Components
+import LoginOptions from "./LoginOptions";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faRankingStar, faQuestionCircle, faUserCircle, faDoorOpen} from '@fortawesome/free-solid-svg-icons';
+import { faUserCircle, faClose } from '@fortawesome/free-solid-svg-icons';
 
 // Styles
 import "./Header.scss";
@@ -27,6 +28,15 @@ function Header () {
         {title : "Matérias", link : "posts/1"}
     ]
 
+    const [menuMobileOpen, setMenuMobileOpen] = useState(false);
+
+    const openMenuMobile = function () {
+        setMenuMobileOpen(!menuMobileOpen)
+    }
+    const closeMenuMobile = function () {
+        setMenuMobileOpen(!menuMobileOpen)
+    }
+
     /*
     *
     */
@@ -37,7 +47,7 @@ function Header () {
                     <img className="header__logo__image" alt="Logo Cursos Educacionais" src={Logo} /> 
                 </div>
                 <div className="header__help">
-                    <div className="header__help__button">
+                    <div className="header__help__button" onClick={openMenuMobile}>
                         <img src="https://via.placeholder.com/40x40" />
                     </div>
                     <div className="header__help__anchors--m">
@@ -51,21 +61,45 @@ function Header () {
                             })
                         }
                     </div>
+                    {
+                        menuMobileOpen
+                        ?
+                        <div className="header__menum">
+                            <section className="header__menum__actions">
+                                <div className="header__menum__close" onClick={openMenuMobile}>
+                                    <FontAwesomeIcon className="header__menum__closeicon" icon={faClose} />
+                                    <span className="header__menum__closename">Fechar</span>
+                                </div>
+                            </section>
+                            <section className="header__menum__user">
+                                <div className="header__menum__profile">
+                                    <div className="header__menum__icon">
+                                        <FontAwesomeIcon className="header__menum__icon" icon={faUserCircle} />
+                                    </div>
+                                    <div className="header__menum__info">
+                                        <span className="header__menum__name">Wanderson</span>
+                                        <span className="header__menum__ocupation">Aluno</span>
+                                    </div>
+                                </div>
+                            </section>
+                            <section className="header__menum__pages">
+                                <ul className="header__menum__list">
+                                    <li><a>Wanderson</a></li>
+                                    <li><a>Wanderson</a></li>
+                                    <li><a>Wanderson</a></li>
+                                    <li><a>Wanderson</a></li>
+                                </ul>
+                            </section>
+                            <section className="header__menum__options">
+                                <LoginOptions />
+                            </section>
+                        </div>
+                        :
+                        ""
+                    }
                 </div>
                 <div className="header__login">
-                    <a className="header__login__anchor" href="" title="Perfil">
-                        <FontAwesomeIcon className="header__login__icon" icon={faRankingStar} />
-                    </a>
-                    <a className="header__login__anchor" href="" title="Perfil">
-                        <FontAwesomeIcon className="header__login__icon" icon={faQuestionCircle} />
-                    </a>
-                    <a className="header__login__anchor" href="" title="Perfil">
-                        <FontAwesomeIcon className="header__login__icon" icon={faUserCircle} />
-                    </a>
-                    <a className="header__login__anchor" href="" title="Sair">
-                        <FontAwesomeIcon className="header__login__icon" icon={faDoorOpen} />
-                        Sair
-                    </a>
+                    <LoginOptions />
                 </div>
             </div>
         </header>

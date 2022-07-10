@@ -1,5 +1,6 @@
 // Libs
 import React from "react";
+import { useParams } from "react-router-dom";
 
 // Components
 import Card from "../../Components/Fixed/Card/Card"
@@ -28,6 +29,9 @@ function Subjects () {
 
     function returnSubjects (studentId) {}
 
+    let {id} = useParams();
+
+    console.log("Params 22 : ", id)
     /*
     * 
     */

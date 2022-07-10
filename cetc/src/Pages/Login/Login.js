@@ -29,6 +29,7 @@ function Login () {
             setInput({...input, value: true});   
         } else {
             setInput({...input, value: false});
+            localStorage.setItem("Usuario", input.nome)
         }
 
         if (password.text.length < 3) {

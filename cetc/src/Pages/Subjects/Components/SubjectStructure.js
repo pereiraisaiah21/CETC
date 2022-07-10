@@ -34,6 +34,7 @@ function SubjectStructure ({subjectId, subjectContentId}) {
     let {contentid} = useParams();
 
     console.log("Params : ", id, contentid)
+    
 
     useEffect( () => {
 
