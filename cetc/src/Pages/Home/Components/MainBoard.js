@@ -26,7 +26,7 @@ function MainBoard () {
             </div>
             <div className="MainBoard__cards">
                <Card 
-                link="/subjects" classStyleGrand="MainBoard__item" classStyleSpan="MainBoard__item__name" classStyleDiv="MainBoard__item__info" classStyleDivSpan="MainBoard__item__icon" classStyleDivLabel="MainBoard__item__description" title="Matérias" description="Descrição card Descrição Card"
+                link="/materias" classStyleGrand="MainBoard__item" classStyleSpan="MainBoard__item__name" classStyleDiv="MainBoard__item__info" classStyleDivSpan="MainBoard__item__icon" classStyleDivLabel="MainBoard__item__description" title="Matérias" description="Descrição card Descrição Card"
                />
                <Card 
                 link="/activity/1" classStyleGrand="MainBoard__item" classStyleSpan="MainBoard__item__name" classStyleDiv="MainBoard__item__info" classStyleDivSpan="MainBoard__item__icon" classStyleDivLabel="MainBoard__item__description" title="Questionários" description="Descrição card Descrição Card"

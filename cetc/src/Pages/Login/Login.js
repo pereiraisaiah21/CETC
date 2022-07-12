@@ -5,7 +5,7 @@ import { cpf } from 'cpf-cnpj-validator';
 
 // Components
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserCircle, faCircleExclamation } from '@fortawesome/free-solid-svg-icons';
+import { faLock, faUser, faKey, faCircleExclamation } from '@fortawesome/free-solid-svg-icons';
 
 // Style
 import "./Login.scss"; 
@@ -44,9 +44,9 @@ function Login () {
         <main className="login">
             <section className="login__wrap">
                 <form className="login__form" onSubmit={handleLoginSubmit}>
-                    <FontAwesomeIcon className="login__icon" icon={faUserCircle} />
+                    <FontAwesomeIcon className="login__icon" icon={faLock} />
                     <div className="login__field">
-                        <label className="login__label">Digite seu usuário:</label>
+                        <FontAwesomeIcon className="login__form__icon" icon={faUser} />
                         <InputMask mask="999.999.999-99" 
                             className={input.value ? "login__input login__input--warn" : "login__input"}
                             onChange={event => setInput({nome:event.target.value, value:input.value})}
@@ -63,7 +63,7 @@ function Login () {
                         }
                     </div>
                     <div className="login__field">
-                        <label className="login__label">Digite sua senha:</label>
+                        <FontAwesomeIcon className="login__form__icon" icon={faKey} />
                         <input 
                             className={password.value ? "login__input login__input--warn" : "login__input"}
                             onChange={event => setPassword({text:event.target.value, value:password.value})}

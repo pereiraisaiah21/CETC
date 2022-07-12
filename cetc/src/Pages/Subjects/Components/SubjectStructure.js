@@ -60,7 +60,7 @@ function SubjectStructure ({subjectId, subjectContentId}) {
             name : value.data.title,
             content :  value.data.body,
             existAtivity : true,
-            urlAtivity : "/activity/1"
+            urlAtivity : "/atividades/1"
         }
     ]
 
@@ -86,7 +86,7 @@ function SubjectStructure ({subjectId, subjectContentId}) {
                                 ""
                                 :
                                 <div className="Subject__primaryWrap">
-                                    <ButtonPrimary className="header__login__anchor" itemLink={item.urlAtivity} itemTitle="Ir para atividade"/>
+                                    <ButtonPrimary className="header__login__anchor" itemLink={`/atividades/${contentid}`} itemTitle="Ir para atividade"/>
                                  </div>
                             }
                         </div>

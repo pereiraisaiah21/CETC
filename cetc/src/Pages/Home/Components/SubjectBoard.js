@@ -21,26 +21,25 @@ function SubjectBoard () {
     return (
         <div className="MainBoard">
             <div className="MainBoard__title">
-            <FontAwesomeIcon className="MainBoard__title__icon" icon={faNotesMedical} />
+                <FontAwesomeIcon className="MainBoard__title__icon" icon={faNotesMedical} />
                 Matérias
             </div>
             <div className="MainBoard__cards">
                <Card 
-                link="/subjects" classStyleGrand="MainBoard__item" classStyleSpan="MainBoard__item__name" classStyleDiv="MainBoard__item__info" classStyleDivSpan="MainBoard__item__icon" classStyleDivLabel="MainBoard__item__description" title="Lógica I" description="Descrição card Descrição Card"
+                link="/materias/posts/1" classStyleGrand="MainBoard__item" classStyleSpan="MainBoard__item__name" classStyleDiv="MainBoard__item__info" classStyleDivSpan="MainBoard__item__icon" classStyleDivLabel="MainBoard__item__description" title="Lógica I" description="Descrição card Descrição Card"
                />
                <Card 
-                link="/activity/1" classStyleGrand="MainBoard__item" classStyleSpan="MainBoard__item__name" classStyleDiv="MainBoard__item__info" classStyleDivSpan="MainBoard__item__icon" classStyleDivLabel="MainBoard__item__description" title="Lógica II" description="Descrição card Descrição Card"
+                link="/materias/posts/2" classStyleGrand="MainBoard__item" classStyleSpan="MainBoard__item__name" classStyleDiv="MainBoard__item__info" classStyleDivSpan="MainBoard__item__icon" classStyleDivLabel="MainBoard__item__description" title="Lógica II" description="Descrição card Descrição Card"
                />
                <Card 
-                link="" classStyleGrand="MainBoard__item" classStyleSpan="MainBoard__item__name" classStyleDiv="MainBoard__item__info" classStyleDivSpan="MainBoard__item__icon" classStyleDivLabel="MainBoard__item__description" title="Lógica III" description="Descrição card Descrição Card"
+                link="/materias/posts/3" classStyleGrand="MainBoard__item" classStyleSpan="MainBoard__item__name" classStyleDiv="MainBoard__item__info" classStyleDivSpan="MainBoard__item__icon" classStyleDivLabel="MainBoard__item__description" title="Lógica III" description="Descrição card Descrição Card"
                />
                <Card 
-                link="" classStyleGrand="MainBoard__item" classStyleSpan="MainBoard__item__name" classStyleDiv="MainBoard__item__info" classStyleDivSpan="MainBoard__item__icon" classStyleDivLabel="MainBoard__item__description" title="Lógica IV" description="Descrição card Descrição Card"
+                link="/materias/posts/4" classStyleGrand="MainBoard__item" classStyleSpan="MainBoard__item__name" classStyleDiv="MainBoard__item__info" classStyleDivSpan="MainBoard__item__icon" classStyleDivLabel="MainBoard__item__description" title="Lógica IV" description="Descrição card Descrição Card"
                />
                <Card 
-                link="" classStyleGrand="MainBoard__item" classStyleSpan="MainBoard__item__name" classStyleDiv="MainBoard__item__info" classStyleDivSpan="MainBoard__item__icon" classStyleDivLabel="MainBoard__item__description" title="Lógica IV" description="Descrição card Descrição Card"
+                link="/materias/posts/5" classStyleGrand="MainBoard__item" classStyleSpan="MainBoard__item__name" classStyleDiv="MainBoard__item__info" classStyleDivSpan="MainBoard__item__icon" classStyleDivLabel="MainBoard__item__description" title="Lógica IV" description="Descrição card Descrição Card"
                />
-
                <button className="MainBoard__seeAll">Ver todos</button>
             </div>
         </div>

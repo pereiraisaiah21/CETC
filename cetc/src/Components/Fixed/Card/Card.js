@@ -1,6 +1,10 @@
 // Libs
 import React from "react";
 
+// Components
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHandPointer } from '@fortawesome/free-solid-svg-icons';
+
 /*
 * It return a single card with a few informations
 */
@@ -15,7 +19,9 @@ function Card ({link, classStyleGrand, classStyleSpan, classStyleDiv, classStyle
             <span className={classStyleSpan}>{title}</span>
             <div className={classStyleDiv}>
                 <span className={classStyleDivSpan}></span>
-                <label className={classStyleDivLabel}>Description</label>
+                <label className={`${classStyleDivLabel} open`}>
+                    <FontAwesomeIcon className="Maincard_" icon={faHandPointer} />
+                </label>
             </div>
         </a>
     )

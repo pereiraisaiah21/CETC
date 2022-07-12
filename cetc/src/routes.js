@@ -9,6 +9,7 @@ import Activity from "./Pages/Activity/Activity";
 import Error from "./Pages/Error";
 import Header from "./Components/Fixed/Header/Header";
 import Footer from "./Components/Fixed/Footer/Footer";
+import Contact from "./Pages/Contact/Contact";
 
 
 import Subject from "./Pages/Subjects/Subjects";
@@ -35,6 +36,7 @@ function Rout () {
 
                 <Route path="/materias" element={<Subject/>} />
                 <Route path="/materias/:id/:contentid" element={<SubjectStructure/>} />
+                <Route path="/contato" element={<Contact/>} />
                 
                 <Route path="*" element={<Error/>} />
             </Routes>

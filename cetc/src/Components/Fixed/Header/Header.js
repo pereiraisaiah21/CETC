@@ -68,7 +68,7 @@ function Header () {
                             <section className="header__menum__actions">
                                 <div className="header__menum__close" onClick={openMenuMobile}>
                                     <span className="header__menum__closename">
-                                    <FontAwesomeIcon className="header__menum__closeicon" icon={faClose} />
+                                        <FontAwesomeIcon className="header__menum__closeicon" icon={faClose} />
                                         Fechar
                                     </span>
                                 </div>
@@ -76,7 +76,7 @@ function Header () {
                             <section className="header__menum__user">
                                 <div className="header__menum__profile">
                                     <div className="header__menum__icon">
-                                        <FontAwesomeIcon className="header__menum__icon" icon={faUserCircle} />
+                                        <img className="header__menum__icon" src="https://via.placeholder.com/50x50" alt="Ícone do usuário"/>
                                     </div>
                                     <div className="header__menum__info">
                                         <span className="header__menum__name">Wanderson</span>

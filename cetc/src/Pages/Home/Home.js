@@ -12,9 +12,6 @@ import { Carousel } from 'react-responsive-carousel';
 // Styles 
 import "./Home.scss";
 
-
-
-
 /*
 * 
 */
@@ -27,7 +24,7 @@ function Home () {
     */
     return (
         <>
-            <p>Bem vindo Bendict!</p>
+            <p className="m-d-none">Bem vindo Bendict!</p>
             <section className="carousel">
                 <Carousel>
                     <div>
