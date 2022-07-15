@@ -40,14 +40,14 @@ function Activity () {
 
     const [question, setQuestion] = useState({data :  [{
         categoriaId: "",
-        id : "",
+        id : 1,
         title : "",
         content: "",
         alternatives : []
-    }], error: ""});
+    }], id: 1, error: ""});
 
-    console.log("A", question)
-    const [answers, setAnswers] = useState({alternatives: ""});
+    const [answer, setAnswer] = useState(null);
+    const [testGauge, setTestGaug] = useState({text : ""});
     const [count, setCount] = useState(1)
 
     /*
@@ -58,7 +58,44 @@ function Activity () {
     * Exemple data structure
     */  
 
+    const getQuestion = function () {
 
+        setCount(count + 1)
+        if (count > 1) {
+            setQuestion({...question, data: {
+                categoriaId: 5,
+                id : count,
+                title : "Conhecimentos naturais",
+                content : "Qual o nome dos Eua ?",
+                alternatives : ["Resposta E", "Resposta F", "Resposta G", "Resposta H"],
+                progressBar: 65
+            }
+            });
+        } else {
+            setQuestion({...question, data: {
+                categoriaId: 5,
+                id : count,
+                title : "Conhecimentos gerais",
+                content : "Qual o nome do Brasil ?",
+                alternatives : ["Resposta A", "Resposta B", "Resposta C", "Resposta D"],
+                progressBar: 65
+            }
+            });
+        }       
+    }
+
+    const updateAnswers = function(e) {
+        e.preventDefault();
+        if (answer !== null) {
+            setTestGaug({text : testGauge.text.concat("%" + answer)})
+            getQuestion();
+        }
+
+        if (answer === null) {
+            console.log("Selecione alguma opção")
+        }
+        
+    }
     useEffect( () => {
         
         // axios.get(`http://jsonplaceholder.typicode.com/question/${count}`).then((response) => {
@@ -66,17 +103,8 @@ function Activity () {
         //   }).catch(err => {
         //     setQuestion({...question, error: err});
         //   });
-
-        setQuestion({...question, data: {
-            categoriaId: 5,
-            id : 5,
-            title : "Conhecimentos gerais",
-            content : "Qual o nome do Brasil ?",
-            alternatives : ["Resposta A", "Resposta B", "Resposta C", "Resposta D"],
-            progressBar: 65
-        }
-    }); // Exemplo
-
+        getQuestion();
+         // Exemplo
     }, [])
 
     return (
@@ -88,13 +116,22 @@ function Activity () {
             ]}/>
             <Progress progress={question.data.progressBar} />
 
-            {
+            
                 <QuestionAlternative 
                     title={question.data.title}
                     content={question.data.content}
-                    alternatives={question.data.alternatives}  
+                    alternatives={question.data.alternatives} 
+                    setOption={setAnswer}
                 />
-            }
+                <section className="Question__send">
+                <a className="Question__send__button" title="itemTitle" onClick={updateAnswers}>
+                    Próxima
+                </a>
+                <a className="Question__send__tip" title="itemTitle" onClick={openModal}>
+                    Dica
+                </a>
+            </section>
+            
             <Modal
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
