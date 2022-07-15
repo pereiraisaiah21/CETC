@@ -76,7 +76,7 @@ function Activity () {
                 categoriaId: 5,
                 id : count,
                 title : "Conhecimentos gerais",
-                content : "Qual o nome do Brasil ?",
+                content : "Eu não deveria ter saído do Brasil e voltado para a Itália em 2010. Eu quis dar uma resposta pela maneira que sai da Inter de Milão. O povo italiano é apaixonado por mim, fiquei com isso no coração, na mente. Queria voltar para retribuir esse carinho. Mas infelizmente aquilo não era mais para mim, minha cabeça estava no Brasil - frisou o Imperador ?",
                 alternatives : ["Resposta A", "Resposta B", "Resposta C", "Resposta D"],
                 progressBar: 65
             }
@@ -109,7 +109,7 @@ function Activity () {
 
     return (
         <div className="b">
-            <Breacrumb classStyleGrand="b-wrap" classStyleFather="b-wrapp__trail" pagesTrail={[
+            <Breacrumb classStyleGrand="b-wrap" classStyleFather="b-wrap__trail" pagesTrail={[
                 {classStyle : "b-wrap__trail__anchor", title : "Titulo 01", link : "Link 01"}, 
                 {classStyle : "b-wrap__trail__anchor", title : "Titulo 02", link : "Link 02"},
                 {classStyle : "b-wrap__trail__anchor", title : "Titulo 03", link : "Link 03"}
