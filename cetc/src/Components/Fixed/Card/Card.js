@@ -16,7 +16,7 @@ function Card ({link, classStyleGrand, classStyleSpan, classStyleDiv, classStyle
     */
     return (
         <a href={`${link}`} className={classStyleGrand}>
-            <span className={classStyleSpan}>{title}</span>
+            <span className={`${classStyleSpan} title`}>{title}</span>
             <div className={classStyleDiv}>
                 <span className={classStyleDivSpan}></span>
                 <label className={`${classStyleDivLabel} open`}>

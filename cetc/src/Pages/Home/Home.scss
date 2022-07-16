@@ -1,10 +1,18 @@
 .carousel {
     width: 100%;
     z-index: 1;
+    max-width: 1200px;
+    margin: auto;
+    .thumbs-wrapper {
+        display: none;
+    }
 
     @media (min-width: 768px) {
         .carousel-slider {
             height: 400px;
+        }
+        .slide .legend {
+            bottom: 100px;
         }
     }
 }   

@@ -1,7 +1,7 @@
 .MainBoard {
     width: 100%;
     max-width: 1200px;
-    background-color: #fff;
+    background-color: #c7cfc175;
     border-radius: 20px;
     margin: 20px 0;
     padding: 20px;
@@ -14,8 +14,9 @@
         font-size: 1.2rem;
         text-transform: uppercase;
         text-align: left;
+        color: #fff;
         &__icon {
-            color: #9400d3;
+            color: #0bffd8;
             padding: 0px 5px 0px 0;
         }
     }
@@ -31,7 +32,8 @@
         justify-content: center;
         height: 90px;
         width: 170px;
-        background-color: #9400d3;
+        background-color: #0bffd882;
+        border: 2px solid transparent;
         border-radius: 20px;
         margin-right: 20px;
         cursor: pointer;
@@ -48,6 +50,10 @@
         &__description {
             font-size: 1rem;
         }
+
+        &:hover {
+            border: 2px solid #300aff;
+        }
     }
     &__seeAll {
         display: flex;
@@ -55,7 +61,8 @@
         justify-content: center;
         height: 90px;
         width: 130  px;
-        background-color: #9400d3;
+        background-color: #0bffd882;
+        border: none;
         border-radius: 20px;
         color: #fff;
         font-weight: 700;

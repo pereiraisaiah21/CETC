@@ -1,20 +1,24 @@
 .TextPrimary {
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
     border-radius: 20px;
     margin: 20px 0;
     padding: 20px;
     display: inline-flex;
+    background-color: #c7cfc175;
     flex-wrap: wrap;
     align-items: center;
     &__title {
+        margin: 0;
+        padding: 0 0 21px;
         width: 100%;
         text-align: center;
-        padding: 20px 0;
         border-bottom: 5px solid #a257c49c;
+        color: #fff;
         font-size: 2rem;
     }
     &__text {
         width: 100%;
+        color: #fff;
     }   
 }

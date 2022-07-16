@@ -28,15 +28,15 @@ function Home () {
             <section className="carousel">
                 <Carousel>
                     <div>
-                        <img src="https://i.pinimg.com/736x/87/71/25/87712537db52328a1a2f4cd2740efdf0.jpg" />
+                        <img src="https://www.siteware.com.br/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2019/08/graficos-para-apresentacao-resultados-area.jpg.webp" />
                         <p className="legend">Banner qualquer roxo</p>
                     </div>
                     <div>
-                        <img src="https://i.pinimg.com/736x/87/71/25/87712537db52328a1a2f4cd2740efdf0.jpg" />
+                        <img src="https://www.siteware.com.br/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2019/08/graficos-para-apresentacao-resultados-area.jpg.webp" />
                         <p className="legend">Banner qualquer roxo</p>
                     </div>
                     <div>
-                        <img src="https://i.pinimg.com/736x/87/71/25/87712537db52328a1a2f4cd2740efdf0.jpg" />
+                        <img src="https://www.siteware.com.br/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2019/08/graficos-para-apresentacao-resultados-area.jpg.webp" />
                         <p className="legend">Banner qualquer roxo</p>
                     </div>
                 </Carousel>
