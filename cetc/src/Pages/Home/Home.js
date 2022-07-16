@@ -28,7 +28,7 @@ function Home () {
             <section className="carousel">
                 <Carousel>
                     <div>
-                        <img src="https://www.siteware.com.br/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2019/08/graficos-para-apresentacao-resultados-area.jpg.webp" />
+                        <img src="https://d1lc5plzz0mq74.cloudfront.net/wp-content/uploads/2020/05/28151031/grafico-de-tendencia.jpg" />
                         <p className="legend">Banner qualquer roxo</p>
                     </div>
                     <div>
