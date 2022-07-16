@@ -17,17 +17,20 @@
 .b-wrap {
     width: 100%;
     max-width: 1200px;
-    background-color: #fff;
+    background-color: #c7cfc175;
     border-radius: 0 20px 20px 0;
     max-width: 1200px;
     padding: 20px;
     display: inline-flex;
     align-items: center;
-    border-left: 10px solid #9400d3;
+    border-left: 10px solid #300aff;
     &__trail {
         white-space: nowrap;
         &__anchor {
             padding-right: 10px;
+            a {
+                color: #fff;
+            }
 
             &:hover {
                 color: #9400d3;

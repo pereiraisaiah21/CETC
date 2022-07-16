@@ -3,10 +3,13 @@
 
 .Subject {
     width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
     &__primaryWrap {
         max-width: 1200px;
         margin: 0 auto;
         background-color: #9400d37a;
+        color: #fff;
         border-radius: 20px;
         margin: 20px auto;
         padding: 20px;

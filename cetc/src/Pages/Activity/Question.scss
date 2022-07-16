@@ -1,7 +1,7 @@
 .Progress {
     height: 20px;
-    border: 2px solid #9400d3;
-    background-color: #fff;
+    border: 2px solid #300aff;
+    background-color: #c7cfc175;
     border-radius: 20px;
     position: relative;
     width: 100%;
@@ -12,7 +12,7 @@
         display: block;
         width: 30%;
         height: 100%;
-        background-color: #9400d3;
+        background-color: #300aff;
         border-radius: 20px;
         text-align: center;
         &__number {
@@ -23,24 +23,25 @@
 }
 
 .Question {
-    background: rgb(246, 246, 246);
+    background: #c7cfc175;
     position: relative;
     width: 100%;
     max-width: 1200px;
     margin: 20px 0;
-    border-top: 1px dashed #9400d3;
+    border-top: 1px dashed #300aff;
     padding: 20px;
     &__info {
         display: flex;
         width: 100%;
         justify-content: space-between;
         &__icon {
-            color: #9400d3;
+            color: #300aff;
             margin: 0 10px 0 0;
         }
         &__title {
             font-size: 1.6rem;
             padding: 20px;
+            color: #fff;
         }
         &__about {
             position: relative;
@@ -51,7 +52,7 @@
             &__title {
                 padding: 5px 15px;
                 cursor: pointer;
-                background-color: #9400d3;
+                background-color: #300aff;
                 color: #fff;
                 border-radius: 20px;
             }
@@ -60,7 +61,7 @@
                 right: 0;
                 top: 25px;
                 background-color: #ffff00;
-                border-top: 2px solid #9400d3;
+                border-top: 2px solid #300aff;
                 padding: 10px 20px;
             }
             &__close {
@@ -81,6 +82,7 @@
         padding: 10px 20px;
         font-size: 1.2rem;
         line-height: 30px;
+        color: #fff;
         text-align: left;
     }
     &__alternatives {
@@ -91,6 +93,7 @@
             font-size: 1.1rem;
             font-weight: 600;
             padding: 10px 0;
+            color: #fff;
             [type="radio"] {
                 margin: 0 10px 0 0;
             }
@@ -106,8 +109,9 @@
             align-items: center;
             width: 75%;
             border: none;
-            background-color: #ffff00;
-            border-bottom: 3px solid #9400d3;
+            background-color: #c556dd;
+            color: #fff;
+            border-bottom: 3px solid #300aff;
             text-decoration: none;
             font-size: 1,1rem;
             text-transform: uppercase;
