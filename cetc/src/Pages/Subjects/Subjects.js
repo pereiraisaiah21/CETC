@@ -50,6 +50,9 @@ function Subjects () {
                 </h4>
             </div>
             <div className="Subject__primaryWrap">
+                <div className="Subject__warn">
+                    Clique sobre a matéria
+                </div>
                 <div className="Subject__cards">   
                 {
                     matter.map((item, key) => {

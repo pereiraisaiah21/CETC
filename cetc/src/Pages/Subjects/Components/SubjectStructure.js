@@ -86,6 +86,7 @@ function SubjectStructure ({subjectId, subjectContentId}) {
                                 ""
                                 :
                                 <div className="Subject__primaryWrap">
+                                    <span>Confira as atividades desta matéria:</span>
                                     <ButtonPrimary className="header__login__anchor" itemLink={`/atividades/${contentid}`} itemTitle="Ir para atividade"/>
                                  </div>
                             }
