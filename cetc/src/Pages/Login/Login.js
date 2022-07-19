@@ -80,6 +80,11 @@ function Login () {
                             ""
                         }
                     </div>
+                    <div className="login__field login__field--help">
+                        <a href="#" title="Esqueceu sua senha?">
+                            Esqueceu sua senha?
+                        </a>
+                    </div>
                    
                     <button type="submit" className="login__send">Enviar</button>
                 </form>

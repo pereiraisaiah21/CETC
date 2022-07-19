@@ -15,8 +15,9 @@
         max-width: 400px;
         padding: 15px;
         text-align: left;
-        background-color: #fff;
+        background-color: #c7cfc175;
         margin: auto;
+        border-radius: 20px;
         border-bottom: 3px solid #9400d3;
         &__icon {
             position: absolute;
@@ -29,6 +30,13 @@
         position: relative;
         margin-bottom: 10px;
         width: 100%;
+        &--help {
+            text-align: right;
+            a {
+                color: #fff;
+                text-decoration: underline;
+            }
+        }
     }
     &__icon {
         font-size: 5rem;
@@ -46,16 +54,17 @@
         height: 10px;
         width: 100%;
         padding: 20px 10px 20px 40px;
-        border-radius: 10px;
+        border-radius: 20px;
         border: none;
+        color: #fff;
         border-bottom: 2px solid #ffff00;
-        background-color: #f5f4ee;
+        background-color: #981bbb4d;
         box-sizing: border-box;
         font-size: 1.1rem;
         &__icon {
             position: absolute;
-            bottom: 10px;
-            right: 10px;
+            bottom: 13px;
+            right: 13px;
             color: red;
         }
         &--warn {
@@ -68,8 +77,8 @@
         height: 40px;
         background-color: #9400d3;
         color: #fff;
-        border-radius: 10px;
-        margin: 20px 0;
+        border-radius: 20px;
+        margin: 10px 0 0;
         cursor: pointer;
     }
 }

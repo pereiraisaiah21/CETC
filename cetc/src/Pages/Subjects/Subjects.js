@@ -22,9 +22,16 @@ const matter = [
 
 function Subjects () {
     const matter = [
-        { name: "Algebra", description: "Desc", url: "/subject/2/2"},
-        { name: "Fisica", description: "Desc", url: "/" },
-        { name: "História", description: "Desc", url: "/" },
+        { name: "Lógica I", description: "Desc", url: "/subject/2/2"},
+        { name: "História da computação", description: "Desc", url: "/" },
+        { name: "Lógica II", description: "Desc", url: "/" },
+        { name: "Lógica III", description: "Desc", url: "/" },
+        { name: "Lógica - Revisão", description: "Desc", url: "/" },
+        { name: "Lógica I", description: "Desc", url: "/subject/2/2"},
+        { name: "História da computação", description: "Desc", url: "/" },
+        { name: "Lógica II", description: "Desc", url: "/" },
+        { name: "Lógica III", description: "Desc", url: "/" },
+        { name: "Lógica - Revisão", description: "Desc", url: "/" },
     ];
 
     function returnSubjects (studentId) {}
@@ -48,7 +55,7 @@ function Subjects () {
                     matter.map((item, key) => {
                         return (
                             <Card 
-                                    link={item.url} classStyleGrand="Subject__item" classStyleSpan="Subject__item__name" classStyleDiv="Subject__item__info" classStyleDivSpan="Subject__item__icon" classStyleDivLabel="Subject__item__description" title={item.name} description="Descrição card Descrição Card" key={key}
+                                    link={item.url} classStyleGrand="Subject__item" altImage="Image description" classStyleImage="Subject__image"  classStyleSpan="Subject__item__name" classStyleDiv="Subject__item__info" classStyleDivSpan="Subject__item__icon" classStyleDivLabel="Subject__item__description" title={item.name} description="Descrição card Descrição Card" key={key}
                                 />
                         )
                     })

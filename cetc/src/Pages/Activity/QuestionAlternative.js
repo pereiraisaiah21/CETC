@@ -59,7 +59,7 @@ function QuestionAlternative ({number, title, content, alternatives, observation
     * 
     */
     return (
-        <div className="Question">
+        <>
             <section className="Question__info">
                 <span className="Question__info__title">
                     <FontAwesomeIcon className="Question__info__icon" icon={faPencilRuler} />
@@ -117,7 +117,7 @@ function QuestionAlternative ({number, title, content, alternatives, observation
                 style={customStyles}
                 contentLabel={"Example Modal"}
             >Esta aqui é a dica !</Modal>
-        </div>
+        </>
     )
 }
 

@@ -4,9 +4,7 @@
     background-color: #c7cfc175;
     border-radius: 20px;
     position: relative;
-    width: 100%;
     max-width: 1200px;
-    margin: 20px 0;
     padding: 5px;
     &__made {
         display: block;
@@ -29,11 +27,13 @@
     max-width: 1200px;
     margin: 20px 0;
     border-top: 1px dashed #300aff;
+    border-radius: 20px;
     padding: 20px;
     &__info {
         display: flex;
         width: 100%;
         justify-content: space-between;
+        align-items: center;
         &__icon {
             color: #300aff;
             margin: 0 10px 0 0;
@@ -140,16 +140,11 @@
             flex-wrap: wrap;
             align-items: center;
             flex-direction: column-reverse;
+            padding: 10px 0;
             &__about {
-                &__title {
-                    padding: 5px;
-                }
-                &__icon {
-                    margin: 0 0 0;
-                }
-                &__desc {
-                    display: none;
-                }
+                &__title {}
+                &__icon {}
+                &__desc {}
             }
             &__title {
                 font-size: 1.3rem;

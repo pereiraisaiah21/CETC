@@ -44,7 +44,9 @@ function Header () {
         <header className="header">
             <div className="header__wrap">
                 <div className="header__logo">
-                    <img className="header__logo__image" alt="Logo Cursos Educacionais" src={Logo} /> 
+                    <a href="/" title="">
+                        <img className="header__logo__image" alt="Logo Cursos Educacionais" src={Logo} /> 
+                    </a>
                 </div>
                 <div className="header__help">
                     <div className="header__help__button" onClick={openMenuMobile}>

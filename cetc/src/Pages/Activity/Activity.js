@@ -114,15 +114,16 @@ function Activity () {
                 {classStyle : "b-wrap__trail__anchor", title : "Titulo 02", link : "Link 02"},
                 {classStyle : "b-wrap__trail__anchor", title : "Titulo 03", link : "Link 03"}
             ]}/>
-            <Progress progress={question.data.progressBar} />
 
-            
-                <QuestionAlternative 
-                    title={question.data.title}
-                    content={question.data.content}
-                    alternatives={question.data.alternatives} 
-                    setOption={setAnswer}
-                />
+                <section className="Question">
+                    <Progress progress={question.data.progressBar} />
+                    <QuestionAlternative 
+                        title={question.data.title}
+                        content={question.data.content}
+                        alternatives={question.data.alternatives} 
+                        setOption={setAnswer}
+                    />
+                </section>
                 <section className="Question__send">
                 <a className="Question__send__button" title="itemTitle" onClick={updateAnswers}>
                     Próxima
