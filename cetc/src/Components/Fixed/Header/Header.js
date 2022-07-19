@@ -8,7 +8,7 @@ import Logo from "./Logo.png"
 // Components
 import LoginOptions from "./LoginOptions";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserCircle, faClose } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faUserCircle, faClose } from '@fortawesome/free-solid-svg-icons';
 
 // Styles
 import "./Header.scss";
@@ -48,7 +48,7 @@ function Header () {
                 </div>
                 <div className="header__help">
                     <div className="header__help__button" onClick={openMenuMobile}>
-                        <img src="https://via.placeholder.com/40x40" />
+                        <FontAwesomeIcon className="header__menum__openicon" icon={faBars} />
                     </div>
                     <div className="header__help__anchors--m">
                         {

@@ -16,7 +16,7 @@
         text-align: left;
         color: #fff;
         &__icon {
-            color: #4e35d3c2;
+            color: #fff;
             padding: 0px 5px 0px 0;
         }
     }
@@ -29,10 +29,11 @@
     &__item {
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
         justify-content: center;
-        height: 90px;
-        width: 170px;
-        background-color: #4e35d3c2;
+        min-height: 300px;
+        width: 200px;
+        background-color: #84239f99;
         border: 2px solid transparent;
         border-radius: 20px;
         margin-right: 20px;
@@ -42,18 +43,32 @@
             color: #fff;
             text-transform: uppercase;
             font-weight: 700;
+            border-top: 2px solid #300aff;
+            padding: 10px 0 0;
+            margin: 15px 0 15px;
         }
         &__info {
+            padding: 10px;   
+            min-height: 100px;         
+        }
+        &__icon {
             display: none;
         }
-        &__icon {}
         &__description {
             font-size: 1rem;
+            color: #fff;
+            svg {
+                display: none;
+            }
         }
 
         &:hover {
             border: 2px solid #300aff;
         }
+    }
+    &__image {
+        max-width: 100%;
+        max-height: 120px;
     }
     &__seeAll {
         display: flex;
@@ -73,12 +88,24 @@
 
     @media (max-width: 767px) {
         flex-wrap: wrap;
+        &__title {
+            text-align: center;
+        }
         &__cards {
             flex-wrap: wrap;
             justify-content: center;
         }
         &__item {
             margin: 10px;
+            width: 100%;
+            min-height: 100px;
+            &__info {
+                min-height: unset;
+                padding: 10px 20px 10px;
+            }
+            &__description {
+                line-height: 22px;
+            }
         }
     }
 }
