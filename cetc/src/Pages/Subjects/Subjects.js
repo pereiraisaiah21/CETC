@@ -50,6 +50,7 @@ function Subjects () {
                 <h4 className="Subject__primaryTitle">
                     Matérias disponíveis
                 </h4>
+                <p>Confira abaixo as matérias disponíveis</p>
             </div>
             <div className="Subject__primaryWrap">
                 <div className="Subject__warn">

@@ -4,3 +4,69 @@
     max-width: 1200px;
     margin: auto;
 }
+
+.userInfo {
+    width: 100%;
+    max-width: 1200px;
+    background-color: #9400d37a;
+    border-radius: 20px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 20px;
+    box-sizing: border-box;
+    &__details {
+        min-width: 200px;
+        display: inline-flex;
+        align-items: center;
+        img {
+            border-radius: 20px;
+        }
+        span {
+            margin-left: 10px;
+            color: #fff;
+        }
+    }
+    &__emblem {
+        display: inline-flex;
+        align-items: center;
+        &__xp {
+            background: #300aff;
+            padding: 7px 7px;
+            border-radius: 20px;
+            margin: 0 10px;
+            color: #fff;
+        }
+    }
+    &__medal {
+        font-size: 30px;
+        margin-left: 5px;
+        &--trophy {
+            color: #bbb;
+        }
+        &--diamond {
+            color: #e8e1bb;
+        }
+        &--gold {
+            color: rgb(248, 212, 10);
+        }
+        &--plate {
+            color: #a69a9ad9;
+        }
+        &--bronze {
+            color: #f97e12;
+        }
+    }
+
+    @media (max-width: 767px) {
+        &__details, 
+        &__emblem {
+            width: 100%;
+        }
+        &__emblem {
+            padding: 10px 0;
+        }
+    }
+}

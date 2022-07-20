@@ -4,12 +4,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 // Components 
-import Card from "../../../Components/Fixed/Card/Card";
+import Card from "../../../../Components/Fixed/Card/Card";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faNotesMedical, faHand, faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
 // Styles
-import "./MainBoard.scss";
+import "../MainBoard/MainBoard.scss";
 
 /*
 *  Return the board in the Home Page
@@ -38,7 +38,7 @@ function SubjectBoard () {
                     </a>
                 </div>
                 <Swiper
-                    spaceBetween={(window.innerWidth < 768) ? 10 : 50}
+                    spaceBetween={(window.innerWidth < 768) ? 10 : 5}
                     slidesPerView={(window.innerWidth < 768) ? 1 : 3}
                     onSlideChange={() => console.log('slide change')}
                     onSwiper={(swiper) => console.log(swiper)}

@@ -18,14 +18,14 @@
     }
     &__title {
         width: 100%;
-        padding: 10px 10px 10px 0;
+        padding: 10px 10px 20px 0;
         font-size: 1.2rem;
         text-transform: uppercase;
         text-align: left;
         color: #fff;
         &__icon {
             color: #fff;
-            padding: 0px 5px 0px 0;
+            padding: 0px 10px 0px 0;
         }
     }
     &__cards {
@@ -57,7 +57,7 @@
         }
         &__info {
             padding: 10px;   
-            min-height: 100px;   
+            min-height: 80px;   
             display: flex;
             justify-content: center;
             align-items: center;

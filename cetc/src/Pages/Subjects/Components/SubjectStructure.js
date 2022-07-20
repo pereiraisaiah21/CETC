@@ -66,7 +66,7 @@ const [value, setValue] = useState({data: "abc", error: ""})
     ]
 
     return (
-        <section className="Subject">
+        <section className="Subject" id="Subject">
             {
                 subjectContent.map((item, key) => {
                     return (
@@ -135,6 +135,9 @@ const [value, setValue] = useState({data: "abc", error: ""})
                                         <p>Autor: <span>Julio Verne</span></p>
                                     </li>
                                 </ol>
+                            </div>
+                            <div className="Subject__primaryWrap">
+                                <a href="#Subject" title="">Voltar para o topo da página</a>
                             </div>
                         </div>
                     )

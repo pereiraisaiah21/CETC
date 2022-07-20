@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 // Components 
-import Card from "../../../Components/Fixed/Card/Card";
+import Card from "../../../../Components/Fixed/Card/Card";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarTimes, faHand } from '@fortawesome/free-solid-svg-icons';
 
@@ -35,7 +35,7 @@ function MainBoard () {
                     <FontAwesomeIcon className="MainBoard__warn__icon" icon={faHand} />
                 </div>
                 <Swiper
-                    spaceBetween={(window.innerWidth < 768) ? 10 : 50}
+                    spaceBetween={(window.innerWidth < 768) ? 10 : 5}
                     slidesPerView={(window.innerWidth < 768) ? 1 : 3}
                     onSlideChange={() => console.log('slide change')}
                     onSwiper={(swiper) => console.log(swiper)}
