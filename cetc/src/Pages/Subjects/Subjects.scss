@@ -2,19 +2,35 @@
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
+    &__details {
+        line-height: 8px;
+        &__writer {}
+        &__date {}
+        &__lastUpdate {}
+    }
     &__primaryWrap {
         max-width: 1200px;
         margin: 0 auto;
-        background-color: #9400d37a;
+        background-color: #0404047a;
         color: #fff;
         border-radius: 20px;
+        text-align: left;
         margin: 20px auto;
         padding: 20px;
+        &--content {
+            line-height: 20px;
+            text-align: left;
+        }
     }
     &__primaryTitle {
         color: #fff;
         font-size: 2rem;
         text-transform: uppercase;
+        margin: 15px 0;
+    }
+    &__secundatyTitle {
+        color: #fff;
+        margin: 0 0 30px;
     }
     &__warn {
         display: none;
@@ -55,6 +71,11 @@
     &__activity {
         display: block;
         margin-bottom: 10px;
+    }
+    &__ref {
+        &__list {
+            list-style-type:lower-greek;
+        }
     }
 
     @media (max-width: 767px) {

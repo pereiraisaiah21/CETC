@@ -50,21 +50,16 @@ function SubjectBoard () {
                     </SwiperSlide> 
                     <SwiperSlide>
                         <Card 
-                            link="/materias/posts/2" classStyleGrand="MainBoard__item" altImage="Image description" classStyleImage="MainBoard__image" classStyleSpan="MainBoard__item__name" classStyleDiv="MainBoard__item__info" classStyleDivSpan="MainBoard__item__icon" classStyleDivLabel="MainBoard__item__description" title="Lógica II" description="Descrição card Descrição Card"
+                            link="/materias/posts/2" classStyleGrand="MainBoard__item" altImage="Image description" classStyleImage="MainBoard__image" classStyleSpan="MainBoard__item__name" classStyleDiv="MainBoard__item__info" classStyleDivSpan="MainBoard__item__icon" classStyleDivLabel="MainBoard__item__description" title="Lógica II" description="Neste curso você irá aprender conceitos introdutórios sobre a Lógica, desde seu surgimetno até a relevância nos dias atuais."
                         />
                     </SwiperSlide>
                     <SwiperSlide>
                         <Card 
-                            link="/materias/posts/3" classStyleGrand="MainBoard__item" altImage="Image description" classStyleImage="MainBoard__image" classStyleSpan="MainBoard__item__name" classStyleDiv="MainBoard__item__info" classStyleDivSpan="MainBoard__item__icon" classStyleDivLabel="MainBoard__item__description" title="Lógica III" description="Descrição card Descrição Card"
+                            link="/materias/posts/3" classStyleGrand="MainBoard__item" altImage="Image description" classStyleImage="MainBoard__image" classStyleSpan="MainBoard__item__name" classStyleDiv="MainBoard__item__info" classStyleDivSpan="MainBoard__item__icon" classStyleDivLabel="MainBoard__item__description" title="Lógica III" description="Neste curso você irá aprender conceitos introdutórios sobre a Lógica, desde seu surgimetno até a relevância nos dias atuais."
                         />
                     </SwiperSlide>
                 </Swiper>
             </div>
-            <a href="/materias" title="">
-                <button className="MainBoard__seeAll">
-                        Ver todos
-                </button>
-            </a>
         </div>
     );
 }

@@ -1,5 +1,7 @@
 // Libs
 import React from "react";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 
 // Components
 import MainBoard from "./Components/MainBoard";
@@ -24,22 +26,23 @@ function Home () {
     */
     return (
         <>
-            <p className="m-d-none">Bem vindo Bendict!</p>
-            <section className="carousel">
-                <Carousel>
-                    <div>
+            <section className="carousel carousel--wrap">
+                <Swiper
+                    spaceBetween={(window.innerWidth < 768) ? 10 : 50}
+                    slidesPerView={1}
+                    onSlideChange={() => console.log('slide change')}
+                    onSwiper={(swiper) => console.log(swiper)}
+                    >
+                    <SwiperSlide>
                         <img src="https://d1lc5plzz0mq74.cloudfront.net/wp-content/uploads/2020/05/28151031/grafico-de-tendencia.jpg" />
-                        <p className="legend">Banner qualquer roxo</p>
-                    </div>
-                    <div>
+                    </SwiperSlide>
+                    <SwiperSlide>
                         <img src="https://www.siteware.com.br/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2019/08/graficos-para-apresentacao-resultados-area.jpg.webp" />
-                        <p className="legend">Banner qualquer roxo</p>
-                    </div>
-                    <div>
+                    </SwiperSlide>
+                    <SwiperSlide>
                         <img src="https://www.siteware.com.br/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2019/08/graficos-para-apresentacao-resultados-area.jpg.webp" />
-                        <p className="legend">Banner qualquer roxo</p>
-                    </div>
-                </Carousel>
+                    </SwiperSlide>
+                </Swiper>
             </section>
             <main className="b">
                 <MainBoard />
