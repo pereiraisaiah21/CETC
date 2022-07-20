@@ -18,14 +18,14 @@ function SimpleChart () {
             label: '# of Votes',
             data: [80, 20],
             backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
+              'rgba(0, 0, 0, 0.5)',
+              'rgba(255, 165, 0, .8)'
             ],
             borderColor: [
-              'rgba(255, 99, 132, 1)',
-              'rgba(54, 162, 235, 1)',
+              'rgba(0, 0, 0, 0.5)',
+              'rgba(255, 165, 0, .8)'
             ],
-            borderWidth: 1,
+            borderWidth: 2,
           },
         ],
       };

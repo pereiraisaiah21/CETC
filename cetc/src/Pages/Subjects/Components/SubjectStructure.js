@@ -5,6 +5,8 @@ import axios from "axios";
 
 // Components
 import ButtonPrimary from "../../../Components/Buttons/ButtonPrimary";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlaneUp } from '@fortawesome/free-solid-svg-icons';
 
 // Styles
 import "../Subjects.scss";
@@ -137,7 +139,10 @@ const [value, setValue] = useState({data: "abc", error: ""})
                                 </ol>
                             </div>
                             <div className="Subject__primaryWrap">
-                                <a href="#Subject" title="">Voltar para o topo da página</a>
+                                <a href="#Subject" title="">
+                                    Voltar para o topo da página
+                                    <FontAwesomeIcon className="MainBoard__warn__icon" icon={faPlaneUp} />
+                                </a>
                             </div>
                         </div>
                     )
