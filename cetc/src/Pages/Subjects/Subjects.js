@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 
 // Components
 import Card from "../../Components/Fixed/Card/Card"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHand } from '@fortawesome/free-solid-svg-icons';
 
 // Styles
 import "./Subjects.scss";
@@ -52,14 +54,15 @@ function Subjects () {
             <div className="Subject__primaryWrap">
                 <div className="Subject__warn">
                     Clique sobre a matéria
+                    <FontAwesomeIcon className="MainBoard__warn__icon" icon={faHand} />
                 </div>
                 <div className="Subject__cards">   
                 {
                     matter.map((item, key) => {
                         return (
                             <Card 
-                                    link={item.url} classStyleGrand="Subject__item" altImage="Image description" classStyleImage="Subject__image"  classStyleSpan="Subject__item__name" classStyleDiv="Subject__item__info" classStyleDivSpan="Subject__item__icon" classStyleDivLabel="Subject__item__description" title={item.name} description="Descrição card Descrição Card" key={key}
-                                />
+                                link={item.url} classStyleGrand="Subject__item" altImage="Image description" classStyleImage="Subject__image"  classStyleSpan="Subject__item__name" classStyleDiv="Subject__item__info" classStyleDivSpan="Subject__item__icon" classStyleDivLabel="Subject__item__description" title={item.name} description="Descrição card Descrição Card" key={key}
+                            />
                         )
                     })
                  }

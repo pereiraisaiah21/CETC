@@ -1,10 +1,12 @@
 // Libs
 import React from "react";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 
 // Components 
 import Card from "../../../Components/Fixed/Card/Card";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faNotesMedical } from '@fortawesome/free-solid-svg-icons';
+import { faNotesMedical, faHand, faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
 // Styles
 import "./MainBoard.scss";
@@ -25,17 +27,44 @@ function SubjectBoard () {
                 Matérias
             </div>
             <div className="MainBoard__cards">
-               <Card 
-                link="/materias/posts/1" classStyleGrand="MainBoard__item" altImage="Image description" classStyleImage="MainBoard__image" classStyleSpan="MainBoard__item__name" classStyleDiv="MainBoard__item__info" classStyleDivSpan="MainBoard__item__icon" classStyleDivLabel="MainBoard__item__description" title="Lógica I" description="Neste curso você irá aprender conceitos introdutórios sobre a Lógica, desde seu surgimetno até a relevância nos dias atuais."
-               />
-               <Card 
-                link="/materias/posts/2" classStyleGrand="MainBoard__item" altImage="Image description" classStyleImage="MainBoard__image" classStyleSpan="MainBoard__item__name" classStyleDiv="MainBoard__item__info" classStyleDivSpan="MainBoard__item__icon" classStyleDivLabel="MainBoard__item__description" title="Lógica II" description="Descrição card Descrição Card"
-               />
-               <Card 
-                link="/materias/posts/3" classStyleGrand="MainBoard__item" altImage="Image description" classStyleImage="MainBoard__image" classStyleSpan="MainBoard__item__name" classStyleDiv="MainBoard__item__info" classStyleDivSpan="MainBoard__item__icon" classStyleDivLabel="MainBoard__item__description" title="Lógica III" description="Descrição card Descrição Card"
-               />
-               <button className="MainBoard__seeAll">Ver todos</button>
+                <div className="MainBoard__warn">
+                    Arraste para o lado
+                    <FontAwesomeIcon className="MainBoard__warn__icon" icon={faHand} />
+                </div>
+                <div className="MainBoard__all">
+                    <a href="/materias" title="">
+                        Ver todas
+                        <FontAwesomeIcon className="MainBoard__all__icon" icon={faCirclePlus} />
+                    </a>
+                </div>
+                <Swiper
+                    spaceBetween={(window.innerWidth < 768) ? 10 : 50}
+                    slidesPerView={(window.innerWidth < 768) ? 1 : 3}
+                    onSlideChange={() => console.log('slide change')}
+                    onSwiper={(swiper) => console.log(swiper)}
+                    >
+                    <SwiperSlide>
+                        <Card 
+                            link="/materias/posts/1" classStyleGrand="MainBoard__item" altImage="Image description" classStyleImage="MainBoard__image" classStyleSpan="MainBoard__item__name" classStyleDiv="MainBoard__item__info" classStyleDivSpan="MainBoard__item__icon" classStyleDivLabel="MainBoard__item__description" title="Lógica I" description="Neste curso você irá aprender conceitos introdutórios sobre a Lógica, desde seu surgimetno até a relevância nos dias atuais."
+                        />
+                    </SwiperSlide> 
+                    <SwiperSlide>
+                        <Card 
+                            link="/materias/posts/2" classStyleGrand="MainBoard__item" altImage="Image description" classStyleImage="MainBoard__image" classStyleSpan="MainBoard__item__name" classStyleDiv="MainBoard__item__info" classStyleDivSpan="MainBoard__item__icon" classStyleDivLabel="MainBoard__item__description" title="Lógica II" description="Descrição card Descrição Card"
+                        />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Card 
+                            link="/materias/posts/3" classStyleGrand="MainBoard__item" altImage="Image description" classStyleImage="MainBoard__image" classStyleSpan="MainBoard__item__name" classStyleDiv="MainBoard__item__info" classStyleDivSpan="MainBoard__item__icon" classStyleDivLabel="MainBoard__item__description" title="Lógica III" description="Descrição card Descrição Card"
+                        />
+                    </SwiperSlide>
+                </Swiper>
             </div>
+            <a href="/materias" title="">
+                <button className="MainBoard__seeAll">
+                        Ver todos
+                </button>
+            </a>
         </div>
     );
 }

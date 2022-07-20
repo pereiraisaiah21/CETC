@@ -4,10 +4,18 @@
     background-color: #9400d37a;
     border-radius: 20px;
     margin: 20px 0;
-    padding: 20px;
     display: inline-flex;
     align-items: center;
     flex-wrap: wrap;
+    padding: 20px;
+    box-sizing: border-box;
+    &__warn,
+    &__all {
+        display: none;
+        &__icon {
+            margin-left: 10px;
+        }
+    }
     &__title {
         width: 100%;
         padding: 10px 10px 10px 0;
@@ -31,8 +39,8 @@
         align-items: center;
         flex-wrap: wrap;
         justify-content: center;
+        box-sizing: border-box;
         min-height: 300px;
-        width: 200px;
         background-color: #04040499;
         border: 2px solid transparent;
         border-radius: 20px;
@@ -49,7 +57,10 @@
         }
         &__info {
             padding: 10px;   
-            min-height: 100px;         
+            min-height: 100px;   
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         &__icon {
             display: none;
@@ -69,6 +80,7 @@
     &__image {
         max-width: 100%;
         max-height: 120px;
+        margin: 10px 0 0;
     }
     &__seeAll {
         display: flex;
@@ -88,6 +100,24 @@
 
     @media (max-width: 767px) {
         flex-wrap: wrap;
+        &__warn {
+            display: block;
+            padding: 10px;
+            background-color: #300aff2b;
+            margin-bottom: 10px;
+            border-radius: 20px;
+            color: #fff;
+        }
+        &__all {
+            display: block;
+            padding: 10px;
+            background-color: #300aff2b;
+            margin-bottom: 10px;
+            border-radius: 20px;
+            a {
+                color: #fff;
+            }
+        }
         &__title {
             text-align: center;
         }
@@ -101,8 +131,8 @@
             width: 100%;
             min-height: 100px;
             &__info {
-                min-height: unset;
                 padding: 10px 20px 10px;
+                width: 100%;
             }
             &__description {
                 line-height: 22px;
