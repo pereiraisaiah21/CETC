@@ -12,10 +12,10 @@ function LoginOptions () {
             <a className="header__login__anchor" href="" title="Conquistas | Rewards">
                 <FontAwesomeIcon className="header__login__icon" icon={faRankingStar} />
             </a>
-            <a className="header__login__anchor" href="" title="Ajuda | Help">
+            <a className="header__login__anchor" href="/ajuda" title="Ajuda | Help">
                 <FontAwesomeIcon className="header__login__icon" icon={faQuestionCircle} />
             </a>
-            <a className="header__login__anchor" href="" title="Perfil | Profile">
+            <a className="header__login__anchor" href="/perfil" title="Perfil | Profile">
                 <FontAwesomeIcon className="header__login__icon" icon={faUserCircle} />
             </a>
             <a className="header__login__anchor header__login__anchor--logout" href="" title="Sair">

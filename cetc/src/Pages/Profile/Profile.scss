@@ -1,0 +1,27 @@
+.Profile {
+    &__data {
+        width: 100%;
+    }
+    &__rewards {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+    &__stat {
+        width: 45%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        background-color: #04040499;
+        text-transform: uppercase;
+        margin: 10px 10px 10px 0;
+        border-radius: 20px;
+        padding: 20px;
+        color: #fff;
+        h5 {
+            width: 100%;
+        }
+    }
+}
