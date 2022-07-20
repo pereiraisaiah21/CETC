@@ -17,6 +17,7 @@ function Profile () {
                     
                 </div>
                 <div className="Profile__rewards">
+                    <p className="Profile__rewards__title">Minhas estatisticas</p>
                     <section className="Profile__stat">
                         <h5>Quantidade de acertos</h5>
                         <SimpleChart />

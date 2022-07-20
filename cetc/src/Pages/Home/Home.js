@@ -9,6 +9,9 @@ import MainBoard from "./Components/MainBoard/MainBoard";
 import MySubjectBoard from "./Components/MySubjectBoard/MySubjectBoard";
 import SubjectBoard from "./Components/SubjectBoard/SubjectBoard";
 import TextPrimary from "../../Components/Texts/TextPrimary";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faNewspaper } from '@fortawesome/free-solid-svg-icons';
+
 
 // Styles 
 import "./Home.scss";
@@ -18,8 +21,6 @@ import "./Home.scss";
 */
 function Home () {
 
-
-
     /*
     * 
     */
@@ -27,6 +28,9 @@ function Home () {
         <>
            <UserInfo />
             <section className="carousel carousel--wrap">
+                <div className="carousel-title">
+                <FontAwesomeIcon className="carousel-icon" icon={faNewspaper} />CONFIRA ALGUMAS NOVIDADES
+                </div>
                 <Swiper
                     spaceBetween={(window.innerWidth < 768) ? 10 : 50}
                     slidesPerView={1}

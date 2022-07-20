@@ -1,8 +1,25 @@
 .carousel {
     width: 100%;
-    z-index: 1;
     max-width: 1200px;
-    margin: auto;
+    background-color: #9400d37a;
+    border-radius: 20px;
+    margin: 20px auto;
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    box-sizing: border-box;
+    .carousel-title {
+        font-size: 1.2rem;
+        text-align: left;
+        width: 100%;
+        color: #fff;
+        padding: 10px 10px 20px 0;
+        font-weight: 700;
+    }
+    .carousel-icon {
+        padding: 0px 10px 0px 0;    
+    }
 }
 
 .userInfo {

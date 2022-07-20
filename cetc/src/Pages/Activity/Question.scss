@@ -94,6 +94,9 @@
             font-weight: 600;
             padding: 10px 0;
             color: #fff;
+            display: inline-flex;
+            height: 50px;
+            margin-right: 30px;
             [type="radio"] {
                 margin: 0 10px 0 0;
             }
@@ -117,12 +120,14 @@
             text-transform: uppercase;
             font-weight: 700;
             cursor: pointer;
+            border-radius: 20px 0 0 20px;
         }
         &__tip {
             display: inline-flex;
             justify-content: center;
             align-items: center;
             width: 25%;
+            border-radius: 0 20px 20px 0;
             border: none;
             background-color: rgb(206, 252, 0);
             border-bottom: 3px solid rgb(77, 88, 35);
@@ -132,6 +137,25 @@
             text-transform: uppercase;
             font-weight: 700;
             cursor: pointer;
+        }
+    }
+    &__resolution {
+        background: #d1ffc07a;
+        position: relative;
+        width: 100%;
+        max-width: 1200px;
+        margin: 20px 0;
+        border-top: 1px dashed #29ff0a;
+        border-radius: 20px;
+        padding: 20px;
+        h4 {
+            color: #fff;
+            font-size: 2rem;
+        }
+        p {
+            line-height: 22px;
+            color: #fff;
+            font-size: 1.2rem;
         }
     }
 

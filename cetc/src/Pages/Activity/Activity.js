@@ -115,22 +115,34 @@ function Activity () {
                 {classStyle : "b-wrap__trail__anchor", title : "Titulo 03", link : "Link 03"}
             ]}/>
 
-                <section className="Question">
-                    <Progress progress={question.data.progressBar} />
-                    <QuestionAlternative 
-                        title={question.data.title}
-                        content={question.data.content}
-                        alternatives={question.data.alternatives} 
-                        setOption={setAnswer}
-                    />
-                </section>
-                <section className="Question__send">
+            <section className="Question">
+                <Progress progress={question.data.progressBar} />
+                <QuestionAlternative 
+                    title={question.data.title}
+                    content={question.data.content}
+                    alternatives={question.data.alternatives} 
+                    setOption={setAnswer}
+                />
+            </section>
+            <section className="Question__send">
                 <a className="Question__send__button" title="itemTitle" onClick={updateAnswers}>
                     Próxima
                 </a>
                 <a className="Question__send__tip" title="itemTitle" onClick={openModal}>
                     Dica
                 </a>
+            </section>
+            <section className="Question__resolution">
+                <h4>RESOLUÇÃO</h4>
+                <p>
+                Na maioria das vezes, o soluço é causado por uma irritação no nervo chamado frênico, que auxilia os movimentos do diafragma, músculo que separa o tórax do abdome, na respiração. A expiração do ar acontece quando o diafragma relaxa e, a inspiração, quando ele se contrai.
+                </p>
+                <p>
+                Na maioria das vezes, o soluço é causado por uma irritação no nervo chamado frênico, que auxilia os movimentos do diafragma, músculo que separa o tórax do abdome, na respiração. A expiração do ar acontece quando o diafragma relaxa e, a inspiração, quando ele se contrai.
+                </p>
+                <p>
+                Na maioria das vezes, o soluço é causado por uma irritação no nervo chamado frênico, que auxilia os movimentos do diafragma, músculo que separa o tórax do abdome, na respiração. A expiração do ar acontece quando o diafragma relaxa e, a inspiração, quando ele se contrai.
+                </p>
             </section>
             
             <Modal
