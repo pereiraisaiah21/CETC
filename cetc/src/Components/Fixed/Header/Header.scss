@@ -64,12 +64,13 @@
     }
 
     &__menum {
-        background: url("../../back-menu.png");
+        background: url("../../back.jpg");
         width: 75%;
         height: 100%;
         position: fixed;
         display: flex;
         justify-content: flex-start;
+        box-shadow: inset 1px 0px 3px #8b8b8b;
         flex-direction: column;
         flex-wrap: wrap;
         right: -10px;
@@ -95,7 +96,7 @@
             margin-right: 10px;
         }
         &__closename {
-            background-color: #300aff;
+            background-color: #d20be36b;
             border-radius: 20px;
             padding: 10px 15px;
             color: #fff;
@@ -108,6 +109,8 @@
         &__profile {}
         &__icon {
             border-radius: 20px;
+            width: 100px;
+            margin: auto;
         }
         &__info {
             display: flex;

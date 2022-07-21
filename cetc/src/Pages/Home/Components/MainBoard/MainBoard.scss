@@ -9,6 +9,7 @@
     flex-wrap: wrap;
     padding: 20px;
     box-sizing: border-box;
+    box-shadow: inset 0px 0px 15px #300aff2b;
     // &__warn,
     // &__all {
     //     display: none;
@@ -42,7 +43,7 @@
         justify-content: center;
         box-sizing: border-box;
         min-height: 300px;
-        background-color: #04040499;
+        background-color: #0807075e;
         border: 2px solid transparent;
         border-radius: 20px;
         margin-right: 20px;

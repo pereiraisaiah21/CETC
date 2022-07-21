@@ -21,6 +21,9 @@ import "./Home.scss";
 */
 function Home () {
 
+    sessionStorage.setItem('username', 'Mattew McDonald');
+    sessionStorage.setItem('ocupation', 'Aluno');
+    sessionStorage.setItem('usericon', 'https://i.pinimg.com/736x/59/74/d0/5974d04323d9efbaf170c72cfdb07b44.jpg');
     /*
     * 
     */

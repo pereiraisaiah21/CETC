@@ -78,11 +78,11 @@ function Header () {
                             <section className="header__menum__user">
                                 <div className="header__menum__profile">
                                     <div className="header__menum__icon">
-                                        <img className="header__menum__icon" src="https://via.placeholder.com/50x50" alt="Ícone do usuário"/>
+                                        <img className="header__menum__icon" src={sessionStorage.getItem("usericon")} alt="Ícone do usuário"/>
                                     </div>
                                     <div className="header__menum__info">
-                                        <span className="header__menum__name">Wanderson</span>
-                                        <span className="header__menum__ocupation">Aluno</span>
+                                        <span className="header__menum__name">{sessionStorage.getItem("username")}</span>
+                                        <span className="header__menum__ocupation">{sessionStorage.getItem("ocupation")}</span>
                                     </div>
                                 </div>
                             </section>

@@ -21,8 +21,8 @@ function UserInfo () {
         <section className="b">
             <div className="userInfo">
                 <div className="userInfo__details">
-                    <img src="https://via.placeholder.com/70" alt="Ícone do usuário"/>
-                    <span>Mattew Hogwards</span>
+                    <img src={sessionStorage.getItem("usericon")} alt="Ícone do usuário"/>
+                    <span>{sessionStorage.getItem("username")}</span>
                 </div>
                 <div className="userInfo__emblem">
                     <span className="userInfo__emblem__xp">
