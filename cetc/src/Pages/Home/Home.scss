@@ -20,6 +20,14 @@
     .carousel-icon {
         padding: 0px 10px 0px 0;    
     }
+
+    @media (max-width: 767px) {
+       border-radius: 0;
+       padding: 0;
+       .carousel-title {
+        padding: 15px 20px;
+       }
+    }
 }
 
 .userInfo {
@@ -27,7 +35,7 @@
     max-width: 1200px;
     background-color: #9400d37a;
     border-radius: 20px;
-    margin: 20px 0;
+    margin: 20px 0 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -49,6 +57,10 @@
     &__emblem {
         display: inline-flex;
         align-items: center;
+        background-color: #04040499;
+        border-radius: 20px;
+        margin: 10px 0 0;
+        padding: 10px;
         &__xp {
             background: #300aff;
             padding: 7px 7px;

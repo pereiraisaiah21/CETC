@@ -31,12 +31,14 @@ function MainBoard () {
             </div>
             <div className="MainBoard__cards">
                 <div className="MainBoard__warn">
-                    Arraste para o lado
-                    <FontAwesomeIcon className="MainBoard__warn__icon" icon={faHand} />
+                    <span>
+                        Arraste para o lado
+                        <FontAwesomeIcon className="MainBoard__warn__icon" icon={faHand} />
+                    </span>
                 </div>
                 <Swiper
                     spaceBetween={(window.innerWidth < 768) ? 10 : 5}
-                    slidesPerView={(window.innerWidth < 768) ? 1 : 3}
+                    slidesPerView={(window.innerWidth < 768) ? 1 : 4}
                     onSlideChange={() => console.log('slide change')}
                     onSwiper={(swiper) => console.log(swiper)}
                     >

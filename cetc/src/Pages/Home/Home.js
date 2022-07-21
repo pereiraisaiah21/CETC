@@ -27,26 +27,28 @@ function Home () {
     return (
         <>
            <UserInfo />
-            <section className="carousel carousel--wrap">
-                <div className="carousel-title">
-                <FontAwesomeIcon className="carousel-icon" icon={faNewspaper} />CONFIRA ALGUMAS NOVIDADES
+            <section className="b b--fullmobile">
+                <div className="carousel">
+                    <div className="carousel-title">
+                    <FontAwesomeIcon className="carousel-icon" icon={faNewspaper} />CONFIRA ALGUMAS NOVIDADES
+                    </div>
+                    <Swiper
+                        spaceBetween={(window.innerWidth < 768) ? 10 : 50}
+                        slidesPerView={1}
+                        onSlideChange={() => console.log('slide change')}
+                        onSwiper={(swiper) => console.log(swiper)}
+                        >
+                        <SwiperSlide>
+                            <img src="https://d1lc5plzz0mq74.cloudfront.net/wp-content/uploads/2020/05/28151031/grafico-de-tendencia.jpg" />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src="https://www.siteware.com.br/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2019/08/graficos-para-apresentacao-resultados-area.jpg.webp" />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src="https://www.siteware.com.br/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2019/08/graficos-para-apresentacao-resultados-area.jpg.webp" />
+                        </SwiperSlide>
+                    </Swiper>
                 </div>
-                <Swiper
-                    spaceBetween={(window.innerWidth < 768) ? 10 : 50}
-                    slidesPerView={1}
-                    onSlideChange={() => console.log('slide change')}
-                    onSwiper={(swiper) => console.log(swiper)}
-                    >
-                    <SwiperSlide>
-                        <img src="https://d1lc5plzz0mq74.cloudfront.net/wp-content/uploads/2020/05/28151031/grafico-de-tendencia.jpg" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="https://www.siteware.com.br/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2019/08/graficos-para-apresentacao-resultados-area.jpg.webp" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="https://www.siteware.com.br/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2019/08/graficos-para-apresentacao-resultados-area.jpg.webp" />
-                    </SwiperSlide>
-                </Swiper>
             </section>
             <main className="b">
                 <MainBoard />

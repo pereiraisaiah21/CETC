@@ -28,8 +28,10 @@ function SubjectBoard () {
             </div>
             <div className="MainBoard__cards">
                 <div className="MainBoard__warn">
-                    Arraste para o lado
-                    <FontAwesomeIcon className="MainBoard__warn__icon" icon={faHand} />
+                    <span>
+                        Arraste para o lado
+                        <FontAwesomeIcon className="MainBoard__warn__icon" icon={faHand} />
+                    </span>
                 </div>
                 <div className="MainBoard__all">
                     <a href="/materias" title="">

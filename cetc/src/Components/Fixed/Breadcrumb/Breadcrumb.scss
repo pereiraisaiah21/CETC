@@ -7,9 +7,14 @@
     max-width: 1200px;
     margin: 10px auto;
     box-sizing: border-box;
+    padding: 10px;
 
     @media (max-width: 767px) {
         padding: 0 10px;
+        &--fullmobile {
+            padding: 0;
+            border-radius: 0;
+        }
     }
 }
 
