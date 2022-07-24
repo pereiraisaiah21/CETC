@@ -8,6 +8,8 @@ import Modal from 'react-modal';
 import Breacrumb from "../../Components/Fixed/Breadcrumb/Breadcrumb";
 import Progress from "../Activity/Progress";
 import QuestionAlternative from "./QuestionAlternative";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 // Styles
 
@@ -49,6 +51,11 @@ function Activity () {
     const [answer, setAnswer] = useState(null);
     const [testGauge, setTestGaug] = useState({text : ""});
     const [count, setCount] = useState(1)
+    const [answerReturn, setAnswerReturn] = useState({
+        isAnswerCorrect : null,
+        explication : "",
+        error : ""
+    });
 
     /*
     * Url Paramater
@@ -59,19 +66,10 @@ function Activity () {
     */  
 
     const getQuestion = function () {
+        
+        axios.get(`http://jsonplaceholder.typicode.com/posts/1`)
+        .then((response) => {
 
-        setCount(count + 1)
-        if (count > 1) {
-            setQuestion({...question, data: {
-                categoriaId: 5,
-                id : count,
-                title : "Conhecimentos naturais",
-                content : "Qual o nome dos Eua ?",
-                alternatives : ["Resposta E", "Resposta F", "Resposta G", "Resposta H"],
-                progressBar: 65
-            }
-            });
-        } else {
             setQuestion({...question, data: {
                 categoriaId: 5,
                 id : count,
@@ -79,9 +77,11 @@ function Activity () {
                 content : "Eu não deveria ter saído do Brasil e voltado para a Itália em 2010. Eu quis dar uma resposta pela maneira que sai da Inter de Milão. O povo italiano é apaixonado por mim, fiquei com isso no coração, na mente. Queria voltar para retribuir esse carinho. Mas infelizmente aquilo não era mais para mim, minha cabeça estava no Brasil - frisou o Imperador ?",
                 alternatives : ["Resposta A", "Resposta B", "Resposta C", "Resposta D"],
                 progressBar: 65
-            }
+                }
             });
-        }       
+        }).catch(err => {
+            setQuestion({...question, error: err});
+        });
     }
 
     const updateAnswers = function(e) {
@@ -94,6 +94,17 @@ function Activity () {
         if (answer === null) {
             console.log("Selecione alguma opção")
         }
+
+        axios.get(`http://jsonplaceholder.typicode.com/posts/1`)
+        .then((response) => {
+
+            if (!!response.data.id) {
+                setAnswerReturn({...answerReturn, isAnswerCorrect : !!response.data.id});
+            }
+        }).catch(err => {
+            setAnswerReturn({...answerReturn, error: err});
+        });
+        setCount(count + 1)
         
     }
     useEffect( () => {
@@ -123,6 +134,22 @@ function Activity () {
                     alternatives={question.data.alternatives} 
                     setOption={setAnswer}
                 />
+                <div className="Question__verification">
+                    {
+                        answerReturn.isAnswerCorrect === true && count > 1
+                        ?
+                        <p className="Question__verification__text Question__verification__text--correct"><FontAwesomeIcon className="" icon={faCheck} /> Você acertou está questão</p>
+                        :
+                        ""
+                    }
+                    {
+                        answerReturn.isAnswerCorrect === false && count > 1
+                        ?
+                        <p className="Question__verification__text Question__verification__text--incorrect"><FontAwesomeIcon className="" icon={faXmark} /> Você acertou está questão</p>
+                        :
+                        ""
+                    }
+                </div>
             </section>
             <section className="Question__send">
                 <a className="Question__send__button" title="itemTitle" onClick={updateAnswers}>
@@ -132,18 +159,24 @@ function Activity () {
                     Dica
                 </a>
             </section>
-            <section className="Question__resolution">
-                <h4>RESOLUÇÃO</h4>
-                <p>
-                Na maioria das vezes, o soluço é causado por uma irritação no nervo chamado frênico, que auxilia os movimentos do diafragma, músculo que separa o tórax do abdome, na respiração. A expiração do ar acontece quando o diafragma relaxa e, a inspiração, quando ele se contrai.
-                </p>
-                <p>
-                Na maioria das vezes, o soluço é causado por uma irritação no nervo chamado frênico, que auxilia os movimentos do diafragma, músculo que separa o tórax do abdome, na respiração. A expiração do ar acontece quando o diafragma relaxa e, a inspiração, quando ele se contrai.
-                </p>
-                <p>
-                Na maioria das vezes, o soluço é causado por uma irritação no nervo chamado frênico, que auxilia os movimentos do diafragma, músculo que separa o tórax do abdome, na respiração. A expiração do ar acontece quando o diafragma relaxa e, a inspiração, quando ele se contrai.
-                </p>
-            </section>
+            {
+                answerReturn.isAnswerCorrect
+                ?
+                <section className="Question__resolution">
+                    <h4>RESOLUÇÃO</h4>
+                    <p>
+                    Na maioria das vezes, o soluço é causado por uma irritação no nervo chamado frênico, que auxilia os movimentos do diafragma, músculo que separa o tórax do abdome, na respiração. A expiração do ar acontece quando o diafragma relaxa e, a inspiração, quando ele se contrai.
+                    </p>
+                    <p>
+                    Na maioria das vezes, o soluço é causado por uma irritação no nervo chamado frênico, que auxilia os movimentos do diafragma, músculo que separa o tórax do abdome, na respiração. A expiração do ar acontece quando o diafragma relaxa e, a inspiração, quando ele se contrai.
+                    </p>
+                    <p>
+                    Na maioria das vezes, o soluço é causado por uma irritação no nervo chamado frênico, que auxilia os movimentos do diafragma, músculo que separa o tórax do abdome, na respiração. A expiração do ar acontece quando o diafragma relaxa e, a inspiração, quando ele se contrai.
+                    </p>
+                </section>
+                :
+                ""
+            }
             
             <Modal
                 isOpen={modalIsOpen}

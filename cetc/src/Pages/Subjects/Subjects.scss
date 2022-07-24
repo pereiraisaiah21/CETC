@@ -16,10 +16,15 @@
         border-radius: 20px;
         text-align: left;
         margin: 20px auto;
-        padding: 10px;
+        padding: 30px;
         &--content {
-            line-height: 20px;
+            line-height: 25px;
             text-align: left;
+            font-size: 1.3rem;
+
+            .image {
+                max-width: 100%;
+            }
         }
         a {
             color: #fff;
@@ -34,6 +39,7 @@
     &__secundatyTitle {
         color: #fff;
         margin: 0 0 30px;
+        font-size: 1.3rem;
     }
     &__warn {
         display: none;
@@ -85,9 +91,15 @@
             list-style-type: armenian;
         }
     }
+    &__backTop {
+        svg {
+            margin-left: 10px;
+        }
+    }
 
     @media (max-width: 767px) {
         &__primaryWrap {
+            padding: 10px;
         }
         &__warn {
             display: block;

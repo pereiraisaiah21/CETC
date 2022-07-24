@@ -22,7 +22,9 @@ function SubjectStructure ({subjectId, subjectContentId}) {
     * Return Subject:
     *   Name, Content, HasExercise -> Bool
     */
-    const textTest = "Mais uma noite como todas as anteriores. Pego minha caneca de café cheia, acendo meu ultimo cigarro e corro pra velha janela do quarto. Observo a noite fria e chuvosa, até parece confortável por um momento, se não fossem as dezenas de preocupações que me desmotivam a cada dia.Penso em você, mesmo sabendo o quão longe está de mim, sinto aquele amor que continua a me desgraçar intensamente a cada dia, e penso quando enfim poderei te ter comigo. Sei lá, o café chega ao fim e trago a ultima ponta, nada muda. É como se eu fosse passar por isso mais uns longos anos a frente.Cada vez mais tenho a sensação de incertezas e inseguranças e tento me manter firme apesar disso. Algumas coisas parecem dar certo e maioria não, tipo você.Então após 10 minutos refletindo, largo tudo, fecho a janela e volto pro meu mundo dentro do quarto. Não sei até quando, não sei o porquê, só sei que tá tudo tão errado e quero me livrar disso o quanto antes. E tu não tem nem ideia do quanto, amor meu."
+
+    
+    const textTestP = "<p>Às vezes, problemas que parecem muito diferentes acabam sendo similares quando você pensa em como solucioná-los. O que o Pac-Man, a família real britânica e uma viagem de carro até Orlando têm em comum?</p><p>Todos eles envolvem problemas de localização de rotas ou caminhos de busca:Como o atual Príncipe William está relacionado ao Rei William III, que fundou o College of William and Mary em 1693?Que caminho um fantasma deve seguir para alcançar o Pac-Man o mais rápido possível?Qual é a melhor rota entre Dallas, no Texas, e Orlando, na Flórida?Precisamos de algumas informações para responder a qualquer uma dessas perguntas.Por exemplo, uma árvore genealógica da família real britânica deve mostrar as conexões entre pessoas com parentesco direto. O Príncipe William é filho de Charles Philip Arthur Windsor. Charles é filho da Rainha Elizabeth II. O problema é encontrar uma cadeia curta na árvore genealógica que conecte o Príncipe William e William III usando essas conexões diretas. Como você pode ver na árvore abaixo, podemos precisar de algumas conexões.</p><img class='image' src='https://rockcontent.com/br/wp-content/uploads/sites/2/2019/01/como-funciona-algoritmo-do-google-1.png'/><p>Todos eles envolvem problemas de localização de rotas ou caminhos de busca:Como o atual Príncipe William está relacionado ao Rei William III, que fundou o College of William and Mary em 1693?Que caminho um fantasma deve seguir para alcançar o Pac-Man o mais rápido possível?Qual é a melhor rota entre Dallas, no Texas, e Orlando, na Flórida?Precisamos de algumas informações para responder a qualquer uma dessas perguntas.Por exemplo, uma árvore genealógica da família real britânica deve mostrar as conexões entre pessoas com parentesco direto. O Príncipe William é filho de Charles Philip Arthur Windsor. Charles é filho da Rainha Elizabeth II. O problema é encontrar uma cadeia curta na árvore genealógica que conecte o Príncipe William e William III usando essas conexões diretas. Como você pode ver na árvore abaixo, podemos precisar de algumas conexões.</p>";  
     
 const [value, setValue] = useState({data: "abc", error: ""})
     // console.log("Value " + value)
@@ -89,22 +91,20 @@ const [value, setValue] = useState({data: "abc", error: ""})
                                 {
                                     item.content
                                 }
-                                <p>{textTest}</p>
-                                <p>{textTest}</p>
-                                <p>{textTest}</p>
+                                <div dangerouslySetInnerHTML={{__html:textTestP}}></div>
                             </div>
                             {
                                 !item.existAtivity
                                 ?
                                 ""
                                 :
-                                <div className="Subject__primaryWrap">
-                                    <span className="Subject__activity">Confira as atividades desta matéria:</span>
+                                <div className="Subject__primaryWrap text-center">
+                                    <span className="Subject__activity">Atividades</span>
                                     <ButtonPrimary className="header__login__anchor" itemLink={`/atividades/${contentid}`} itemTitle="Ir para atividade"/>
                                  </div>
                             }
                             <div className="Subject__primaryWrap">
-                                <span className="Subject__ref">Referências:</span>
+                                <p className="Subject__ref">Referências:</p>
                                 <ol className="Subject__ref__list">
                                     <li>
                                         <p>
@@ -139,7 +139,7 @@ const [value, setValue] = useState({data: "abc", error: ""})
                                 </ol>
                             </div>
                             <div className="Subject__primaryWrap">
-                                <a href="#Subject" title="">
+                                <a className="Subject__backTop" href="#Subject" title="Voltar para o topo da página">
                                     Voltar para o topo da página
                                     <FontAwesomeIcon className="MainBoard__warn__icon" icon={faPlaneUp} />
                                 </a>

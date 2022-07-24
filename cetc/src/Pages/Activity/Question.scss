@@ -29,6 +29,19 @@
     border-top: 1px dashed #300aff;
     border-radius: 20px;
     padding: 20px;
+    &__verification {
+        &__text {
+            border-radius: 20px;
+            padding: 5px 0;
+            color: #fff;
+            &--correct {
+                background-color: #29ff0aba;
+            }
+            &--incorrect {
+                background-color: #ff0a0aba;
+            }
+        }
+    }
     &__info {
         display: flex;
         width: 100%;
