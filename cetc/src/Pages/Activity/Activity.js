@@ -183,7 +183,7 @@ function Activity () {
                 onRequestClose={closeModal}
                 style={customStyles}
                 contentLabel={"Example Modal"}
-            >Responda as perguntas </Modal>
+            >Esta aqui é a dica</Modal>
         </div>
     )
 }
