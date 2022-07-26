@@ -86,9 +86,12 @@ function QuestionAlternative ({number, title, content, alternatives, observation
                 <p className="Question__paragraph">
                     {content}
                 </p>
-                <section className="Question__alternatives">               
+                <section className="Question__alternatives"> 
+                {
+                    console.log(alternatives)
+                }              
                     {
-                        alternatives != null && alternatives != undefined 
+                        alternatives != null && alternatives != undefined
                         ?
                         alternatives.map((item,key) => {
                             return (
@@ -98,8 +101,8 @@ function QuestionAlternative ({number, title, content, alternatives, observation
                                             type="radio"
                                             id={`a${key}`}
                                             name="choose"
-                                            value={`a${key}`}
-                                            checked={`a${key}`=== selected ? "selected" : ""}
+                                            value={`${item}`}
+                                            checked={`${item}`=== selected ? "selected" : ""}
                                             onChange={handleAlternativeChange}
                                         />
                                         {item}

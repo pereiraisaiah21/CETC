@@ -49,13 +49,15 @@ function Activity () {
     }], id: 1, error: ""});
 
     const [answer, setAnswer] = useState(null);
-    const [testGauge, setTestGaug] = useState({text : ""});
+    const [showResolution, setShowResolution] = useState(false);
     const [count, setCount] = useState(1)
     const [answerReturn, setAnswerReturn] = useState({
-        isAnswerCorrect : null,
+        correctAnswer : null,
         explication : "",
-        error : ""
+        error : false
     });
+
+
 
     /*
     * Url Paramater
@@ -65,48 +67,78 @@ function Activity () {
     * Exemple data structure
     */  
 
-    const getQuestion = function () {
-        
-        axios.get(`http://jsonplaceholder.typicode.com/posts/1`)
+    const getQuestion = function () {  
+        setShowResolution(false);
+
+        axios.get(`https://opentdb.com/api.php?amount=1`)
         .then((response) => {
+            let options = response.data.results[0].incorrect_answers;
+            options.push(response.data.results[0].correct_answer);
 
             setQuestion({...question, data: {
                 categoriaId: 5,
                 id : count,
-                title : "Conhecimentos gerais",
-                content : "Eu não deveria ter saído do Brasil e voltado para a Itália em 2010. Eu quis dar uma resposta pela maneira que sai da Inter de Milão. O povo italiano é apaixonado por mim, fiquei com isso no coração, na mente. Queria voltar para retribuir esse carinho. Mas infelizmente aquilo não era mais para mim, minha cabeça estava no Brasil - frisou o Imperador ?",
-                alternatives : ["Resposta A", "Resposta B", "Resposta C", "Resposta D"],
+                title : response.data.results[0].category,
+                content : response.data.results[0].question,
+                alternatives : options,
                 progressBar: 65
                 }
             });
+
+            setAnswerReturn({...answerReturn, correctAnswer : response.data.results[0].correct_answer})
         }).catch(err => {
             setQuestion({...question, error: err});
         });
     }
 
     const updateAnswers = function(e) {
-        e.preventDefault();
+        e.preventDefault()
+
+        setShowResolution(true)
+        setCount(count + 1)
+
         if (answer !== null) {
-            setTestGaug({text : testGauge.text.concat("%" + answer)})
-            getQuestion();
+            //setTestGaug({text : testGauge.text.concat("%" + answer)})
+            if (answer == answerReturn.correctAnswer) {
+                sendQuestionFeedback("Yes")
+            } else {
+                sendQuestionFeedback("No")
+                setCount(count - 1)
+            }
+            //getQuestion();
         }
 
         if (answer === null) {
-            console.log("Selecione alguma opção")
+            setAnswerReturn({...answerReturn, error : true})
         }
 
-        axios.get(`http://jsonplaceholder.typicode.com/posts/1`)
-        .then((response) => {
+        if (count > 1) {
+            setCount(0)
+            getQuestion()
+        }
 
-            if (!!response.data.id) {
-                setAnswerReturn({...answerReturn, isAnswerCorrect : !!response.data.id});
-            }
-        }).catch(err => {
-            setAnswerReturn({...answerReturn, error: err});
-        });
-        setCount(count + 1)
+        // axios.get(`http://jsonplaceholder.typicode.com/posts/1`)
+        // .then((response) => {
+
+        //     if (!!response.data.id) {
+        //         setAnswerReturn({...answerReturn, isAnswerCorrect : !!response.data.id});
+        //     }
+        // }).catch(err => {
+        //     setAnswerReturn({...answerReturn, error: err});
+        // });
         
     }
+
+    const sendQuestionFeedback = function(correctOrIncorrect) {
+        console.log(correctOrIncorrect)
+        axios.post('/user/questionfeedback/', {
+            result: correctOrIncorrect
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+    }
+
     useEffect( () => {
         
         // axios.get(`http://jsonplaceholder.typicode.com/question/${count}`).then((response) => {
@@ -136,14 +168,14 @@ function Activity () {
                 />
                 <div className="Question__verification">
                     {
-                        answerReturn.isAnswerCorrect === true && count > 1
+                        answerReturn.correctAnswer === "Yes" && count > 2
                         ?
                         <p className="Question__verification__text Question__verification__text--correct"><FontAwesomeIcon className="" icon={faCheck} /> Você acertou está questão</p>
                         :
                         ""
                     }
                     {
-                        answerReturn.isAnswerCorrect === false && count > 1
+                        answerReturn.correctAnswer === "No" && count > 2
                         ?
                         <p className="Question__verification__text Question__verification__text--incorrect"><FontAwesomeIcon className="" icon={faXmark} /> Você acertou está questão</p>
                         :
@@ -160,7 +192,7 @@ function Activity () {
                 </a>
             </section>
             {
-                answerReturn.isAnswerCorrect
+                showResolution
                 ?
                 <section className="Question__resolution">
                     <h4>RESOLUÇÃO</h4>
