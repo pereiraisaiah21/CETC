@@ -13,7 +13,6 @@ import Modal from 'react-modal';
 function QuestionAlternative ({number, title, content, alternatives, observation, isTipAvailable, tip, quantityAttempts, setOption, optionsDisable}) {
 
     const [selected, setSelected] = useState(null);
-    console.log(selected)
 
     const handleAlternativeChange = function (e) {
         setSelected(e.target.value);

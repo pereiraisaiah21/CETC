@@ -1,5 +1,7 @@
 // Libs
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { MYSTAT } from "../../store/endpoints";
 
 // Components
 import UserInfo from "../Home/Components/UserInfo/UserInfo";
@@ -9,6 +11,22 @@ import SimpleChart from "./Components/SimpleChart";
 import "./Profile.scss";
 
 function Profile () {
+
+    const [myStat, setMyStat] = useState({data: [], error : ""})
+
+    const getMyStats = function () {
+        axios.get(MYSTAT)
+        .then((response) => {
+            setMyStat({ ...myStat, data: response.data});
+        }).catch(err => {
+            setMyStat({ ...myStat, error: err });
+        });
+    }
+
+    useEffect(() => {
+        getMyStats();
+    }, [])
+
     return (
         <>
             <UserInfo />
@@ -18,22 +36,21 @@ function Profile () {
                 </div>
                 <div className="Profile__rewards">
                     <p className="Profile__rewards__title">Minhas estatisticas</p>
-                    <section className="Profile__stat">
-                        <h5>Quantidade de acertos</h5>
-                        <SimpleChart />
-                    </section>
-                    <section className="Profile__stat">
-                        <h5>Aproveitamento de acertos</h5>
-                        <SimpleChart />
-                    </section>
-                    <section className="Profile__stat">
-                        <h5>XP</h5>
-                        <SimpleChart />
-                    </section>
-                    <section className="Profile__stat">
-                        <h5>Conteúdos acessados</h5>
-                        <SimpleChart />
-                    </section>
+                    {
+                        myStat !== null 
+                        ?
+                        myStat.data.map((item, key) => {
+                            return (
+                                <section className="Profile__stat" key={key}>
+                                    <h5>{item.address.city}</h5>
+                                    <SimpleChart labelMade={item.address.street} labelTotal={item.address.suite} valueMade={Math.ceil(item.address.geo.lat) * -1}  valueTotal={Math.ceil(item.address.geo.lng)} colorMade="#cd8e1bbd" colorTotal="#088"/>
+                                </section>
+                            )
+                        })
+                        :
+                        ""
+                    }
+                    
                 </div>
                 <div className="Profile__actions">
                     

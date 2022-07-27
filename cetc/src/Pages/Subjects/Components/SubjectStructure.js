@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { SUBJECT } from "../../../store/endpoints";
 
 // Components
 import ButtonPrimary from "../../../Components/Buttons/ButtonPrimary";
@@ -10,7 +11,6 @@ import { faPlaneUp } from '@fortawesome/free-solid-svg-icons';
 
 // Styles
 import "../Subjects.scss";
-
 
 /*
 * 
@@ -26,11 +26,7 @@ function SubjectStructure ({subjectId, subjectContentId}) {
     
     const textTestP = "<p>Às vezes, problemas que parecem muito diferentes acabam sendo similares quando você pensa em como solucioná-los. O que o Pac-Man, a família real britânica e uma viagem de carro até Orlando têm em comum?</p><p>Todos eles envolvem problemas de localização de rotas ou caminhos de busca:Como o atual Príncipe William está relacionado ao Rei William III, que fundou o College of William and Mary em 1693?Que caminho um fantasma deve seguir para alcançar o Pac-Man o mais rápido possível?Qual é a melhor rota entre Dallas, no Texas, e Orlando, na Flórida?Precisamos de algumas informações para responder a qualquer uma dessas perguntas.Por exemplo, uma árvore genealógica da família real britânica deve mostrar as conexões entre pessoas com parentesco direto. O Príncipe William é filho de Charles Philip Arthur Windsor. Charles é filho da Rainha Elizabeth II. O problema é encontrar uma cadeia curta na árvore genealógica que conecte o Príncipe William e William III usando essas conexões diretas. Como você pode ver na árvore abaixo, podemos precisar de algumas conexões.</p><img class='image' src='https://rockcontent.com/br/wp-content/uploads/sites/2/2019/01/como-funciona-algoritmo-do-google-1.png'/><p>Todos eles envolvem problemas de localização de rotas ou caminhos de busca:Como o atual Príncipe William está relacionado ao Rei William III, que fundou o College of William and Mary em 1693?Que caminho um fantasma deve seguir para alcançar o Pac-Man o mais rápido possível?Qual é a melhor rota entre Dallas, no Texas, e Orlando, na Flórida?Precisamos de algumas informações para responder a qualquer uma dessas perguntas.Por exemplo, uma árvore genealógica da família real britânica deve mostrar as conexões entre pessoas com parentesco direto. O Príncipe William é filho de Charles Philip Arthur Windsor. Charles é filho da Rainha Elizabeth II. O problema é encontrar uma cadeia curta na árvore genealógica que conecte o Príncipe William e William III usando essas conexões diretas. Como você pode ver na árvore abaixo, podemos precisar de algumas conexões.</p>";  
     
-const [value, setValue] = useState({data: "abc", error: ""})
-    // console.log("Value " + value)
-
-    const [teste, setTeste] = useState({data : "", error: ""});
-    console.log("Axios ", teste)
+    const [value, setValue] = useState({data: [], error: ""})
 
     /*
     * Subject identifiers
@@ -38,49 +34,33 @@ const [value, setValue] = useState({data: "abc", error: ""})
     let {id} = useParams();
     let {contentid} = useParams();
 
-    console.log("Params : ", id, contentid)
-    
+    const getSubject = function () {
+        axios.get(`${SUBJECT}/${id}/${contentid}`)
+        .then((response) => {
+            setValue({ ...value, data: [response.data]});
+        }).catch(err => {
+            setValue({ ...value, error: err });
+        });
+    }
 
     useEffect( () => {
-
-        fetch(`https://jsonplaceholder.typicode.com/${id}/${contentid}`)
-        .then(res => res.json())
-        .then(response => setValue( { ...value, data: response }))
-        .catch(err => setValue( { ...value, error: err } ))
-
-        
-        axios.get("http://jsonplaceholder.typicode.com/posts/10").then((response) => {
-            setTeste({data : response.data, error: ""});
-          }).catch(err => {
-            setTeste({...teste, error: err});
-          });
-
-    }, [id, contentid])
-
-   /*
-   * Exemple data
-   */
-    const subjectContent = [
-        {
-            name : value.data.title,
-            content :  value.data.body,
-            existAtivity : true,
-            urlAtivity : "/atividades/1"
-        }
-    ]
+        getSubject();
+    }, [])
 
     return (
         <section className="Subject" id="Subject">
             {
-                subjectContent.map((item, key) => {
+                value.data !== null 
+                ?
+                value.data.map((item, key) => {
                     return (
                         <div key={key}>
                             <div className="Subject__primaryWrap" key={key}>
                                 <h4 className="Subject__primaryTitle">
-                                    {item.name}
+                                    {item.title}
                                 </h4>
                                 <p className="Subject__secundatyTitle">
-                                    Em sua primeira entrevista a um veículo de imprensa da América Latina desde o início da guerra, o presidente da Ucrânia comparou a posição de Jair Bolsonaro à de líderes que ficaram neutros durante o início da Segunda Guerra Mundial.
+                                {item.title}
                                 </p>
                                 <div className="Subject__details">
                                     <p className="Subject__details__writer">Por Editorial Cursos Educacionais</p>
@@ -88,9 +68,7 @@ const [value, setValue] = useState({data: "abc", error: ""})
                                 </div>
                             </div>
                             <div className="Subject__primaryWrap Subject__primaryWrap--content">
-                                {
-                                    item.content
-                                }
+                                {item.body}
                                 <div dangerouslySetInnerHTML={{__html:textTestP}}></div>
                             </div>
                             {
@@ -147,6 +125,8 @@ const [value, setValue] = useState({data: "abc", error: ""})
                         </div>
                     )
                 })
+                :
+                ""
             }
         </section>
     )

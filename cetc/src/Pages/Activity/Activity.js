@@ -60,8 +60,6 @@ function Activity () {
     const [isChoiceCorrect, setIsChoiceCorrect] = useState("");
     const [disableOptions, setDisableOptions] = useState(false);
 
-    console.log(isChoiceCorrect)
-
     /*
     * Url Paramater
     */
@@ -107,12 +105,9 @@ function Activity () {
             //setTestGaug({text : testGauge.text.concat("%" + answer)})
             if (answer == answerReturn.correctAnswer) {
                 setIsChoiceCorrect(true)
-                console.log("true")
             } else {
                 setIsChoiceCorrect(false)
             }
-            //setIsChoiceCorrect(isChoiceCorrect)
-            //getQuestion();
         }
 
         if (answer === null) {

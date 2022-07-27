@@ -1,5 +1,7 @@
 // Libs
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { MYLEVEL } from "../../../../store/endpoints";
 
 // Components 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -14,6 +16,23 @@ import "./UserInfo.scss";
 
 function UserInfo () {
 
+    const [myLevel, setMyLevel] = useState({data: [], error : ""})
+    const [emblemLevel, setEmblemLevel] = useState(null);
+
+    const getMyLevel = function () {
+        axios.get(MYLEVEL)
+        .then((response) => {
+            setMyLevel({ ...myLevel, data: response.data});
+            setEmblemLevel(response.data.id)
+        }).catch(err => {
+            setMyLevel({ ...myLevel, error: err });
+        });
+    }
+
+
+    useEffect(() => {
+        getMyLevel();
+    }, [])
     /*
     * 
     */
@@ -28,11 +47,11 @@ function UserInfo () {
                     <span className="userInfo__emblem__xp">
                         420xp
                     </span>
-                    <FontAwesomeIcon className="userInfo__medal userInfo__medal--trophy" icon={faTrophy} />
-                    <FontAwesomeIcon className="userInfo__medal userInfo__medal--diamond" icon={faDiamond} />
-                    <FontAwesomeIcon className="userInfo__medal userInfo__medal--gold" icon={faMedal} />
-                    <FontAwesomeIcon className="userInfo__medal userInfo__medal--plate" icon={faMedal} />
-                    <FontAwesomeIcon className="userInfo__medal userInfo__medal--bronze" icon={faMedal} />
+                    {emblemLevel ? <FontAwesomeIcon className="userInfo__medal userInfo__medal--bronze" icon={faMedal} /> : "" }
+                    {emblemLevel >= 2 ? <FontAwesomeIcon className="userInfo__medal userInfo__medal--plate" icon={faMedal} /> : "" }
+                    {emblemLevel >= 3 ? <FontAwesomeIcon className="userInfo__medal userInfo__medal--gold" icon={faMedal} />: "" }
+                    {emblemLevel >= 4 ? <FontAwesomeIcon className="userInfo__medal userInfo__medal--diamond" icon={faDiamond} /> : "" }
+                    {emblemLevel >= 5 ? <FontAwesomeIcon className="userInfo__medal userInfo__medal--trophy" icon={faTrophy} /> : "" }
                 </div>
             </div>
         </section>

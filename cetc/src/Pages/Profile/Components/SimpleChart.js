@@ -8,18 +8,18 @@ import { Doughnut } from 'react-chartjs-2';
 // Styles
 import "../Profile.scss";
 
-function SimpleChart () {
+function SimpleChart ({labelMade, labelTotal, valueMade, valueTotal, colorMade, colorTotal}) {
 
     ChartJS.register(ArcElement, Tooltip, Legend);
     const data = {
-        labels: ['Red', 'Blue'],
+        labels: [labelMade, labelTotal],
         datasets: [
           {
             label: '# of Votes',
-            data: [80, 20],
+            data: [valueTotal, valueMade],
             backgroundColor: [
-              'rgba(0, 0, 0, 0.5)',
-              'rgba(255, 165, 0, .8)'
+              colorMade,
+              colorTotal
             ],
             borderColor: [
               'rgba(0, 0, 0, 0.5)',

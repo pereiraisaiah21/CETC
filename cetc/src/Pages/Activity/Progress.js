@@ -13,7 +13,6 @@ function Progress ({progress}) {
     /*
     * It controls the progress bar color
     */
-    console.log("df",progress)
     /*
     * 
     */

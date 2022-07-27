@@ -1,6 +1,8 @@
 // Libs
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { useParams } from "react-router-dom";
+import { SUBJECTS } from "../../store/endpoints";
 
 // Components
 import Card from "../../Components/Fixed/Card/Card"
@@ -17,30 +19,25 @@ import "./Subjects.scss";
 /**
  * Exemple
  */
-const matter = [
-    {"Algebra" : "/algebra"},
-    {"Física" : "/fisica"}
-]
 
 function Subjects () {
-    const matter = [
-        { name: "Lógica I", description: "Desc", url: "/subject/2/2"},
-        { name: "História da computação", description: "Desc", url: "/" },
-        { name: "Lógica II", description: "Desc", url: "/" },
-        { name: "Lógica III", description: "Desc", url: "/" },
-        { name: "Lógica - Revisão", description: "Desc", url: "/" },
-        { name: "Lógica I", description: "Desc", url: "/subject/2/2"},
-        { name: "História da computação", description: "Desc", url: "/" },
-        { name: "Lógica II", description: "Desc", url: "/" },
-        { name: "Lógica III", description: "Desc", url: "/" },
-        { name: "Lógica - Revisão", description: "Desc", url: "/" },
-    ];
 
-    function returnSubjects (studentId) {}
+    const [subjects, setSubjects] = useState({data : [], error : ""});
+
+    const returnSubjects = function () {
+        axios.get(SUBJECTS)
+        .then((response) => {
+            setSubjects({...subjects, data : response.data})
+        }).catch(err => {
+            setSubjects({...subjects, error: err});
+        });
+    }
+
+    useEffect(()=>{
+        returnSubjects();
+    }, [])
 
     let {id} = useParams();
-
-    console.log("Params 22 : ", id)
     /*
     * 
     */
@@ -59,10 +56,10 @@ function Subjects () {
                 </div>
                 <div className="Subject__cards">   
                 {
-                    matter.map((item, key) => {
+                    subjects.data.map((item, key) => {
                         return (
                             <Card 
-                                link={item.url} classStyleGrand="Subject__item" altImage="Image description" classStyleImage="Subject__image"  classStyleSpan="Subject__item__name" classStyleDiv="Subject__item__info" classStyleDivSpan="Subject__item__icon" classStyleDivLabel="Subject__item__description" title={item.name} description="Descrição card Descrição Card" key={key}
+                                link={item.website} classStyleGrand="Subject__item" altImage={item.phone} classStyleImage="Subject__image"  classStyleSpan="Subject__item__name" classStyleDiv="Subject__item__info" classStyleDivSpan="Subject__item__icon" classStyleDivLabel="Subject__item__description" title={item.name} description="Descrição card Descrição Card" key={key}
                             />
                         )
                     })

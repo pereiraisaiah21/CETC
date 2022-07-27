@@ -1,5 +1,7 @@
 // Libs
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { FAQ, FAQCATEGORIES } from "../../store/endpoints";
 
 // Components 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -14,6 +16,26 @@ import "./Help.scss";
 
 function Help () {
 
+    const [faq, setFaq] = useState({data : [], error : ""})
+    const [faqCategories, setFaqCategories] = useState({data : [], error : ""})
+
+    const getFaq = function (faqCategory = "") {
+        axios.get(`${FAQ}/${faqCategory}`)
+        .then((response) => {
+            if (faqCategory == "") {
+                setFaq({ ...faq, data: response.data});
+            } else {
+                setFaqCategories({ ...faqCategories, data: [response.data]});
+            }
+        }).catch(err => {
+            if (faqCategory == "") {
+                setFaq({ ...faq, error: err });
+            } else {
+                setFaqCategories({ ...faqCategories, error: err });
+            }
+        });
+    }
+
     const handleQuestionClick = function (e) {
         if (e.target.nextSibling.classList.contains("open")) {
             e.target.nextSibling.classList.remove("open")
@@ -21,18 +43,12 @@ function Help () {
             e.target.nextSibling.classList.add("open")
         }
     }
-    const doubts = [
-        {
-            categoryId : 1,
-            question : "Como faço o login ?",
-            answer : "Basta selecionar no canto superior o botão, superior o botãosuperior o botãosuperior o botãosuperior o botão. Basta selecionar no canto superior o botão, superior o botãosuperior o botãosuperior o botãosuperior o botão. Basta selecionar no canto superior o botão, superior o botãosuperior o botãosuperior o botãosuperior o botão. "
-        },
-        {
-            categoryId : 2,
-            question : "Como faço o logout ?",
-            answer : "Basta selecionar no canto inferior o botão, superior o botãosuperior o botãosuperior o botãosuperior o botão"
-        },
-    ]
+
+
+    useEffect(() => {
+        getFaq();
+        getFaq("1");
+    }, [])
     /*
     * 
     */
@@ -43,31 +59,39 @@ function Help () {
                     <li className="Help__nav__title">
                         CATEGORIAS
                     </li>
-                    <li className="Help__nav__item">
-                        <a className="Help__nav__anchor" href="/" title="Categoria A">Categoria A</a>
-                    </li>
-                    <li className="Help__nav__item">
-                        <a className="Help__nav__anchor" href="/" title="Categoria A">Categoria B</a>
-                    </li>
-                    <li className="Help__nav__item">
-                        <a className="Help__nav__anchor" href="/" title="Categoria A">Categoria C</a>
-                    </li>
+                    {
+                        faqCategories.data !== null
+                        ?
+                        faqCategories.data.map((item, key) => {
+                            return (
+                                <li className="Help__nav__item" key={key}>
+                                    <a className="Help__nav__anchor" href="/" title={item.name}>{item.address.city}</a>
+                                </li>
+                            )
+                        })
+                        :
+                        ""
+                    }
                 </ul>
             </nav>
            <section className="Help__content">
                 <h4>Dúvidas frequentes</h4>
                 <ul className="Help__question">
                     {
-                        doubts.map((item, key) => {
+                        faq.data !== null
+                        ?
+                        faq.data.map((item, key) => {
                             return (
                                 <li className="Help__question__item" key={key} onClick={handleQuestionClick}>
-                                    <p className="Help__question__doubt">{item.question}
+                                    <p className="Help__question__doubt">{item.name}
                                     <FontAwesomeIcon className="Help__question__icon" icon={faAngleDown} />
                                     </p>
-                                    <p className="Help__question__answer">{item.answer}</p>
+                                    <p className="Help__question__answer">{item.address.city}</p>
                                 </li>
                             )
                         })
+                        :
+                        ""
                     }
                    
                 </ul>

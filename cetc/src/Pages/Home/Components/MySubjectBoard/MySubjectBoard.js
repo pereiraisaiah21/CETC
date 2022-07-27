@@ -1,7 +1,9 @@
 // Libs
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import { MYSUBJECTS } from "../../../../store/endpoints";
 
 // Components 
 import Card from "../../../../Components/Fixed/Card/Card";
@@ -17,6 +19,20 @@ import "../MainBoard/MainBoard.scss";
 
 function MySubjectBoard () {
 
+    const [subjects, setSubjects] = useState({data : [], error : ""});
+
+    const returnSubjectBoard = function () {
+        axios.get(MYSUBJECTS)
+        .then((response) => {
+            setSubjects({...subjects, data : response.data})
+        }).catch(err => {
+            setSubjects({...subjects, error: err});
+        });
+    }
+
+    useEffect(()=>{
+        returnSubjectBoard();
+    }, [])
     /*
     * 
     */
@@ -39,21 +55,21 @@ function MySubjectBoard () {
                     onSlideChange={() => console.log('slide change')}
                     onSwiper={(swiper) => console.log(swiper)}
                     >
-                    <SwiperSlide>
-                        <Card 
-                            link="/materias/posts/1" classStyleGrand="MainBoard__item" altImage="Image description" classStyleImage="MainBoard__image" classStyleSpan="MainBoard__item__name" classStyleDiv="MainBoard__item__info" classStyleDivSpan="MainBoard__item__icon" classStyleDivLabel="MainBoard__item__description" title="Lógica I" description="Neste curso você irá aprender conceitos introdutórios sobre a Lógica, desde seu surgimetno até a relevância nos dias atuais."
-                        />
-                    </SwiperSlide> 
-                    <SwiperSlide>
-                        <Card 
-                            link="/materias/posts/2" classStyleGrand="MainBoard__item" altImage="Image description" classStyleImage="MainBoard__image" classStyleSpan="MainBoard__item__name" classStyleDiv="MainBoard__item__info" classStyleDivSpan="MainBoard__item__icon" classStyleDivLabel="MainBoard__item__description" title="Lógica II" description="Neste curso você irá aprender conceitos introdutórios sobre a Lógica, desde seu surgimetno até a relevância nos dias atuais."
-                        />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Card 
-                            link="/materias/posts/3" classStyleGrand="MainBoard__item" altImage="Image description" classStyleImage="MainBoard__image" classStyleSpan="MainBoard__item__name" classStyleDiv="MainBoard__item__info" classStyleDivSpan="MainBoard__item__icon" classStyleDivLabel="MainBoard__item__description" title="Lógica III" description="Neste curso você irá aprender conceitos introdutórios sobre a Lógica, desde seu surgimetno até a relevância nos dias atuais."
-                        />
-                    </SwiperSlide>
+                        {
+                            subjects.data !== null
+                            ?
+                            subjects.data.map((item, key) => {
+                                return (
+                                    <SwiperSlide key={key}>
+                                        <Card 
+                                            link="/materias/posts/1" classStyleGrand="MainBoard__item" altImage={item.catchPhrase} classStyleImage="MainBoard__image" classStyleSpan="MainBoard__item__name" classStyleDiv="MainBoard__item__info" classStyleDivSpan="MainBoard__item__icon" classStyleDivLabel="MainBoard__item__description" title={item.name} description={item.email}
+                                        />
+                                    </SwiperSlide> 
+                                )
+                            })
+                            :
+                            ""
+                        }
                 </Swiper>
             </div>
         </div>

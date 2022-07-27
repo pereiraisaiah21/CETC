@@ -2,6 +2,9 @@
 import React from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import { BANNERHOME } from "../../store/endpoints";
+
+
 
 // Components
 import UserInfo from "./Components/UserInfo/UserInfo";
@@ -33,7 +36,7 @@ function Home () {
             <section className="b b--fullmobile">
                 <div className="carousel">
                     <div className="carousel-title">
-                    <FontAwesomeIcon className="carousel-icon" icon={faNewspaper} />CONFIRA ALGUMAS NOVIDADES
+                    <FontAwesomeIcon className="carousel-icon" icon={faNewspaper} />Tutorial
                     </div>
                     <Swiper
                         spaceBetween={(window.innerWidth < 768) ? 10 : 50}
@@ -42,13 +45,13 @@ function Home () {
                         onSwiper={(swiper) => console.log(swiper)}
                         >
                         <SwiperSlide>
-                            <img src="https://d1lc5plzz0mq74.cloudfront.net/wp-content/uploads/2020/05/28151031/grafico-de-tendencia.jpg" />
+                            <img src={`${BANNERHOME}/1300x320`} />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src="https://www.siteware.com.br/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2019/08/graficos-para-apresentacao-resultados-area.jpg.webp" />
+                            <img src={`${BANNERHOME}/1300x320`} />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src="https://www.siteware.com.br/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2019/08/graficos-para-apresentacao-resultados-area.jpg.webp" />
+                            <img src={`${BANNERHOME}/1300x320`} />
                         </SwiperSlide>
                     </Swiper>
                 </div>
