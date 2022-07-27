@@ -100,10 +100,10 @@ function Activity () {
         e.preventDefault()
 
         
-        setShowResolution(true)
-
+        
         if (answer !== null) {
             setDisableOptions(true);
+            setShowResolution(true)
             //setTestGaug({text : testGauge.text.concat("%" + answer)})
             if (answer == answerReturn.correctAnswer) {
                 setIsChoiceCorrect(true)

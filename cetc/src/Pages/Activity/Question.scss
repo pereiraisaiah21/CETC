@@ -10,7 +10,7 @@
         display: block;
         width: 30%;
         height: 100%;
-        background-color: #300aff;
+        background-color: #d90bff82;
         border-radius: 20px;
         text-align: center;
         &__number {
@@ -21,7 +21,7 @@
 }
 
 .Question {
-    background: #c7cfc175;
+    background: #fefdffcc;
     position: relative;
     width: 100%;
     max-width: 1200px;
@@ -36,9 +36,11 @@
         align-items: center;
         background: #ebe4e4;
         margin: 10px 0;
+        padding: 0 10px;
         border-radius: 20px;
+        box-sizing: border-box;
         &__icon {
-            color: #300aff;
+            color: #d90bff82;
             margin: 0 10px 0 0;
         }
         &__title {
@@ -55,7 +57,7 @@
             &__title {
                 padding: 5px 15px;
                 cursor: pointer;
-                background-color: #300aff;
+                background-color: #d90bff82;
                 color: #fff;
                 border-radius: 20px;
             }
@@ -64,7 +66,7 @@
                 right: 0;
                 top: 25px;
                 background-color: #ffff00;
-                border-top: 2px solid #300aff;
+                border-top: 2px solid #d90bff82;
                 padding: 10px 20px;
             }
             &__close {

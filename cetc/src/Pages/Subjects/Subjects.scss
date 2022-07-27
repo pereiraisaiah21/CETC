@@ -15,8 +15,9 @@
         color: #fff;
         border-radius: 20px;
         text-align: left;
-        margin: 20px auto;
+        margin: 0px auto 20px;
         padding: 30px;
+        box-sizing: border-box;
         &--content {
             line-height: 25px;
             text-align: left;

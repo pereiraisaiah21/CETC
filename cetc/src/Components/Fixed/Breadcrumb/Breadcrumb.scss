@@ -5,9 +5,9 @@
     align-items: center;
     width: 100%;
     max-width: 1200px;
-    margin: 10px auto;
+    margin: 0 auto;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 0 10px;
 
     @media (max-width: 767px) {
         padding: 0 10px;
@@ -21,7 +21,7 @@
 .b-wrap {
     width: 100%;
     max-width: 1200px;
-    background-color: #c7cfc175;
+    background-color: #fefdffcc;
     border-radius: 20px;
     max-width: 1200px;
     padding: 10px;
@@ -32,7 +32,7 @@
         &__anchor {
             padding-right: 10px;
             a {
-                color: #fff;
+                color: #918a8a;
             }
 
             &:hover {

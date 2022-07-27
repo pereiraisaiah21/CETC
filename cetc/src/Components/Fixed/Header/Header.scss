@@ -9,12 +9,14 @@
     background-color: unset;
     border: unset;
     &__wrap {
-        width: 90%;
+        width: 100%;
         max-width: 1200px;
         border-radius: 20px;
         display: inline-flex;
         align-items: center;
-        background-color: #7900B1;
+        background-color: #9400d37a;
+        padding: 0 10px;
+        box-sizing: border-box;
     }
     &__logo {
         &__image {
@@ -33,7 +35,7 @@
             border-radius: 10px;
             margin-left: 3px;
             font-size: 1.1rem;
-            background-color: #300aff;
+            background-color: #9a05ed;
 
             &:hover {
                 border-bottom: 2px solid #ffff00;
