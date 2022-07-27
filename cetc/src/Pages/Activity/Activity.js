@@ -46,18 +46,19 @@ function Activity () {
         title : "",
         content: "",
         alternatives : []
-    }], id: 1, error: ""});
+    }], id: 1, error: ""})
 
     const [answer, setAnswer] = useState(null);
     const [showResolution, setShowResolution] = useState(false);
-    const [count, setCount] = useState(1)
+    const [count, setCount] = useState(1);
     const [answerReturn, setAnswerReturn] = useState({
         correctAnswer : null,
         explication : "",
         error : false
     });
+    const [isChoiceCorrect, setIsChoiceCorrect] = useState("");
 
-
+    console.log(isChoiceCorrect)
 
     /*
     * Url Paramater
@@ -94,17 +95,17 @@ function Activity () {
     const updateAnswers = function(e) {
         e.preventDefault()
 
+        
         setShowResolution(true)
-        setCount(count + 1)
 
         if (answer !== null) {
             //setTestGaug({text : testGauge.text.concat("%" + answer)})
             if (answer == answerReturn.correctAnswer) {
-                sendQuestionFeedback("Yes")
+                setIsChoiceCorrect(true)
             } else {
-                sendQuestionFeedback("No")
-                setCount(count - 1)
+                setIsChoiceCorrect(false)
             }
+            setIsChoiceCorrect(isChoiceCorrect)
             //getQuestion();
         }
 
@@ -112,10 +113,10 @@ function Activity () {
             setAnswerReturn({...answerReturn, error : true})
         }
 
-        if (count > 1) {
-            setCount(0)
-            getQuestion()
-        }
+        // if (count > 1) {
+        //     setCount(0)
+        //     getQuestion()
+        // }
 
         // axios.get(`http://jsonplaceholder.typicode.com/posts/1`)
         // .then((response) => {
@@ -158,7 +159,7 @@ function Activity () {
                 {classStyle : "b-wrap__trail__anchor", title : "Titulo 03", link : "Link 03"}
             ]}/>
 
-            <section className="Question">
+            <section className={`Question${isChoiceCorrect !== null ? (isChoiceCorrect ? " correct" : " incorrect") : ""}`}>
                 <Progress progress={question.data.progressBar} />
                 <QuestionAlternative 
                     title={question.data.title}

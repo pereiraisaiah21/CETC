@@ -171,6 +171,12 @@
             font-size: 1.2rem;
         }
     }
+    .correct {
+        box-shadow: inset 0px 0px 15px green;
+    }
+    .incorrect {
+        box-shadow: inset 0px 0px 15px rgb(128, 13, 0);
+    }
 
     @media (max-width: 767px) {
         &__info {
