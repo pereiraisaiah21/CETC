@@ -1,7 +1,7 @@
 .Progress {
     height: 20px;
-    border: 2px solid #300aff;
-    background-color: #c7cfc175;
+    border: 2px solid #fff;
+    background-color: #ebe4e4;
     border-radius: 20px;
     position: relative;
     max-width: 1200px;
@@ -21,32 +21,22 @@
 }
 
 .Question {
-    background: #9400d37a;
+    background: #c7cfc175;
     position: relative;
     width: 100%;
     max-width: 1200px;
     margin: 20px 0;
     border-top: 1px dashed #300aff;
     border-radius: 20px;
-    padding: 5px 20px;
-    &__verification {
-        &__text {
-            border-radius: 20px;
-            padding: 5px 0;
-            color: #fff;
-            &--correct {
-                background-color: #29ff0aba;
-            }
-            &--incorrect {
-                background-color: #ff0a0aba;
-            }
-        }
-    }
+    padding: 15px 10px;
     &__info {
         display: flex;
         width: 100%;
         justify-content: space-between;
         align-items: center;
+        background: #ebe4e4;
+        margin: 10px 0;
+        border-radius: 20px;
         &__icon {
             color: #300aff;
             margin: 0 10px 0 0;
@@ -54,7 +44,7 @@
         &__title {
             font-size: 1.6rem;
             padding: 20px;
-            color: #fff;
+            color: #918a8a;
         }
         &__about {
             position: relative;
@@ -89,24 +79,25 @@
     }
     &__content {
         width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
     }
     &__paragraph {
         font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         padding: 10px 20px;
         font-size: 1.2rem;
         line-height: 30px;
-        color: #fff;
+        color: #918a8a;
         text-align: left;
     }
     &__alternatives {
         width: 100%;
-        padding: 20px 10px 20px;
         text-align: left;
         &__option {
             font-size: 1.1rem;
             font-weight: 600;
             padding: 10px 0;
-            color: #fff;
+            color: #918a8a;
             display: inline-flex;
             height: 50px;
             margin-right: 30px;
@@ -125,15 +116,18 @@
             align-items: center;
             width: 75%;
             border: none;
-            background-color: #c556dd;
-            color: #fff;
-            border-bottom: 3px solid #300aff;
+            background-color: #e7e1e1;
+            color: #918a8a;
             text-decoration: none;
-            font-size: 1,1rem;
+            font-size: 1.1rem;
             text-transform: uppercase;
             font-weight: 700;
             cursor: pointer;
             border-radius: 20px 0 0 20px;
+            &.next {
+                background-color: #7ced2fcc;
+                color: #fff;
+            }
         }
         &__tip {
             display: inline-flex;
@@ -142,8 +136,7 @@
             width: 25%;
             border-radius: 0 20px 20px 0;
             border: none;
-            background-color: rgb(206, 252, 0);
-            border-bottom: 3px solid rgb(77, 88, 35);
+            background-color: #ebe4e4;
             height: 40px;
             text-decoration: none;
             font-size: 1,1rem;
@@ -153,29 +146,32 @@
         }
     }
     &__resolution {
-        background: #d1ffc07a;
+        background: #c7cfc175;
         position: relative;
         width: 100%;
         max-width: 1200px;
-        margin: 20px 0;
         border-top: 1px dashed #29ff0a;
         border-radius: 20px;
-        padding: 20px;
+        padding: 10px;
         h4 {
-            color: #fff;
-            font-size: 2rem;
+            color: #918a8a;
+            font-size: 1.5rem;
+            background-color: #ebe4e4;
+            border-radius: 20px;
+            padding: 20px;
+            margin: 10px 0 0;
         }
         p {
             line-height: 22px;
-            color: #fff;
+            color: #918a8a;
             font-size: 1.2rem;
         }
     }
-    .correct {
-        box-shadow: inset 0px 0px 15px green;
+    &.correct {
+        //box-shadow: inset 0px 0px 21px #00ff00;
     }
-    .incorrect {
-        box-shadow: inset 0px 0px 15px rgb(128, 13, 0);
+    &.incorrect {
+        //box-shadow: inset 0px 0px 21px #ff1a00;
     }
 
     @media (max-width: 767px) {

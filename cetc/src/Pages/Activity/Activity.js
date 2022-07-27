@@ -9,7 +9,8 @@ import Breacrumb from "../../Components/Fixed/Breadcrumb/Breadcrumb";
 import Progress from "../Activity/Progress";
 import QuestionAlternative from "./QuestionAlternative";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
+import SimpleAlert from "../../Components/Alerts/SimpleAlert";
 
 // Styles
 
@@ -57,6 +58,7 @@ function Activity () {
         error : false
     });
     const [isChoiceCorrect, setIsChoiceCorrect] = useState("");
+    const [disableOptions, setDisableOptions] = useState(false);
 
     console.log(isChoiceCorrect)
 
@@ -70,6 +72,8 @@ function Activity () {
 
     const getQuestion = function () {  
         setShowResolution(false);
+        setIsChoiceCorrect(false);
+        setDisableOptions(false);
 
         axios.get(`https://opentdb.com/api.php?amount=1`)
         .then((response) => {
@@ -99,13 +103,15 @@ function Activity () {
         setShowResolution(true)
 
         if (answer !== null) {
+            setDisableOptions(true);
             //setTestGaug({text : testGauge.text.concat("%" + answer)})
             if (answer == answerReturn.correctAnswer) {
                 setIsChoiceCorrect(true)
+                console.log("true")
             } else {
                 setIsChoiceCorrect(false)
             }
-            setIsChoiceCorrect(isChoiceCorrect)
+            //setIsChoiceCorrect(isChoiceCorrect)
             //getQuestion();
         }
 
@@ -127,17 +133,17 @@ function Activity () {
         // }).catch(err => {
         //     setAnswerReturn({...answerReturn, error: err});
         // });
+        sendQuestionFeedback();
         
     }
 
-    const sendQuestionFeedback = function(correctOrIncorrect) {
-        console.log(correctOrIncorrect)
+    const sendQuestionFeedback = function() {
         axios.post('/user/questionfeedback/', {
-            result: correctOrIncorrect
-          })
-          .catch(function (error) {
+            result: isChoiceCorrect
+        })
+        .catch(function (error) {
             console.log(error);
-          });
+        });
     }
 
     useEffect( () => {
@@ -159,44 +165,51 @@ function Activity () {
                 {classStyle : "b-wrap__trail__anchor", title : "Titulo 03", link : "Link 03"}
             ]}/>
 
-            <section className={`Question${isChoiceCorrect !== null ? (isChoiceCorrect ? " correct" : " incorrect") : ""}`}>
+            <section className="Question">
                 <Progress progress={question.data.progressBar} />
                 <QuestionAlternative 
                     title={question.data.title}
                     content={question.data.content}
                     alternatives={question.data.alternatives} 
                     setOption={setAnswer}
+                    optionsDisable={disableOptions}
                 />
-                <div className="Question__verification">
-                    {
-                        answerReturn.correctAnswer === "Yes" && count > 2
-                        ?
-                        <p className="Question__verification__text Question__verification__text--correct"><FontAwesomeIcon className="" icon={faCheck} /> Você acertou está questão</p>
-                        :
-                        ""
-                    }
-                    {
-                        answerReturn.correctAnswer === "No" && count > 2
-                        ?
-                        <p className="Question__verification__text Question__verification__text--incorrect"><FontAwesomeIcon className="" icon={faXmark} /> Você acertou está questão</p>
-                        :
-                        ""
-                    }
-                </div>
-            </section>
-            <section className="Question__send">
-                <a className="Question__send__button" title="itemTitle" onClick={updateAnswers}>
-                    Próxima
-                </a>
-                <a className="Question__send__tip" title="itemTitle" onClick={openModal}>
-                    Dica
-                </a>
+                <section className="Question__send">
+                    <a className={`Question__send__button${showResolution === true ? " next" : ""}`} title="itemTitle" onClick={updateAnswers}>
+                        Próxima
+                    </a>
+                    <a className="Question__send__tip" title="itemTitle" onClick={openModal}>
+                        Dica
+                    </a>
+                </section>
+                {
+                    disableOptions
+                    ?
+                    <div className="Question__verification">
+                        {
+                            disableOptions && isChoiceCorrect
+                            ?
+                            <SimpleAlert alertText="Parabéns, você acertou a questão. Confira abaixo a explicação." colorAlertText="#0ebd13"/>
+                            :
+                            ""
+                        }
+                        {
+                            disableOptions && !isChoiceCorrect
+                            ?
+                            <SimpleAlert alertText="Você errou a questão. Confira abaixo a explicação." colorAlertText="#b90000"/>
+                            :
+                            ""
+                        }
+                    </div>
+                    :
+                    ""
+                }
             </section>
             {
                 showResolution
                 ?
                 <section className="Question__resolution">
-                    <h4>RESOLUÇÃO</h4>
+                    <h4>Confira a resolução da pergunta</h4>
                     <p>
                     Na maioria das vezes, o soluço é causado por uma irritação no nervo chamado frênico, que auxilia os movimentos do diafragma, músculo que separa o tórax do abdome, na respiração. A expiração do ar acontece quando o diafragma relaxa e, a inspiração, quando ele se contrai.
                     </p>

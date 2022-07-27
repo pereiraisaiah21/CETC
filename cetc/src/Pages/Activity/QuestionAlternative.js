@@ -10,7 +10,7 @@ import Modal from 'react-modal';
 * 
 */
 
-function QuestionAlternative ({number, title, content, alternatives, observation, isTipAvailable, tip, quantityAttempts, setOption}) {
+function QuestionAlternative ({number, title, content, alternatives, observation, isTipAvailable, tip, quantityAttempts, setOption, optionsDisable}) {
 
     const [selected, setSelected] = useState(null);
     console.log(selected)
@@ -86,10 +86,7 @@ function QuestionAlternative ({number, title, content, alternatives, observation
                 <p className="Question__paragraph">
                     {content}
                 </p>
-                <section className="Question__alternatives"> 
-                {
-                    console.log(alternatives)
-                }              
+                <section className="Question__alternatives">             
                     {
                         alternatives != null && alternatives != undefined
                         ?
@@ -97,14 +94,20 @@ function QuestionAlternative ({number, title, content, alternatives, observation
                             return (
                                 <div className="Question__alternatives__option" key={key}>
                                     <label htmlFor={`a${key}`}>
-                                        <input
-                                            type="radio"
-                                            id={`a${key}`}
-                                            name="choose"
-                                            value={`${item}`}
-                                            checked={`${item}`=== selected ? "selected" : ""}
-                                            onChange={handleAlternativeChange}
-                                        />
+                                        {
+                                            optionsDisable
+                                            ?
+                                            ""
+                                            :
+                                            <input
+                                                type="radio"
+                                                id={`a${key}`}
+                                                name="choose"
+                                                value={`${item}`}
+                                                checked={`${item}`=== selected ? "selected" : ""}
+                                                onChange={handleAlternativeChange}
+                                            />
+                                        }
                                         {item}
                                     </label>
                                 </div>)
