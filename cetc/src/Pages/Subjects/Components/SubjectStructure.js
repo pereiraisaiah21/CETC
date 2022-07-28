@@ -72,7 +72,7 @@ function SubjectStructure ({subjectId, subjectContentId}) {
                                 <div dangerouslySetInnerHTML={{__html:textTestP}}></div>
                             </div>
                             {
-                                !item.existAtivity
+                                item.existAtivity
                                 ?
                                 ""
                                 :

@@ -11,8 +11,9 @@
     &__primaryWrap {
         max-width: 1200px;
         margin: 0 auto;
-        background-color: #9400d37a;
-        color: #fff;
+        background-color: #f5f5f5;
+        font-family: monospace;
+        color: #4a4a4a;
         border-radius: 20px;
         text-align: left;
         margin: 0px auto 20px;
@@ -21,24 +22,23 @@
         &--content {
             line-height: 25px;
             text-align: left;
-            font-size: 1.3rem;
-
+            font-size: 1.4em;   
             .image {
                 max-width: 100%;
             }
         }
         a {
-            color: #fff;
+            color: #4a4a4a;
         }
     }
     &__primaryTitle {
-        color: #fff;
+        color: #4a4a4a;
         font-size: 2rem;
         text-transform: uppercase;
         margin: 10px 0;
     }
     &__secundatyTitle {
-        color: #fff;
+        color: #4a4a4a;
         margin: 0 0 30px;
         font-size: 1.3rem;
     }
@@ -56,7 +56,7 @@
     &__item {
         padding: 10px 20px;
         background-color: #04040499;
-        color: #fff;
+        color: #4a4a4a;
         border-radius: 20px;
         display: flex;
         align-items: center;

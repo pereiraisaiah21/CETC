@@ -7,7 +7,7 @@
     display: inline-flex;
     align-items: center;
     flex-wrap: wrap;
-    padding: 20px;
+    padding: 20px 0;
     box-sizing: border-box;
     .carousel-title {
         font-size: 1.2rem;
@@ -16,6 +16,7 @@
         color: #fff;
         padding: 10px 10px 20px 0;
         font-weight: 700;
+        padding: 0 0 20px 20px;
     }
     .carousel-icon {
         padding: 0px 10px 0px 0;    
@@ -94,9 +95,6 @@
         &__details, 
         &__emblem {
             width: 100%;
-        }
-        &__emblem {
-            padding: 10px 0;
         }
     }
 }

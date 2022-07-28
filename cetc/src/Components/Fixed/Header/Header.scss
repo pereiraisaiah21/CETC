@@ -5,16 +5,15 @@
     width: 100%;
     max-height: 200px;
     box-sizing: border-box;
-    padding: 20px 10px 10px;
     background-color: unset;
+    background-color: #000000a1;
+    border-bottom: 2px solid black;
     border: unset;
     &__wrap {
         width: 100%;
         max-width: 1200px;
-        border-radius: 20px;
         display: inline-flex;
         align-items: center;
-        background-color: #9400d37a;
         padding: 0 10px;
         box-sizing: border-box;
     }
@@ -35,7 +34,7 @@
             border-radius: 10px;
             margin-left: 3px;
             font-size: 1.1rem;
-            background-color: #9a05ed;
+            background-color: #8d8b76;
 
             &:hover {
                 border-bottom: 2px solid #ffff00;
@@ -150,10 +149,16 @@
     }
 
     @media (max-width: 767px) {
+        padding: 20px 10px 10px;
+        border: none;
+        background-color: unset;
         &__wrap {
             width: 100%;
             display: flex;
             flex-wrap: wrap;
+            background-color: #9400d37a;
+            padding: 0 10px;
+            border-radius: 20px;
         }
         &__logo {
             width: 50%;

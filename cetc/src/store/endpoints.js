@@ -10,7 +10,7 @@ export const MYSUBJECTS = "https://jsonplaceholder.typicode.com/users";
 export const RECENTS = "https://jsonplaceholder.typicode.com/users";
 
 // Banners Home
-export const BANNERHOME = "http://via.placeholder.com/";
+export const BANNERHOME = "https://via.placeholder.com";
 
 // Personal information
 export const MYLEVEL = "https://jsonplaceholder.typicode.com/users/5";
