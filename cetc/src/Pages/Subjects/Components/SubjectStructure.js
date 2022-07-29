@@ -5,7 +5,7 @@ import axios from "axios";
 import { SUBJECT } from "../../../store/endpoints";
 
 // Components
-import ButtonPrimary from "../../../Components/Buttons/ButtonPrimary";
+import ButtonActivity from "../../../Components/Buttons/ButtonActivity";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlaneUp } from '@fortawesome/free-solid-svg-icons';
 
@@ -24,7 +24,15 @@ function SubjectStructure ({subjectId, subjectContentId}) {
     */
 
     
-    const textTestP = "<p>Às vezes, problemas que parecem muito diferentes acabam sendo similares quando você pensa em como solucioná-los. O que o Pac-Man, a família real britânica e uma viagem de carro até Orlando têm em comum?</p><p>Todos eles envolvem problemas de localização de rotas ou caminhos de busca:Como o atual Príncipe William está relacionado ao Rei William III, que fundou o College of William and Mary em 1693?Que caminho um fantasma deve seguir para alcançar o Pac-Man o mais rápido possível?Qual é a melhor rota entre Dallas, no Texas, e Orlando, na Flórida?Precisamos de algumas informações para responder a qualquer uma dessas perguntas.Por exemplo, uma árvore genealógica da família real britânica deve mostrar as conexões entre pessoas com parentesco direto. O Príncipe William é filho de Charles Philip Arthur Windsor. Charles é filho da Rainha Elizabeth II. O problema é encontrar uma cadeia curta na árvore genealógica que conecte o Príncipe William e William III usando essas conexões diretas. Como você pode ver na árvore abaixo, podemos precisar de algumas conexões.</p><img class='image' src='https://rockcontent.com/br/wp-content/uploads/sites/2/2019/01/como-funciona-algoritmo-do-google-1.png'/><p>Todos eles envolvem problemas de localização de rotas ou caminhos de busca:Como o atual Príncipe William está relacionado ao Rei William III, que fundou o College of William and Mary em 1693?Que caminho um fantasma deve seguir para alcançar o Pac-Man o mais rápido possível?Qual é a melhor rota entre Dallas, no Texas, e Orlando, na Flórida?Precisamos de algumas informações para responder a qualquer uma dessas perguntas.Por exemplo, uma árvore genealógica da família real britânica deve mostrar as conexões entre pessoas com parentesco direto. O Príncipe William é filho de Charles Philip Arthur Windsor. Charles é filho da Rainha Elizabeth II. O problema é encontrar uma cadeia curta na árvore genealógica que conecte o Príncipe William e William III usando essas conexões diretas. Como você pode ver na árvore abaixo, podemos precisar de algumas conexões.</p>";  
+    const textTestP = "<p>Às vezes, problemas que parecem muito diferentes acabam sendo similares quando você pensa em como solucioná-los. O que o Pac-Man, a família real britânica e uma viagem de carro até Orlando têm em comum?</p><p>Todos eles envolvem problemas de localização de rotas ou caminhos de busca:Como o atual Príncipe William está relacionado ao Rei William III, que fundou o College of William and Mary em 1693?Que caminho um fantasma deve seguir para alcançar o Pac-Man o mais rápido possível?</br></br><p class='warnParagraph'>Aqui está relacionado ao rei William, que é a melhor rota entre Dallas no Texas</p><ul class='list-t0'><li class='list-title-t0'>Warner Bros</li><li class='list-item-t0'>Warner Bros</li><li class='list-item-t0'>Warner Bros</li><li class='list-item-t0'>Warner Bros</li></ul><img class='image' src='https://rockcontent.com/br/wp-content/uploads/sites/2/2019/01/como-funciona-algoritmo-do-google-1.png' alt=''/>";  
+
+    /*
+    <p class=''list>
+        <ul class='list-t0'>
+            <li class='item-t0'>Warner Bros</li>
+        </ul>
+    </p>
+    */
     
     const [value, setValue] = useState({data: [], error: ""})
 
@@ -76,13 +84,13 @@ function SubjectStructure ({subjectId, subjectContentId}) {
                                 ?
                                 ""
                                 :
-                                <div className="Subject__primaryWrap text-center">
+                                <div className="Subject__primaryWrap text-center font-def">
                                     <span className="Subject__activity">Atividades</span>
-                                    <ButtonPrimary className="header__login__anchor" itemLink={`/atividades/${contentid}`} itemTitle="Ir para atividade"/>
+                                    <ButtonActivity className="Subject__activity__button" itemLink={`/atividades/${contentid}`} itemTitle="Módulo 01"/>
                                  </div>
                             }
                             <div className="Subject__primaryWrap">
-                                <p className="Subject__ref">Referências:</p>
+                                <p className="Subject__ref font-def">Referências</p>
                                 <ol className="Subject__ref__list">
                                     <li>
                                         <p>
@@ -99,7 +107,7 @@ function SubjectStructure ({subjectId, subjectContentId}) {
                                 </ol>
                             </div>
                             <div className="Subject__primaryWrap">
-                                <p className="Subject__support">Precisa de ajuda?</p>
+                                <p className="Subject__support font-def">Precisa de ajuda?</p>
                                 <p className="Subject__support">Confira a seguir alguns conteúdos de apoio para te ajudar.</p>
                                 <ol className="Subject__support__list">
                                     <li>

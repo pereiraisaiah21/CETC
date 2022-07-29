@@ -1,6 +1,5 @@
 .Subject {
-    width: 100%;
-    padding: 10px;
+    width: 100%;  padding: 10px;
     box-sizing: border-box;
     &__details {
         line-height: 8px;
@@ -26,9 +25,31 @@
             .image {
                 max-width: 100%;
             }
-        }
-        a {
-            color: #4a4a4a;
+            .warnParagraph {
+                border: 1px solid #e7e5d8;
+                border-left: 5px solid #f1f19c;
+                padding: 20px;
+                background-color: #ebeba46e;
+                &::before {
+                    content: "Observação";
+                    display: block;
+                }
+            }
+
+            .list-t0 {
+                list-style-type: none;
+            }
+            .list-t0 {
+                //padding: 0;
+            }
+            .list-title-t0 {
+                font-size: 1.1em;
+                padding: 5px 0;
+            }
+            .list-item-t0 {
+                list-style: lower-greek;
+            }
+
         }
     }
     &__primaryTitle {
@@ -81,18 +102,68 @@
     &__activity {
         display: block;
         margin-bottom: 10px;
+        padding: 10px;
+        text-align: left;
+        border-left: 3px solid;
+        &__button {
+            display: inline-flex;
+            justify-content: center ;
+            flex-wrap: wrap;
+            font-size: .8em;
+            text-transform: uppercase;
+            border-radius: 20px;
+            padding: 10px;
+            color: #fff;
+            box-shadow: inset 0px 0px 5px #cdcdcd;
+            svg {
+                background-color: #4a4a4a;
+                border-radius: 20px;
+                padding: 13px;
+            }
+            span {
+                display: block;
+                color: #4a4a4a;
+                width: 100%;
+            }
+            &:hover {
+                background-color: #4a4a4a;
+                svg {
+                    background-color: #fff;
+                    color: #4a4a4a;
+                }
+                span {
+                    background-color: #4a4a4a;
+                    color: #fff;
+                }
+            }
+        }
     }
     &__ref {
+        display: block;
+        margin-bottom: 10px;
+        padding: 10px;
+        text-align: left;
+        border-left: 3px solid;
         &__list {
             list-style-type: lower-greek;
         }
     }
     &__support {
+        display: block;
+        margin-bottom: 10px;
+        padding: 10px;
+        text-align: left;
+        border-left: 3px solid;
         &__list {
             list-style-type: armenian;
         }
     }
     &__backTop {
+        display: block;
+        margin-bottom: 10px;
+        padding: 10px;
+        text-align: left;
+        border-left: 3px solid;
         svg {
             margin-left: 10px;
         }
@@ -123,4 +194,8 @@
             }
         }
     }
+}
+
+.font-def {
+    font-size: 2em;
 }

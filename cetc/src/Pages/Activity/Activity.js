@@ -160,7 +160,7 @@ function Activity () {
                 {classStyle : "b-wrap__trail__anchor", title : "Titulo 03", link : "Link 03"}
             ]}/>
 
-            <section className="Question">
+            <section className={`Question ${disableOptions && isChoiceCorrect ? "Question__congrats" : ""}`}>
                 <Progress progress={question.data.progressBar} />
                 <QuestionAlternative 
                     title={question.data.title}

@@ -41,7 +41,7 @@ function UserInfo () {
             <div className="userInfo">
                 <div className="userInfo__details">
                     <img src={sessionStorage.getItem("usericon")} alt="Ícone do usuário"/>
-                    <span>{sessionStorage.getItem("username")}</span>
+                    <a href="/perfil" title="Ir para perfil">{sessionStorage.getItem("username")}</a>
                 </div>
                 <div className="userInfo__emblem">
                     <span className="userInfo__emblem__xp">
