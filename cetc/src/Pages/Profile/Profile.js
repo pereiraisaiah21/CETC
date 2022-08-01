@@ -19,7 +19,7 @@ function Profile () {
 
     const [myStat, setMyStat] = useState({data: [], error : ""});
 
-    const getMyStats = function () {
+    async function getMyStats () {
 
         axios.get(MYSTAT)
         .then((response) => {
@@ -32,7 +32,7 @@ function Profile () {
 
     useEffect(() => {
         getMyStats();
-    }, [])
+    }, [getMyStats])
 
     return (
         <>

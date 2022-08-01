@@ -10,8 +10,6 @@ import Progress from "../Activity/Progress";
 import QuestionAlternative from "./QuestionAlternative";
 import SimpleAlert from "../../Components/Alerts/SimpleAlert";
 
-// Styles
-
 /**
  * 
  * @returns 
@@ -21,7 +19,6 @@ function Activity () {
 
     const [answer, setAnswer] = useState(null);
     const [showResolution, setShowResolution] = useState(false);
-    const [count, setCount] = useState(1);
     const [isChoiceCorrect, setIsChoiceCorrect] = useState("");
     const [disableOptions, setDisableOptions] = useState(false);
     const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -56,7 +53,7 @@ function Activity () {
     const closeModal = function () {
         setIsOpen(false);
     };
-    const getQuestion = function () { 
+    async function getQuestion () { 
 
         setShowResolution(false);
         setIsChoiceCorrect(false);
@@ -70,7 +67,7 @@ function Activity () {
             
             setQuestion({...question, data: {
                 categoriaId: 5,
-                id : count,
+                id : "",
                 title : response.data.results[0].category,
                 content : response.data.results[0].question,
                 alternatives : options,
@@ -146,10 +143,10 @@ function Activity () {
                     optionsDisable={disableOptions}
                 />
                 <section className="Question__send">
-                    <a className={`Question__send__button${showResolution === true ? " next" : ""}`} title="itemTitle" onClick={updateAnswers}>
+                    <a href="/" className={`Question__send__button${showResolution === true ? " next" : ""}`} title="itemTitle" onClick={updateAnswers}>
                         Próxima
                     </a>
-                    <a className="Question__send__tip" title="itemTitle" onClick={openModal}>
+                    <a href="/" className="Question__send__tip" title="itemTitle" onClick={openModal}>
                         Dica
                     </a>
                 </section>

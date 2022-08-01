@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 // Components
 import LoginOptions from "./LoginOptions";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faUserCircle, faClose } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faClose } from '@fortawesome/free-solid-svg-icons';
 
 // Styles
 import "./Header.scss";
@@ -77,10 +77,10 @@ function Header () {
                             </section>
                             <section className="header__menum__pages">
                                 <ul className="header__menum__list">
-                                    <li><a>Wanderson</a></li>
-                                    <li><a>Wanderson</a></li>
-                                    <li><a>Wanderson</a></li>
-                                    <li><a>Wanderson</a></li>
+                                    <li><a href="/" alt="">Wanderson</a></li>
+                                    <li><a href="/" alt="">Wanderson</a></li>
+                                    <li><a href="/" alt="">Wanderson</a></li>
+                                    <li><a href="/" alt="">Wanderson</a></li>
                                 </ul>
                             </section>
                             <section className="header__menum__options">

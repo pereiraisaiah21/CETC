@@ -20,7 +20,7 @@ function Subjects () {
 
     const [subjects, setSubjects] = useState({data : [], error : ""});
 
-    const returnSubjects = function () {
+    async function returnSubjects () {
 
         axios.get(SUBJECTS)
         .then((response) => {
@@ -33,7 +33,7 @@ function Subjects () {
 
     useEffect(()=>{
         returnSubjects();
-    }, []);
+    }, [returnSubjects]);
 
     return (
         <section className="Subject">

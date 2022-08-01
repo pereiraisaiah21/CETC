@@ -12,20 +12,21 @@ import { faNotesMedical, faHand, faCirclePlus } from '@fortawesome/free-solid-sv
 
 // Styles
 import "../MainBoard/MainBoard.scss";
-import UserInfo from "../UserInfo/UserInfo";
-import item from "../../../../Components/Fixed/Breadcrumb/Item";
 
-/*
-*  Return the board in the Home Page
-*/
+/**
+ * 
+ * @returns 
+ */
 
 function SubjectBoard () {
 
     const [subjects, setSubjects] = useState({data : [], error : ""});
 
-    const returnSubjectBoard = function () {
+    async function returnSubjectBoard () {
+
         axios.get(SUBJECTS)
         .then((response) => {
+
             setSubjects({...subjects, data : response.data})
         }).catch(err => {
             setSubjects({...subjects, error: err});
@@ -34,11 +35,8 @@ function SubjectBoard () {
 
     useEffect(()=>{
         returnSubjectBoard();
-    }, [])
+    }, [returnSubjectBoard])
 
-    /*
-    * 
-    */
     return (
         <div className="MainBoard">
             <div className="MainBoard__title">

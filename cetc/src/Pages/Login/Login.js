@@ -1,5 +1,5 @@
 // Libs
-import React, { useState } from "react";
+import React from "react";
 import InputMask from 'react-input-mask';
 import { cpf } from 'cpf-cnpj-validator'; 
 

@@ -1,7 +1,7 @@
 // Libs
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { FAQ, FAQCATEGORIES } from "../../store/endpoints";
+import { FAQ } from "../../store/endpoints";
 
 // Components 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -20,7 +20,7 @@ function Help () {
     const [faq, setFaq] = useState({data : [], error : ""});
     const [faqCategories, setFaqCategories] = useState({data : [], error : ""});
 
-    const getFaq = function (faqCategory = "") {
+    async function getFaq (faqCategory = "") {
 
         axios.get(`${FAQ}/${faqCategory}`)
         .then((response) => {
@@ -49,7 +49,7 @@ function Help () {
     useEffect(() => {
         getFaq();
         getFaq("1");
-    }, []);
+    }, [getFaq]);
 
     return (
         <div className="Help">

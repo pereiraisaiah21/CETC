@@ -8,22 +8,25 @@ import { MYSUBJECTS } from "../../../../store/endpoints";
 // Components 
 import Card from "../../../../Components/Fixed/Card/Card";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFileClipboard, faHand, faCirclePlus } from '@fortawesome/free-solid-svg-icons';
+import { faFileClipboard, faHand } from '@fortawesome/free-solid-svg-icons';
 
 // Styles
 import "../MainBoard/MainBoard.scss";
 
-/*
-*  Return the board in the Home Page
-*/
+/**
+ * 
+ * @returns 
+ */
 
 function MySubjectBoard () {
 
     const [subjects, setSubjects] = useState({data : [], error : ""});
 
-    const returnSubjectBoard = function () {
+    async function returnSubjectBoard () {
+
         axios.get(MYSUBJECTS)
         .then((response) => {
+
             setSubjects({...subjects, data : response.data})
         }).catch(err => {
             setSubjects({...subjects, error: err});
@@ -32,10 +35,8 @@ function MySubjectBoard () {
 
     useEffect(()=>{
         returnSubjectBoard();
-    }, [])
-    /*
-    * 
-    */
+    }, [returnSubjectBoard])
+
     return (
         <div className="MainBoard">
             <div className="MainBoard__title">

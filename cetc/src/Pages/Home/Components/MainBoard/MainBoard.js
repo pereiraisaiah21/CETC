@@ -13,17 +13,20 @@ import { faCalendarTimes, faHand } from '@fortawesome/free-solid-svg-icons';
 // Styles
 import "./MainBoard.scss";
 
-/*
-*  Return the board in the Home Page
-*/
+/**
+ * 
+ * @returns 
+ */
 
 function MainBoard () {
 
     const [subjects, setSubjects] = useState({data : [], error : ""});
 
-    const returnSubjectBoard = function () {
+    async function returnSubjectBoard () {
+
         axios.get(RECENTS)
         .then((response) => {
+
             setSubjects({...subjects, data : response.data})
         }).catch(err => {
             setSubjects({...subjects, error: err});
@@ -32,11 +35,8 @@ function MainBoard () {
 
     useEffect(()=>{
         returnSubjectBoard();
-    }, [])
+    }, [returnSubjectBoard])
 
-    /*
-    * 
-    */
     return (
         <div className="MainBoard">
             <div className="MainBoard__title">

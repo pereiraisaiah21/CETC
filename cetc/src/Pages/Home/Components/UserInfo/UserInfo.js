@@ -10,27 +10,31 @@ import { faMedal, faDiamond, faTrophy } from '@fortawesome/free-solid-svg-icons'
 // Styles
 import "./UserInfo.scss";
 
-/*
-*  Return the board in the Home Page
-*/
+/**
+ * 
+ * @returns 
+ */
 
 function UserInfo () {
 
     const [myLevel, setMyLevel] = useState({data: [], error : ""})
     const [emblemLevel, setEmblemLevel] = useState(null);
-    const getMyLevel = function () {
+
+    async function getMyLevel () {
+
         axios.get(MYLEVEL)
         .then((response) => {
+
             setMyLevel({ ...myLevel, data: response.data});
             setEmblemLevel(response.data.id)
         }).catch(err => {
             setMyLevel({ ...myLevel, error: err });
         });
-    }
+    };
 
     useEffect(() => {
         getMyLevel();
-    }, [])
+    }, [getMyLevel])
 
     return (
         <section className="b">

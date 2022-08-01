@@ -29,7 +29,7 @@ function SubjectStructure ({
     let {contentid} = useParams();
     const [value, setValue] = useState({data: [], error: ""});
 
-    const getSubject = function () {
+    async function getSubject () {
 
         axios.get(`${SUBJECT}/${id}/${contentid}`)
         .then((response) => {
@@ -42,7 +42,7 @@ function SubjectStructure ({
 
     useEffect( () => {
         getSubject();
-    }, []);
+    }, [getSubject]);
 
     return (
         <section className="Subject" id="Subject">

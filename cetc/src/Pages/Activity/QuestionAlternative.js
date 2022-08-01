@@ -46,12 +46,6 @@ function QuestionAlternative ({
     const handleAboutClick = function (e) {
         setAboutSeleted(!aboutSeleted);
     };
-    const updateAnswers = function (e) {
-        e.preventDefault();
-    }
-    const openModal = function () {
-        setIsOpen(true);
-    }
     const closeModal = function () {
         setIsOpen(false);
     }
@@ -90,7 +84,7 @@ function QuestionAlternative ({
                 </p>
                 <section className="Question__alternatives">             
                     {
-                        alternatives != null && alternatives != undefined
+                        alternatives !== null && alternatives !== undefined
                         ?
                         alternatives.map((item,key) => {
                             return (

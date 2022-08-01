@@ -33,7 +33,7 @@ function Home () {
             <section className="b b--fullmobile">
                 <div className="carousel">
                     <div className="carousel-title">
-                    <FontAwesomeIcon className="carousel-icon" icon={faNewspaper} />Tutorial
+                        <FontAwesomeIcon className="carousel-icon" icon={faNewspaper} />Tutorial
                     </div>
                     <Swiper
                         spaceBetween={(window.innerWidth < 768) ? 10 : 50}
@@ -42,13 +42,13 @@ function Home () {
                         onSwiper={(swiper) => console.log(swiper)}
                         >
                         <SwiperSlide>
-                            <img src={`${BANNERHOME}/1300x320`} />
+                            <img alt="Imagem" src={`${BANNERHOME}/1300x320`} />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src={`${BANNERHOME}/1300x320`} />
+                            <img alt="Imagem" src={`${BANNERHOME}/1300x320`} />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src={`${BANNERHOME}/1300x320`} />
+                            <img alt="Imagem" src={`${BANNERHOME}/1300x320`} />
                         </SwiperSlide>
                     </Swiper>
                 </div>
