@@ -1,5 +1,5 @@
 // Libs
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 // Components
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,18 +8,12 @@ import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 // Styles
 import "./Contact.scss";
 
-
-/*
-* 
-*/
+/**
+ * 
+ * @returns 
+ */
 
 function Contact () {
-
-    /*
-    * Return Subject:
-    *   Name, Content, HasExercise -> Bool
-    */
-
 
     return (
         <section className="Contact">
@@ -44,7 +38,7 @@ function Contact () {
                 </form>
             </div>
         </section>
-    )
+    );
 }
 
 export default Contact;

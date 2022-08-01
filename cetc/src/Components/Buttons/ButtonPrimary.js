@@ -1,6 +1,18 @@
+// Libs
 import React from "react";
 
-function ButtonPrimary ({className, itemLink, itemTitle, icon}) {
+/**
+ * 
+ * @param {*} param0 
+ * @returns 
+ */
+
+function ButtonPrimary ({
+    className, 
+    itemLink, 
+    itemTitle, 
+}) {
+    
     return (
         <a className={className} href={itemLink} title={itemTitle}>
             {itemTitle}

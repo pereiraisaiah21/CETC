@@ -10,13 +10,17 @@ import { faLock, faUser, faKey, faCircleExclamation } from '@fortawesome/free-so
 // Style
 import "./Login.scss"; 
 
+/**
+ * 
+ * @returns 
+ */
+
 function Login () {
     
     const [input, setInput] = React.useState({
         nome: "",
         value: false
     });
-
     const [password, setPassword] = React.useState({
         text: "",
         value: false
@@ -29,16 +33,16 @@ function Login () {
             setInput({...input, value: true});   
         } else {
             setInput({...input, value: false});
-            localStorage.setItem("Usuario", input.nome)
-        }
+            localStorage.setItem("Usuario", input.nome);
+        };
 
         if (password.text.length < 3) {
             setPassword({...password, value: true});
 
         } else {
             setPassword({...password, value: false});
-        }
-    }
+        };
+    };
 
     return(
         <main className="login">
@@ -85,7 +89,6 @@ function Login () {
                             Esqueceu sua senha?
                         </a>
                     </div>
-                   
                     <button type="submit" className="login__send">Enviar</button>
                 </form>
             </section>

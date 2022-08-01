@@ -18,7 +18,6 @@ function UserInfo () {
 
     const [myLevel, setMyLevel] = useState({data: [], error : ""})
     const [emblemLevel, setEmblemLevel] = useState(null);
-
     const getMyLevel = function () {
         axios.get(MYLEVEL)
         .then((response) => {
@@ -29,13 +28,10 @@ function UserInfo () {
         });
     }
 
-
     useEffect(() => {
         getMyLevel();
     }, [])
-    /*
-    * 
-    */
+
     return (
         <section className="b">
             <div className="userInfo">

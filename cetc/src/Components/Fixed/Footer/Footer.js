@@ -7,15 +7,14 @@ import Help from "../Help/Help";
 // Styles
 import "./Footer.scss";
 
-/*
-* Return Footer component
-*/
+/**
+ * 
+ * @param {*} param0 
+ * @returns 
+ */
 
 function Footer () {
 
-    /*
-    *
-    */
     return (
         <footer className="Footer">
             <div className="Footer__wrap">
@@ -52,7 +51,7 @@ function Footer () {
             </div>    
             <Help />   
         </footer>
-    )
+    );
 }
 
 export default Footer;

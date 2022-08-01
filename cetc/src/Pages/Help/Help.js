@@ -10,48 +10,47 @@ import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 // Styles
 import "./Help.scss";
 
-/*
-*  Return the board in the Home Page
-*/
+/**
+ * 
+ * @returns 
+ */
 
 function Help () {
 
-    const [faq, setFaq] = useState({data : [], error : ""})
-    const [faqCategories, setFaqCategories] = useState({data : [], error : ""})
+    const [faq, setFaq] = useState({data : [], error : ""});
+    const [faqCategories, setFaqCategories] = useState({data : [], error : ""});
 
     const getFaq = function (faqCategory = "") {
+
         axios.get(`${FAQ}/${faqCategory}`)
         .then((response) => {
-            if (faqCategory == "") {
+
+            if (faqCategory === "") {
                 setFaq({ ...faq, data: response.data});
             } else {
                 setFaqCategories({ ...faqCategories, data: [response.data]});
-            }
+            };
         }).catch(err => {
-            if (faqCategory == "") {
+            if (faqCategory === "") {
                 setFaq({ ...faq, error: err });
             } else {
                 setFaqCategories({ ...faqCategories, error: err });
-            }
+            };
         });
-    }
-
+    };
     const handleQuestionClick = function (e) {
         if (e.target.nextSibling.classList.contains("open")) {
-            e.target.nextSibling.classList.remove("open")
+            e.target.nextSibling.classList.remove("open");
         } else {
-            e.target.nextSibling.classList.add("open")
-        }
-    }
-
+            e.target.nextSibling.classList.add("open");
+        };
+    };
 
     useEffect(() => {
         getFaq();
         getFaq("1");
-    }, [])
-    /*
-    * 
-    */
+    }, []);
+
     return (
         <div className="Help">
             <nav className="Help__nav">
@@ -93,7 +92,6 @@ function Help () {
                         :
                         ""
                     }
-                   
                 </ul>
            </section>
         </div>

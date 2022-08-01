@@ -2,9 +2,6 @@
 import React, { useState } from "react";
 import {Link} from "react-router-dom";
 
-// Images
-import Logo from "./Logo.png"
-
 // Components
 import LoginOptions from "./LoginOptions";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,33 +10,25 @@ import { faBars, faUserCircle, faClose } from '@fortawesome/free-solid-svg-icons
 // Styles
 import "./Header.scss";
 
+// Images
+import Logo from "./Logo.png";
 
-/*
-* Return Header component
-*/
+/**
+ * 
+ * @returns 
+ */
 
 function Header () {
 
-    /*
-    * List all the menu's header pages with its link
-    */
+    const [menuMobileOpen, setMenuMobileOpen] = useState(false);
     const pagesDescription = [
         {title : "Home", link : "/"},
         {title : "Matérias", link : "posts/1"}
-    ]
-
-    const [menuMobileOpen, setMenuMobileOpen] = useState(false);
-
-    const openMenuMobile = function () {
+    ];
+    const openCloseMenuMobile = function () {
         setMenuMobileOpen(!menuMobileOpen)
-    }
-    const closeMenuMobile = function () {
-        setMenuMobileOpen(!menuMobileOpen)
-    }
+    };
 
-    /*
-    *
-    */
     return (
         <header className="header">
             <div className="header__wrap">
@@ -49,7 +38,7 @@ function Header () {
                     </a>
                 </div>
                 <div className="header__help">
-                    <div className="header__help__button" onClick={openMenuMobile}>
+                    <div className="header__help__button" onClick={openCloseMenuMobile}>
                         <FontAwesomeIcon className="header__menum__openicon" icon={faBars} />
                     </div>
                     <div className="header__help__anchors--m">
@@ -59,7 +48,7 @@ function Header () {
                                     <Link className="header__help__anchor"  to={item.link} key={key}>
                                         {item.title}
                                     </Link>
-                                )
+                                );
                             })
                         }
                     </div>
@@ -68,7 +57,7 @@ function Header () {
                         ?
                         <div className="header__menum">
                             <section className="header__menum__actions">
-                                <div className="header__menum__close" onClick={openMenuMobile}>
+                                <div className="header__menum__close" onClick={openCloseMenuMobile}>
                                     <span className="header__menum__closename">
                                         <FontAwesomeIcon className="header__menum__closeicon" icon={faClose} />
                                         Fechar

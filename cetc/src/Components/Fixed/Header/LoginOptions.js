@@ -5,8 +5,13 @@ import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRankingStar, faQuestionCircle, faUserCircle, faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 
+/**
+ * 
+ * @returns 
+ */
 
 function LoginOptions () {
+
     return (
         <>
             <a className="header__login__anchor" href="" title="Conquistas | Rewards">

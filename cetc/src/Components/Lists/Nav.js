@@ -1,15 +1,13 @@
 // Libs
 import React from "react";
 
-/*
-* Return a single Navbar element
-*/
+/**
+ * 
+ * @returns 
+ */
 
 function Nav () {
 
-    /*
-    *
-    */
     return (
         <a>
             <label> Item </label>

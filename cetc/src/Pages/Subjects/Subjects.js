@@ -1,7 +1,6 @@
 // Libs
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
 import { SUBJECTS } from "../../store/endpoints";
 
 // Components
@@ -12,12 +11,9 @@ import { faHand } from '@fortawesome/free-solid-svg-icons';
 // Styles
 import "./Subjects.scss";
 
-/*
-*  It controls de Routes
-*/
-
 /**
- * Exemple
+ * 
+ * @returns 
  */
 
 function Subjects () {
@@ -25,22 +21,20 @@ function Subjects () {
     const [subjects, setSubjects] = useState({data : [], error : ""});
 
     const returnSubjects = function () {
+
         axios.get(SUBJECTS)
         .then((response) => {
-            setSubjects({...subjects, data : response.data})
+
+            setSubjects({...subjects, data : response.data});
         }).catch(err => {
             setSubjects({...subjects, error: err});
         });
-    }
+    };
 
     useEffect(()=>{
         returnSubjects();
-    }, [])
+    }, []);
 
-    let {id} = useParams();
-    /*
-    * 
-    */
     return (
         <section className="Subject">
             <div className="Subject__primaryWrap">
@@ -67,7 +61,7 @@ function Subjects () {
                 </div>
             </div>
         </section>
-    )
+    );
 }
 
 export default Subjects;

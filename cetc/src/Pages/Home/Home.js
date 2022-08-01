@@ -4,8 +4,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { BANNERHOME } from "../../store/endpoints";
 
-
-
 // Components
 import UserInfo from "./Components/UserInfo/UserInfo";
 import MainBoard from "./Components/MainBoard/MainBoard";
@@ -15,21 +13,20 @@ import TextPrimary from "../../Components/Texts/TextPrimary";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faNewspaper } from '@fortawesome/free-solid-svg-icons';
 
-
 // Styles 
 import "./Home.scss";
 
-/*
-* 
-*/
+/**
+ * 
+ * @returns 
+ */
+
 function Home () {
 
     sessionStorage.setItem('username', 'Mattew McDonald');
     sessionStorage.setItem('ocupation', 'Aluno');
     sessionStorage.setItem('usericon', 'https://i.pinimg.com/736x/59/74/d0/5974d04323d9efbaf170c72cfdb07b44.jpg');
-    /*
-    * 
-    */
+
     return (
         <>
            <UserInfo />

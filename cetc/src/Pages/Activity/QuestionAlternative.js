@@ -6,32 +6,27 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilRuler, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-modal';
 
-/*
-* 
-*/
+/**
+ * 
+ * @param {*} param0 
+ * @returns 
+ */
 
-function QuestionAlternative ({number, title, content, alternatives, observation, isTipAvailable, tip, quantityAttempts, setOption, optionsDisable}) {
+function QuestionAlternative ({
+    number, 
+    title, 
+    content, 
+    alternatives, 
+    observation, 
+    isTipAvailable, 
+    tip, 
+    quantityAttempts, 
+    setOption, 
+    optionsDisable}) {
 
     const [selected, setSelected] = useState(null);
-
-    const handleAlternativeChange = function (e) {
-        setSelected(e.target.value);
-    };
-
-    useEffect(()=>{
-        setOption(selected)
-    }, [selected])
-
     const [aboutSeleted, setAboutSeleted] = useState(false);
-    const handleAboutClick = function (e) {
-        setAboutSeleted(!aboutSeleted);
-    };
-
-    const updateAnswers = function (e) {
-        e.preventDefault();
-    }
-
-    // Modal tip
+    const [modalIsOpen, setIsOpen] = React.useState(false);
     const customStyles = {
         content: {
             top: '50%',
@@ -42,21 +37,29 @@ function QuestionAlternative ({number, title, content, alternatives, observation
             transform: 'translate(-50%, -50%)',
         }
     };
-    const [modalIsOpen, setIsOpen] = React.useState(false);
 
-    function openModal() {
+    Modal.setAppElement('#root');
+
+    const handleAlternativeChange = function (e) {
+        setSelected(e.target.value);
+    };
+    const handleAboutClick = function (e) {
+        setAboutSeleted(!aboutSeleted);
+    };
+    const updateAnswers = function (e) {
+        e.preventDefault();
+    }
+    const openModal = function () {
         setIsOpen(true);
     }
-    function closeModal() {
+    const closeModal = function () {
         setIsOpen(false);
     }
 
-    Modal.setAppElement('#root');
-    // End Modal tip
+    useEffect(()=>{
+        setOption(selected)
+    }, [selected])
 
-    /*
-    * 
-    */
     return (
         <>
             <section className="Question__info">
@@ -123,7 +126,7 @@ function QuestionAlternative ({number, title, content, alternatives, observation
                 contentLabel={"Example Modal"}
             >Esta aqui é a dica !</Modal>
         </>
-    )
+    );
 }
 
 export default QuestionAlternative;

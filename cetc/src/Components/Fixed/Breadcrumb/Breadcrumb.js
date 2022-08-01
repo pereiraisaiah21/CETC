@@ -7,9 +7,11 @@ import Item from "./Item";
 // Styles
 import "./Breadcrumb.scss";
 
-/*
-* Return the Breadcrumb component
-*/
+/**
+ * 
+ * @param {*} param0 
+ * @returns 
+ */
 
 function Breadcrumb ({
     classStyleGrand,
@@ -17,10 +19,6 @@ function Breadcrumb ({
     pagesTrail
 }) {
 
-
-    /*
-    *
-    */
     return (
         <section className="b-wrap">
             <section className={classStyleFather}>
@@ -31,7 +29,7 @@ function Breadcrumb ({
                 })}
             </section>
         </section>
-    )
+    );
 }
 
 export default Breadcrumb;

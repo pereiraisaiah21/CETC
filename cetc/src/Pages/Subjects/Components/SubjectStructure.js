@@ -12,39 +12,28 @@ import { faPlaneUp } from '@fortawesome/free-solid-svg-icons';
 // Styles
 import "../Subjects.scss";
 
-/*
-* 
-*/
+/**
+ * 
+ * @param {*} param0 
+ * @returns 
+ */
 
-function SubjectStructure ({subjectId, subjectContentId}) {
+function SubjectStructure ({
+    subjectId, 
+    subjectContentId
+}) {
 
-    /*
-    * Return Subject:
-    *   Name, Content, HasExercise -> Bool
-    */
-
-    
     const textTestP = "<p>Às vezes, problemas que parecem muito diferentes acabam sendo similares quando você pensa em como solucioná-los. O que o Pac-Man, a família real britânica e uma viagem de carro até Orlando têm em comum?</p><p>Todos eles envolvem problemas de localização de rotas ou caminhos de busca:Como o atual Príncipe William está relacionado ao Rei William III, que fundou o College of William and Mary em 1693?Que caminho um fantasma deve seguir para alcançar o Pac-Man o mais rápido possível?</br></br><p class='warnParagraph'>Aqui está relacionado ao rei William, que é a melhor rota entre Dallas no Texas</p><ul class='list-t0'><li class='list-title-t0'>Warner Bros</li><li class='list-item-t0'>Warner Bros</li><li class='list-item-t0'>Warner Bros</li><li class='list-item-t0'>Warner Bros</li></ul><img class='image' src='https://rockcontent.com/br/wp-content/uploads/sites/2/2019/01/como-funciona-algoritmo-do-google-1.png' alt=''/>";  
 
-    /*
-    <p class=''list>
-        <ul class='list-t0'>
-            <li class='item-t0'>Warner Bros</li>
-        </ul>
-    </p>
-    */
-    
-    const [value, setValue] = useState({data: [], error: ""})
-
-    /*
-    * Subject identifiers
-    */
     let {id} = useParams();
     let {contentid} = useParams();
+    const [value, setValue] = useState({data: [], error: ""});
 
     const getSubject = function () {
+
         axios.get(`${SUBJECT}/${id}/${contentid}`)
         .then((response) => {
+
             setValue({ ...value, data: [response.data]});
         }).catch(err => {
             setValue({ ...value, error: err });
@@ -53,7 +42,7 @@ function SubjectStructure ({subjectId, subjectContentId}) {
 
     useEffect( () => {
         getSubject();
-    }, [])
+    }, []);
 
     return (
         <section className="Subject" id="Subject">
@@ -137,7 +126,7 @@ function SubjectStructure ({subjectId, subjectContentId}) {
                 ""
             }
         </section>
-    )
+    );
 }
 
 export default SubjectStructure;

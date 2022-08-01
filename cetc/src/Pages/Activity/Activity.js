@@ -1,6 +1,6 @@
 // Libs
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+//import { useParams } from "react-router-dom";
 import axios from "axios";
 import Modal from 'react-modal';
 
@@ -8,18 +8,35 @@ import Modal from 'react-modal';
 import Breacrumb from "../../Components/Fixed/Breadcrumb/Breadcrumb";
 import Progress from "../Activity/Progress";
 import QuestionAlternative from "./QuestionAlternative";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 import SimpleAlert from "../../Components/Alerts/SimpleAlert";
 
 // Styles
 
-/*
-* Return a page containing the use questions, invoking another components
-*/
+/**
+ * 
+ * @returns 
+ */
 
 function Activity () {
 
+    const [answer, setAnswer] = useState(null);
+    const [showResolution, setShowResolution] = useState(false);
+    const [count, setCount] = useState(1);
+    const [isChoiceCorrect, setIsChoiceCorrect] = useState("");
+    const [disableOptions, setDisableOptions] = useState(false);
+    const [modalIsOpen, setIsOpen] = React.useState(false);
+    const [question, setQuestion] = useState({data :  [{
+        categoriaId: "",
+        id : 1,
+        title : "",
+        content: "",
+        alternatives : []
+    }], id: 1, error: ""});
+    const [answerReturn, setAnswerReturn] = useState({
+        correctAnswer : null,
+        explication : "",
+        error : false
+    });
     const customStyles = {
         content: {
             top: '50%',
@@ -30,54 +47,27 @@ function Activity () {
             transform: 'translate(-50%, -50%)',
         },
     };
-    const [modalIsOpen, setIsOpen] = React.useState(false);
 
-    function openModal() {
-        setIsOpen(true);
-    }
-    function closeModal() {
-        setIsOpen(false);
-    }
     Modal.setAppElement('#root');
 
+    const openModal = function () {
+        setIsOpen(true);
+    };
+    const closeModal = function () {
+        setIsOpen(false);
+    };
+    const getQuestion = function () { 
 
-    const [question, setQuestion] = useState({data :  [{
-        categoriaId: "",
-        id : 1,
-        title : "",
-        content: "",
-        alternatives : []
-    }], id: 1, error: ""})
-
-    const [answer, setAnswer] = useState(null);
-    const [showResolution, setShowResolution] = useState(false);
-    const [count, setCount] = useState(1);
-    const [answerReturn, setAnswerReturn] = useState({
-        correctAnswer : null,
-        explication : "",
-        error : false
-    });
-    const [isChoiceCorrect, setIsChoiceCorrect] = useState("");
-    const [disableOptions, setDisableOptions] = useState(false);
-
-    /*
-    * Url Paramater
-    */
-    let {id} = useParams();
-    /*
-    * Exemple data structure
-    */  
-
-    const getQuestion = function () {  
         setShowResolution(false);
         setIsChoiceCorrect(false);
         setDisableOptions(false);
 
         axios.get(`https://opentdb.com/api.php?amount=1`)
         .then((response) => {
+
             let options = response.data.results[0].incorrect_answers;
             options.push(response.data.results[0].correct_answer);
-
+            
             setQuestion({...question, data: {
                 categoriaId: 5,
                 id : count,
@@ -87,32 +77,27 @@ function Activity () {
                 progressBar: 65
                 }
             });
-
-            setAnswerReturn({...answerReturn, correctAnswer : response.data.results[0].correct_answer})
+            setAnswerReturn({...answerReturn, correctAnswer : response.data.results[0].correct_answer});
         }).catch(err => {
             setQuestion({...question, error: err});
         });
-    }
-
+    };
     const updateAnswers = function(e) {
-        e.preventDefault()
+        e.preventDefault();
 
-        
-        
         if (answer !== null) {
             setDisableOptions(true);
-            setShowResolution(true)
-            //setTestGaug({text : testGauge.text.concat("%" + answer)})
-            if (answer == answerReturn.correctAnswer) {
-                setIsChoiceCorrect(true)
+            setShowResolution(true);
+            if (answer === answerReturn.correctAnswer) {
+                setIsChoiceCorrect(true);
             } else {
-                setIsChoiceCorrect(false)
-            }
-        }
+                setIsChoiceCorrect(false);
+            };
+        };
 
         if (answer === null) {
-            setAnswerReturn({...answerReturn, error : true})
-        }
+            setAnswerReturn({...answerReturn, error : true});
+        };
 
         // if (count > 1) {
         //     setCount(0)
@@ -129,9 +114,7 @@ function Activity () {
         //     setAnswerReturn({...answerReturn, error: err});
         // });
         sendQuestionFeedback();
-        
-    }
-
+    };
     const sendQuestionFeedback = function() {
         axios.post('/user/questionfeedback/', {
             result: isChoiceCorrect
@@ -139,18 +122,11 @@ function Activity () {
         .catch(function (error) {
             console.log(error);
         });
-    }
+    };
 
     useEffect( () => {
-        
-        // axios.get(`http://jsonplaceholder.typicode.com/question/${count}`).then((response) => {
-        //     setQuestion({...question, data: response.data});
-        //   }).catch(err => {
-        //     setQuestion({...question, error: err});
-        //   });
         getQuestion();
-         // Exemplo
-    }, [])
+    }, []);
 
     return (
         <div className="b">
@@ -226,7 +202,7 @@ function Activity () {
                 contentLabel={"Example Modal"}
             >Esta aqui é a dica</Modal>
         </div>
-    )
+    );
 }
 
 export default Activity;

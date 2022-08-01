@@ -10,18 +10,25 @@ import SimpleChart from "./Components/SimpleChart";
 // Styles
 import "./Profile.scss";
 
+/**
+ * 
+ * @returns 
+ */
+
 function Profile () {
 
-    const [myStat, setMyStat] = useState({data: [], error : ""})
+    const [myStat, setMyStat] = useState({data: [], error : ""});
 
     const getMyStats = function () {
+
         axios.get(MYSTAT)
         .then((response) => {
+
             setMyStat({ ...myStat, data: response.data});
         }).catch(err => {
             setMyStat({ ...myStat, error: err });
         });
-    }
+    };
 
     useEffect(() => {
         getMyStats();
@@ -31,9 +38,7 @@ function Profile () {
         <>
             <UserInfo />
             <section className="b">
-                <div className="Profile__data">
-                    
-                </div>
+                <div className="Profile__data"></div>
                 <div className="Profile__rewards">
                     <p className="Profile__rewards__title">Minhas estatisticas</p>
                     {
@@ -52,9 +57,7 @@ function Profile () {
                     }
                     
                 </div>
-                <div className="Profile__actions">
-                    
-                </div>
+                <div className="Profile__actions"></div>
             </section>
         </>
     );
